@@ -144,7 +144,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Yu Gothic UI Semibold" size="11" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="PABLO"/>
+        <Property name="text" type="java.lang.String" value="Restaurar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRestaurarActionPerformed"/>

@@ -102,7 +102,7 @@ public class DialogAdministrador2 extends javax.swing.JDialog {
 
         btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
         btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setText("PABLO");
+        btnRestaurar.setText("Restaurar");
         btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestaurarActionPerformed(evt);
