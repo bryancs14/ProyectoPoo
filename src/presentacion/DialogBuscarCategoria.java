@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package frm.proyecto;
+package presentacion;
 
 import datos.CategoriaDAO;
 import entidad.Categoria;
@@ -29,7 +29,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
         setSize(500, 430);
         setLocationRelativeTo(null);
         try {
-            CategoriaDAO.getInstancia().mostrarCategoria(modelo);
+            CategoriaDAO.getInstancia().mostrar(modelo);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,ex.getMessage());
         }
@@ -49,14 +49,14 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
         btnTodos = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabla = new javax.swing.JTable();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
             }
         });
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +69,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 txtNombreKeyReleased(evt);
             }
         });
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 340, 50));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 340, 50));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +77,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnBuscarActionPerformed(evt);
             }
         });
-        add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 70, 30));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 70, 30));
 
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnSeleccionarActionPerformed(evt);
             }
         });
-        add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 100, 30));
+        getContentPane().add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 100, 30));
 
         btnTodos.setText("Todos");
         btnTodos.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnTodosActionPerformed(evt);
             }
         });
-        add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 80, 30));
+        getContentPane().add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 80, 30));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -101,12 +101,12 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 70, 30));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 70, 30));
 
-        jTable1.setModel(modelo);
-        jScrollPane1.setViewportView(jTable1);
+        Tabla.setModel(modelo);
+        jScrollPane1.setViewportView(Tabla);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 520, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 520, 210));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,7 +124,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
         String nombre = txtNombre.getText();
 
         try {
-            CategoriaDAO.getInstancia().buscarPorNombre(nombre, modelo);
+            CategoriaDAO.getInstancia().mostrarPorNombre(modelo, nombre);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
@@ -135,7 +135,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
     String nombre = txtNombre.getText();
 
         try {
-            CategoriaDAO.getInstancia().buscarPorNombre(nombre, modelo);
+            CategoriaDAO.getInstancia().mostrarPorNombre(modelo, nombre);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
@@ -158,7 +158,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
     private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
         // TODO add your handling code here:
         try {
-            CategoriaDAO.getInstancia().mostrarCategoria(modelo);
+            CategoriaDAO.getInstancia().mostrar(modelo);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,ex.getMessage());
         }
@@ -179,7 +179,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogBuscarCategoria dialog = new DialogBuscarCategoria(new java.awt.Frame(), true);
+                DialogBuscarCategoria dialog = new DialogBuscarCategoria();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
@@ -192,12 +192,12 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JButton btnTodos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

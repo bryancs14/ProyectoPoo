@@ -32,7 +32,7 @@ public class Conexion {
         try{
             String url = "jdbc:mysql://localhost:3306/dbSupermercado?useSSL=false";
             String user = "root";
-            String password = "948Krcs@";
+            String password = "Aca pongan su contraaaaa del mysql";
             cn = DriverManager.getConnection(url, user, password);
         }
         catch (SQLException ex) {

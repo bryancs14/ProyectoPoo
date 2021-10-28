@@ -64,8 +64,6 @@ public class DialogAdministrador extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -90,18 +88,6 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        jTable1.setBackground(new java.awt.Color(255, 204, 153));
-        jTable1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTable1.setModel(modelo);
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setGridColor(new java.awt.Color(255, 153, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 600, 230));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
@@ -225,42 +211,31 @@ public class DialogAdministrador extends javax.swing.JDialog {
         txtDireccion.setText(supermercadoSelec.getDireccion());
     }//GEN-LAST:event_btnSeleccionarSupermercadoActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
+        // TODO add your handling code here:
+        limpiarEntradas();
+        desHabilitar();
+    }//GEN-LAST:event_btnRestaurarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         try{
-        String idAdmi=txtIdAdministrador.getText();
-        String nombreAdmi=txtNombreAdmi.getText();
-        String contraseña=txtContraseña.getText();
 
-        Administrador administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercadoSelec);
-        
-            AdministradorDAO.getInstancia().agregar(administrador);
-            AdministradorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null, "Administrador registrado");
-        } catch(SQLException su){
+            int res = JOptionPane.showConfirmDialog(this, "¿Procedo eliminarlo?. Esta accion es irreversible", "Eliminar Dato", JOptionPane.YES_NO_OPTION );
+
+            if( res == JOptionPane.YES_OPTION ){
+                String idAdministrador = txtIdAdministrador.getText();
+                AdministradorDAO.getInstancia().eliminar(idAdministrador);
+                AdministradorDAO.getInstancia().mostrar(modelo);
+                JOptionPane.showMessageDialog(this,"Administrador eliminado");
+            } else
+            JOptionPane.showMessageDialog(null,"El Id Administrador no existe");
+        } catch (SQLException su) {
             JOptionPane.showMessageDialog(null, su.getMessage());
         }
         limpiarEntradas();
         desHabilitar();
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
-            String idAdmi=txtIdAdministrador.getText();
-            String nombreAdmi=txtNombreAdmi.getText();
-            String contraseña=txtContraseña.getText();
-
-            Administrador administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercadoSelec);
-
-            AdministradorDAO.getInstancia().actualizar(administrador);
-            AdministradorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Modificado");
-        } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null,su.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
@@ -288,31 +263,42 @@ public class DialogAdministrador extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        try{
+            String idAdmi=txtIdAdministrador.getText();
+            String nombreAdmi=txtNombreAdmi.getText();
+            String contraseña=txtContraseña.getText();
+
+            Administrador administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercadoSelec);
+
+            AdministradorDAO.getInstancia().actualizar(administrador);
+            AdministradorDAO.getInstancia().mostrar(modelo);
+            JOptionPane.showMessageDialog(null,"Modificado");
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null,su.getMessage());
+        }
+        limpiarEntradas();
+        desHabilitar();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         try{
+            String idAdmi=txtIdAdministrador.getText();
+            String nombreAdmi=txtNombreAdmi.getText();
+            String contraseña=txtContraseña.getText();
 
-            int res = JOptionPane.showConfirmDialog(this, "¿Procedo eliminarlo?. Esta accion es irreversible", "Eliminar Dato", JOptionPane.YES_NO_OPTION );
+            Administrador administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercadoSelec);
 
-            if( res == JOptionPane.YES_OPTION ){
-                String idAdministrador = txtIdAdministrador.getText();
-                AdministradorDAO.getInstancia().eliminar(idAdministrador);
-                AdministradorDAO.getInstancia().mostrar(modelo);
-                JOptionPane.showMessageDialog(this,"Administrador eliminado");
-            } else
-            JOptionPane.showMessageDialog(null,"El Id Administrador no existe");
-        } catch (SQLException su) {
+            AdministradorDAO.getInstancia().agregar(administrador);
+            AdministradorDAO.getInstancia().mostrar(modelo);
+            JOptionPane.showMessageDialog(null, "Administrador registrado");
+        } catch(SQLException su){
             JOptionPane.showMessageDialog(null, su.getMessage());
         }
         limpiarEntradas();
         desHabilitar();
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
-        // TODO add your handling code here:
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,8 +358,6 @@ public class DialogAdministrador extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtIdAdministrador;

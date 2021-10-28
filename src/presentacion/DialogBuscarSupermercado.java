@@ -21,7 +21,7 @@ public class DialogBuscarSupermercado extends javax.swing.JDialog {
     public DialogBuscarSupermercado() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(489, 417);
+        setSize(900, 417);
         setLocationRelativeTo(null);
         try {
             SupermercadoDAO.getInstancia().mostrar(modelo);

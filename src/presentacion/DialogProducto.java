@@ -3,20 +3,62 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Presentacion;
+package presentacion;
 
+import datos.CajaDAO;
+import datos.ProductoDAO;
+import entidad.Administrador;
+import entidad.Categoria;
+import entidad.Producto;
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
  */
 public class DialogProducto extends javax.swing.JDialog {
 
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private Categoria categoriaSelec;
+    
     /**
      * Creates new form DialogProducto
      */
-    public DialogProducto(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DialogProducto() {
+        super(FrmPrincipal.getInstancia(), true);
         initComponents();
+        setSize(600, 505);
+        setLocationRelativeTo(null);
+        desHabilitar();
+        try {
+            ProductoDAO.getInstancia().mostrar(modelo);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
+    }
+    
+    private void habilitar(){
+        btnActualizar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+        btnGuardar.setEnabled(false);
+        btnConsultar.setEnabled(false);
+    }
+    
+     
+    private void desHabilitar(){
+        btnActualizar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        btnConsultar.setEnabled(true);
+    }     
+    
+    private void limpiarEntradas(){
+        txtIdPRODUCTO.setText("");
+        txtNOMBRE.setText("");
+        txtPRECIO.setText("");
+        txtSTOCK.setText("");
+        txtIdPRODUCTO.requestFocus();
     }
 
     /**
@@ -118,51 +160,90 @@ public class DialogProducto extends javax.swing.JDialog {
         String nombre = txtNOMBRE.getText();
         double precio = Double.parseDouble(txtPRECIO.getText());
         int stock = Integer.parseInt(txtSTOCK.getText());
+        
+        Administrador admin = new Administrador();
 
-        Producto x = new Producto(idProducto, nombre, precio, stock, categoria);
-        LProd.agregar(x);
-        clearInputs();
-        LProd.mostrar(modelo);
+        Producto producto = new Producto(idProducto, nombre, precio, stock, categoriaSelec, admin);
+        
+        try{
+            ProductoDAO.getInstancia().agregar(producto);
+            ProductoDAO.getInstancia().mostrar(modelo);
+            JOptionPane.showMessageDialog(null, "Dato registrado");
+        } catch(SQLException su){
+            JOptionPane.showMessageDialog(null, su.getMessage());
+        }
+        limpiarEntradas();
+        desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
 
         String idProducto = txtIdPRODUCTO.getText();
         if(idProducto.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "Debe ingresar un codigo");
-        else {
-            index = LProd.buscar(idProducto);
-            if(index!=-1) {
-                Producto x = LProd.getProducto(index);
-                txtNOMBRE.setText(x.getNombre());
-                txtPRECIO.setText(String.valueOf(x.getPrecio()));
-                txtSTOCK.setText(String.valueOf(x.getStock()));
-                txtCATEGORIA.setText(x.getCategoria().getNombre());
-                enableButtons();
-            } else
-            JOptionPane.showMessageDialog(null, "El idProducto no existe");
+            JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
+        else
+        {
+            try{
+                Producto productoBuscado = ProductoDAO.getInstancia().buscarProducto(idProducto);
+                if(productoBuscado != null)
+                {
+                    txtNOMBRE.setText(productoBuscado.getNombre());
+                    txtPRECIO.setText(String.valueOf(productoBuscado.getPrecio()));
+                    txtSTOCK.setText(String.valueOf(productoBuscado.getStock()));
+                    
+                    
+                    categoriaSelec = productoBuscado.getCategoria();
+                    
+                    
+                    habilitar();
+            }
+            else
+                    JOptionPane.showMessageDialog(null, "El ID Producto no existe");
+            } catch(SQLException su) {
+                JOptionPane.showMessageDialog(null,su.getMessage());
+            }
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        String idProducto = txtIdPRODUCTO.getText();
-        String nombre = txtNOMBRE.getText();
-        double precio = Double.parseDouble(txtPRECIO.getText());
-        int stock = Integer.parseInt(txtSTOCK.getText());
-        Producto x= new Producto(idProducto, nombre, precio, stock, categoria);
-        LProd.modificar(index, x);
-        LProd.mostrar(modelo);
-        clearInputs();
-        disableButtons();
+        try{
+            String idProducto = txtIdPRODUCTO.getText();
+            String nombre = txtNOMBRE.getText();
+            double precio = Double.parseDouble(txtPRECIO.getText());
+            int stock = Integer.parseInt(txtSTOCK.getText());
+            Administrador admin = new Administrador();
+
+            Producto producto = new Producto(idProducto, nombre, precio, stock, categoriaSelec, admin);
+            
+            ProductoDAO.getInstancia().actualizar(producto);
+            ProductoDAO.getInstancia().mostrar(modelo);
+            JOptionPane.showMessageDialog(null,"Modificado");
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null,su.getMessage());
+        }
+        limpiarEntradas();
+        desHabilitar();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-        LProd.delete(index);
-        LProd.mostrar(modelo);
-        JOptionPane.showMessageDialog(null, "Se elimino el producto");
-        clearInputs();
-        disableButtons();
+        try{
+
+            int res = JOptionPane.showConfirmDialog(this, "¿Proceso Eliminarlo? ", "Eliminar caja", JOptionPane.YES_NO_OPTION );
+
+            if( res == JOptionPane.YES_OPTION ){
+                String idCaja = txtIdPRODUCTO.getText();
+                CajaDAO.getInstancia().eliminar(idCaja);
+                CajaDAO.getInstancia().mostrar(modelo);
+                JOptionPane.showMessageDialog(this,"Producto eliminado");
+
+            } else
+            JOptionPane.showMessageDialog(null,"El Id Producto no existe");
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null,su.getMessage());
+        }
+        limpiarEntradas();
+        desHabilitar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -204,7 +285,7 @@ public class DialogProducto extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogProducto dialog = new DialogProducto(new javax.swing.JFrame(), true);
+                DialogProducto dialog = new DialogProducto();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -105,7 +105,7 @@ public class SupermercadoDAO {
     public void mostrar(DefaultTableModel modelo) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID SUPERMERCADO", "NOMBRE", "DESCRIPCION"};
+        String titulos[] = {"ID SUPERMERCADO", "NOMBRE", "DIRECCION"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
