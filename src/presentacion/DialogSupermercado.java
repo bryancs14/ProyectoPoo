@@ -22,28 +22,12 @@ public class DialogSupermercado extends javax.swing.JDialog {
         initComponents();
         setSize(593, 491);
         setLocationRelativeTo(null);
-        desHabilitar();
         try {
             SupermercadoDAO.getInstancia().mostrar(modelo);
         } catch (SQLException sup) {
             JOptionPane.showMessageDialog(null,sup.getMessage());
         }
-    }
-    
-    private void habilitar(){
-        btnActualizar.setEnabled(true);
-        btnEliminar.setEnabled(true);
-        btnGuardar.setEnabled(false);
-        btnConsultar.setEnabled(false);
-    }
-    
-     
-    private void desHabilitar(){
-        btnActualizar.setEnabled(false);
-        btnEliminar.setEnabled(false);
-        btnGuardar.setEnabled(true);
-        btnConsultar.setEnabled(true);
-    }     
+    } 
     
     private void limpiarEntradas(){
         txtIdSupermercado.setText("");
@@ -61,15 +45,10 @@ public class DialogSupermercado extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -83,11 +62,6 @@ public class DialogSupermercado extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(modelo);
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 570, 260));
-
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("OPCIONES"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -98,16 +72,7 @@ public class DialogSupermercado extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 160, 40));
-
-        btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultar.png"))); // NOI18N
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 160, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, 40));
 
         btnRestaurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
         btnRestaurar.setText("Restaurar");
@@ -116,7 +81,7 @@ public class DialogSupermercado extends javax.swing.JDialog {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 160, -1));
+        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, -1));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -125,25 +90,7 @@ public class DialogSupermercado extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 90, -1));
-
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 160, -1));
-
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 160, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 160, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 220, 280));
 
@@ -195,83 +142,17 @@ public class DialogSupermercado extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, s.getMessage());
         }
         limpiarEntradas();
-        desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-        String idSupermercado=txtIdSupermercado.getText();
-        if(idSupermercado.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "POR FAVOR INGRESA ID SUPERMERCADO");
-        else
-        {
-            try{
-                Supermercado sup = SupermercadoDAO.getInstancia().buscarSupermercado(idSupermercado); 
-                if(sup!=null)
-                {
-                    txtIdSupermercado.setText(sup.getIdSupermercado());
-                    txtNombre.setText(sup.getNombre());
-                    txtDireccion.setText(sup.getDireccion());
-                    habilitar();
-                }
-                else
-                    JOptionPane.showMessageDialog(null, "El ID SUPERMERCADO NO EXISTE");
-            }catch(SQLException s){
-                JOptionPane.showMessageDialog(null,s.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
         // TODO add your handling code here:
         limpiarEntradas();
-        desHabilitar();
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
-            String idSupermercado = txtIdSupermercado.getText(); 
-            String nombre = txtNombre.getText();
-            String direccion = txtDireccion.getText();
-            Supermercado sup=new Supermercado(idSupermercado, nombre,direccion);
-            
-            SupermercadoDAO.getInstancia().actualizar(sup);
-            SupermercadoDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Actualizacion finalizada"); 
-        } catch (SQLException s) {
-            JOptionPane.showMessageDialog(null,s.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        try{
-            int res = JOptionPane.showConfirmDialog(this, "¿Procedo a Eliminarlo? ", "Eliminar Supermercado", JOptionPane.YES_NO_OPTION );
-            
-            if( res == JOptionPane.YES_OPTION ){
-                 
-             
-                String idSupermercado = txtIdSupermercado.getText();
-                SupermercadoDAO.getInstancia().eliminar(idSupermercado);
-                SupermercadoDAO.getInstancia().mostrar(modelo);
-                JOptionPane.showMessageDialog(this,"Eliminacion exitosa");
-            }
-            else
-                JOptionPane.showMessageDialog(null,"El id Supermercado no existe");
-        } catch (SQLException s) {
-            JOptionPane.showMessageDialog(null,s.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-        
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,9 +197,6 @@ public class DialogSupermercado extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
@@ -329,8 +207,6 @@ public class DialogSupermercado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtIdSupermercado;
     private javax.swing.JTextField txtNombre;
