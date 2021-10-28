@@ -204,11 +204,9 @@ public class DialogCajero extends javax.swing.JDialog {
         jLabel6.setText("TURNO");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         jPanel3.add(txtTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 160, -1));
-
-        txtContraseña.setText("jPasswordField1");
         jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 160, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 380, 200));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 380, 210));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

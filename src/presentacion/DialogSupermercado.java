@@ -5,12 +5,9 @@ import datos.SupermercadoDAO;
 import entidad.Supermercado;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class DialogSupermercado extends javax.swing.JDialog {
-
-    private DefaultTableModel modelo = new DefaultTableModel();
-    private Supermercado supermercado;
+private Supermercado supermercado;
     
     public DialogSupermercado() {
         super(FrmPrincipal.getInstancia(), true);
