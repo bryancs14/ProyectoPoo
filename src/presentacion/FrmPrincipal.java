@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package presentacion;
 
-/**
- *
- * @author Aorus
- */
 public class FrmPrincipal extends javax.swing.JFrame {
 
-      private static FrmPrincipal instancia;
+    private static FrmPrincipal instancia;
 
     public static FrmPrincipal getInstancia() {
         if(instancia == null){
@@ -229,13 +221,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
         DialogSupermercado f = new DialogSupermercado();
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
         DialogBuscarSupermercado f = new DialogBuscarSupermercado();
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed

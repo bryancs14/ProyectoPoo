@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package presentacion;
 
 import datos.SupermercadoDAO;
 import entidad.Supermercado;
 import java.sql.SQLException;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,7 +15,7 @@ public class DialogSupermercado extends javax.swing.JDialog {
     public DialogSupermercado() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(610, 390);
+        setSize(590, 350);
         setLocationRelativeTo(null);
         try {
             supermercado = SupermercadoDAO.getInstancia().buscarSupermercado("1");
@@ -42,6 +36,18 @@ public class DialogSupermercado extends javax.swing.JDialog {
         txtIdSupermercado.requestFocus();
     }
 
+    private void habilitar(){
+        btnGuardar.setEnabled(true);
+        btnRestaurar.setEnabled(false);
+        btnSalir.setEnabled(false);
+    }
+    
+    private void deshabilitar(){
+        btnGuardar.setEnabled(false);
+        btnRestaurar.setEnabled(true);
+        btnSalir.setEnabled(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +60,7 @@ public class DialogSupermercado extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnRestaurar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,36 +68,48 @@ public class DialogSupermercado extends javax.swing.JDialog {
         txtIdSupermercado = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("OPCIONES"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 2, 12))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, 40));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 160, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 160, 40));
+
+        btnRestaurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
+        btnRestaurar.setText("Restaurar");
+        btnRestaurar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaurarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 160, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 220, 240));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS DEL SUPERMERCADO"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DEL SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 2, 12))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("ID SUPERMERCADO");
@@ -108,37 +127,31 @@ public class DialogSupermercado extends javax.swing.JDialog {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 340, 240));
         jPanel2.getAccessibleContext().setAccessibleName("SUPERMERCADO");
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Swis721 Hv BT", 3, 48)); // NOI18N
-        jLabel4.setText("SUPERMERCADO");
-        jLabel4.setMaximumSize(new java.awt.Dimension(500, 59));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 460, -1));
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel7.setText("SUPERMERCADO");
+        jLabel7.setMaximumSize(new java.awt.Dimension(500, 59));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, 50));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Swis721 Hv BT", 3, 48)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel5.setText("SUPERMERCADO");
-        jLabel5.setMaximumSize(new java.awt.Dimension(500, 59));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 460, -1));
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("SUPERMERCADO");
+        jLabel6.setMaximumSize(new java.awt.Dimension(500, 59));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 430, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-
-        String idSupermercado=txtIdSupermercado.getText();
+        String idSupermercado = txtIdSupermercado.getText();
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
          try {
             if(supermercado == null) {
                 supermercado = new Supermercado(idSupermercado, nombre, direccion);
                 SupermercadoDAO.getInstancia().agregar(supermercado);
-            } else {
-                supermercado.setIdSupermercado(idSupermercado);
-                supermercado.setNombre(nombre);
-                supermercado.setDireccion(direccion);
-                SupermercadoDAO.getInstancia().actualizar(supermercado); 
             }
             JOptionPane.showMessageDialog(null, "Guardado correctamente");
         } catch (SQLException s) {
@@ -151,6 +164,11 @@ public class DialogSupermercado extends javax.swing.JDialog {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
+        limpiarEntradas();
+        habilitar();
+    }//GEN-LAST:event_btnRestaurarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,12 +214,13 @@ public class DialogSupermercado extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtDireccion;

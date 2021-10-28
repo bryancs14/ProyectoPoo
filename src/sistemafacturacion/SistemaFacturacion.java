@@ -1,24 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package sistemafacturacion;
 
+package sistemafacturacion;
 import presentacion.FrmPrincipal;
-/**
- *
- * @author USUARIO
- */
+import presentacion.FrmLoginAdministrador;
+import presentacion.FrmRegistrarAdministrador2;
+
 public class SistemaFacturacion {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-        FrmPrincipal f = new FrmPrincipal();
+        
+        FrmRegistrarAdministrador2 f = new FrmRegistrarAdministrador2();
         f.setVisible(true);
+        
+       /*FrmLoginAdministrador x = new FrmLoginAdministrador();
+       x.setVisible(true);*/
     }
     
 }

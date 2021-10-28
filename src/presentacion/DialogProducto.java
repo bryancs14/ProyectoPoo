@@ -87,7 +87,7 @@ public class DialogProducto extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtIdPRODUCTO.setBorder(javax.swing.BorderFactory.createTitledBorder("ID PRODUCTO"));
-        getContentPane().add(txtIdPRODUCTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 140, -1));
+        getContentPane().add(txtIdPRODUCTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, -1));
 
         txtNOMBRE.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE"));
         getContentPane().add(txtNOMBRE, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 140, -1));
@@ -98,7 +98,7 @@ public class DialogProducto extends javax.swing.JDialog {
         jTable1.setModel(modelo);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 580, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 670, 290));
 
         txtSTOCK.setBorder(javax.swing.BorderFactory.createTitledBorder("STOCK"));
         getContentPane().add(txtSTOCK, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 140, -1));

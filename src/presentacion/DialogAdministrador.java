@@ -21,7 +21,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
     public DialogAdministrador() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(800, 800);
+        setSize(650, 480);
         setLocationRelativeTo(null);
         desHabilitar();
         try {
@@ -31,18 +31,12 @@ public class DialogAdministrador extends javax.swing.JDialog {
         }
     }
     private void habilitar(){
-        btnActualizar.setEnabled(true);
-        btnEliminar.setEnabled(true);
         btnGuardar.setEnabled(false);
-        btnConsultar.setEnabled(false);
     }
     
      
     private void desHabilitar(){
-        btnActualizar.setEnabled(false);
-        btnEliminar.setEnabled(false);
         btnGuardar.setEnabled(true);
-        btnConsultar.setEnabled(true);
     }     
     
     private void limpiarEntradas(){
@@ -74,10 +68,8 @@ public class DialogAdministrador extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnRestaurar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnRestaurar1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNombreAdmi = new javax.swing.JTextField();
@@ -129,53 +121,36 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 140, 30));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 140, 30));
 
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 140, 30));
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 140, 30));
 
-        btnConsultar.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+        btnRestaurar1.setBackground(new java.awt.Color(255, 255, 255));
+        btnRestaurar1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnRestaurar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
+        btnRestaurar1.setText("Restaurar");
+        btnRestaurar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
+                btnRestaurar1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 140, 30));
-
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 140, 30));
-
-        btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setText("Restaurar");
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, 30));
+        jPanel2.add(btnRestaurar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 140, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 210, 410));
 
@@ -211,75 +186,9 @@ public class DialogAdministrador extends javax.swing.JDialog {
         txtDireccion.setText(supermercadoSelec.getDireccion());
     }//GEN-LAST:event_btnSeleccionarSupermercadoActionPerformed
 
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
-        // TODO add your handling code here:
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        try{
-
-            int res = JOptionPane.showConfirmDialog(this, "¿Procedo eliminarlo?. Esta accion es irreversible", "Eliminar Dato", JOptionPane.YES_NO_OPTION );
-
-            if( res == JOptionPane.YES_OPTION ){
-                String idAdministrador = txtIdAdministrador.getText();
-                AdministradorDAO.getInstancia().eliminar(idAdministrador);
-                AdministradorDAO.getInstancia().mostrar(modelo);
-                JOptionPane.showMessageDialog(this,"Administrador eliminado");
-            } else
-            JOptionPane.showMessageDialog(null,"El Id Administrador no existe");
-        } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null, su.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-        String idAdministrador = txtIdAdministrador.getText();
-        if(idAdministrador.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
-        else
-        {
-            try{
-                Administrador posicion = AdministradorDAO.getInstancia().buscarAdministrador(idAdministrador);
-                if(posicion!=null)
-                {
-                    txtNombreAdmi.setText(posicion.getSupermercado().getNombre());
-
-                    txtIdSupermercado.setText(posicion.getSupermercado().getIdSupermercado());
-                    txtNombreSuper.setText(posicion.getSupermercado().getNombre());
-                    txtDireccion.setText(posicion.getSupermercado().getDireccion());
-                    habilitar();
-                }
-                else
-                JOptionPane.showMessageDialog(null, "El ID Administrador no existe");
-            } catch(SQLException su) {
-                JOptionPane.showMessageDialog(null,su.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnConsultarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
-            String idAdmi=txtIdAdministrador.getText();
-            String nombreAdmi=txtNombreAdmi.getText();
-            String contraseña=txtContraseña.getText();
-
-            Administrador administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercadoSelec);
-
-            AdministradorDAO.getInstancia().actualizar(administrador);
-            AdministradorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Modificado");
-        } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null,su.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
@@ -299,6 +208,10 @@ public class DialogAdministrador extends javax.swing.JDialog {
         limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnRestaurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRestaurar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,11 +256,9 @@ public class DialogAdministrador extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRestaurar;
+    private javax.swing.JButton btnRestaurar1;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionarSupermercado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
