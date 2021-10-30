@@ -12,18 +12,9 @@ private Supermercado supermercado;
     public DialogSupermercado() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(590, 350);
+        setSize(610, 380);
         setLocationRelativeTo(null);
-        try {
-            supermercado = SupermercadoDAO.getInstancia().buscarSupermercado("1");
-            if(supermercado != null) {
-                txtIdSupermercado.setText(supermercado.getIdSupermercado());
-                txtNombre.setText(supermercado.getNombre());
-                txtDireccion.setText(supermercado.getDireccion());
-            }
-        } catch (SQLException sup) {
-            JOptionPane.showMessageDialog(null,sup.getMessage());
-        }
+        traerSuper();
     } 
     
     private void limpiarEntradas(){
@@ -43,6 +34,19 @@ private Supermercado supermercado;
         btnGuardar.setEnabled(false);
         btnRestaurar.setEnabled(true);
         btnSalir.setEnabled(true);
+    }
+    
+    private void traerSuper() {
+        try {
+            supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
+            if(supermercado != null) {
+                txtIdSupermercado.setText(supermercado.getIdSupermercado());
+                txtNombre.setText(supermercado.getNombre());
+                txtDireccion.setText(supermercado.getDireccion());
+            }
+        } catch (SQLException sup) {
+            JOptionPane.showMessageDialog(null,sup.getMessage());
+        }
     }
     
     /**
@@ -145,16 +149,18 @@ private Supermercado supermercado;
         String idSupermercado = txtIdSupermercado.getText();
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
+        supermercado = new Supermercado(idSupermercado, nombre, direccion);
          try {
             if(supermercado == null) {
-                supermercado = new Supermercado(idSupermercado, nombre, direccion);
                 SupermercadoDAO.getInstancia().agregar(supermercado);
+            } else {
+                SupermercadoDAO.getInstancia().actualizar(supermercado);
             }
             JOptionPane.showMessageDialog(null, "Guardado correctamente");
+            dispose();
         } catch (SQLException s) {
             JOptionPane.showMessageDialog(null, s.getMessage());
         }
-        dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

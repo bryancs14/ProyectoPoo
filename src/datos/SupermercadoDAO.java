@@ -154,5 +154,26 @@ public class SupermercadoDAO {
         }
     }
     
-    
+    public Supermercado obtenerPrimerSupermercado() throws SQLException{
+        cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        Supermercado supermercado = null;
+        try {
+            String sql = "select * from supermercado";
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                String idSupermercado = rs.getString("idSupermercado");
+                String nombre = rs.getString("nombre");
+                String direccion = rs.getString("direccion");
+                supermercado = new Supermercado(idSupermercado, nombre, direccion);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            cn.close();
+            ps.close();
+        }
+        return supermercado;
+    }
 }

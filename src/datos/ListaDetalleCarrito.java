@@ -34,7 +34,6 @@ public class ListaDetalleCarrito {
         return lista.remove(index);
     }
     
-    
     public int searchIndexByProducto(Producto producto) {
         DetalleCarrito x = new DetalleCarrito(producto);
         return lista.indexOf(x);

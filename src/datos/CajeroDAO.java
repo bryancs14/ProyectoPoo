@@ -119,6 +119,15 @@ public class CajeroDAO {
             String sql = "select * from cajero";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
+            rs = ps.executeQuery();
+            while(rs.next()){
+                String idCajero = rs.getString("idProveedor");
+                String nombre = rs.getString("nombre");
+                String turno = rs.getString("telefono");
+                String idCaja = rs.getString("idCaja");
+                String fila[] = {idCajero, nombre, turno, idCaja};
+                modelo.addRow(fila);
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }finally{
