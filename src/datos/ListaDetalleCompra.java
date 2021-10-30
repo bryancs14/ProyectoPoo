@@ -64,7 +64,7 @@ public class ListaDetalleCompra {
         DetalleCompra x=lista.get(i);
         datos[i][0]=x.getProducto().getIdProducto();
         datos[i][1]=x.getProducto().getNombre();
-        datos[i][2]=x.getProducto().getPrecio();
+        datos[i][2]=x.getProducto().getPrecioCompra();
         datos[i][3]=x.getProducto().getStock();
         datos[i][4]=x.getCantidadComprada();
       }

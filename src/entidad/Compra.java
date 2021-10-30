@@ -70,6 +70,14 @@ public class Compra {
         LDCO.mostrar(modelo);
     }
 
+    public Supervisor getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(Supervisor supervisor) {
+        this.supervisor = supervisor;
+    }
+
     public ListaDetalleCompra getLDCO() {
         return LDCO;
     }

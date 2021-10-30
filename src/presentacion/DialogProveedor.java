@@ -67,6 +67,8 @@ public class DialogProveedor extends javax.swing.JDialog {
         txtIdProveedor = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnRestaurar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
@@ -83,7 +85,7 @@ public class DialogProveedor extends javax.swing.JDialog {
         jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 550, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 550, 240));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PROVEEDOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semilight", 3, 11))); // NOI18N
@@ -95,8 +97,8 @@ public class DialogProveedor extends javax.swing.JDialog {
         jLabel1.setText("ID PROVEEDOR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
-        jLabel2.setText("NOMBRE");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jLabel2.setText("TELEFONO");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 154, -1, 10));
         jPanel1.add(txtIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 170, -1));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 170, -1));
 
@@ -108,9 +110,19 @@ public class DialogProveedor extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 120, 30));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 120, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 320, 270));
+        jLabel3.setText("NOMBRE");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 170, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 270));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semilight", 3, 11))); // NOI18N
@@ -166,7 +178,7 @@ public class DialogProveedor extends javax.swing.JDialog {
         });
         jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 220, 270));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 220, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,8 +222,9 @@ public class DialogProveedor extends javax.swing.JDialog {
         try{
             String idProveedor = txtIdProveedor.getText(); 
             String nombre = txtNombre.getText();
+            String telefono = txtTelefono.getText();
             
-            Proveedor prove=new Proveedor(idProveedor, nombre);
+            Proveedor prove=new Proveedor(idProveedor, nombre, telefono);
             
             ProveedorDAO.getInstancia().actualizar(prove);
             ProveedorDAO.getInstancia().mostrar(modelo);
@@ -249,8 +262,9 @@ public class DialogProveedor extends javax.swing.JDialog {
         // TODO add your handling code here:
         String idProveedor=txtIdProveedor.getText();
         String nombre = txtNombre.getText();
+        String telefono = txtTelefono.getText();
         
-        Proveedor proveedor = new Proveedor(idProveedor, nombre);
+        Proveedor proveedor = new Proveedor(idProveedor, nombre, telefono);
         try {
             ProveedorDAO.getInstancia().agregar(proveedor);
             ProveedorDAO.getInstancia().mostrar(modelo);
@@ -261,6 +275,10 @@ public class DialogProveedor extends javax.swing.JDialog {
         limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,11 +331,13 @@ public class DialogProveedor extends javax.swing.JDialog {
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtIdProveedor;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -62,7 +62,7 @@ public class ListaDetalleCarrito {
             DetalleCarrito x = lista.get(i);
             datos[i][0] = x.getProducto().getIdProducto();
             datos[i][1] = x.getProducto().getNombre();
-            datos[i][2] = x.getProducto().getPrecio();
+            datos[i][2] = x.getProducto().getPrecioVenta();
             datos[i][3] = x.getCantidadComprada();
         }
         modelo.setDataVector(datos, titulos);

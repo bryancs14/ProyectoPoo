@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package datos;
-import entidad.Proveedor;
+
 import entidad.Proveedor;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
@@ -143,6 +143,33 @@ public class ProveedorDAO {
             String sql = "select * from proveedor where nombre like ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, nom + "%");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                String idProveedor = rs.getString("idProveedor");
+                String nombre = rs.getString("nombre");
+                String telefono = rs.getString("telefono");
+                String fila[] = {idProveedor, nombre, telefono};
+                modelo.addRow(fila);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            cn.close();
+            ps.close();
+        }
+    }
+    
+    public void mostrarPorId(DefaultTableModel modelo, String id) throws SQLException{
+        cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        String titulos[] = {"ID PROVEEDOR", "NOMBRE", "TELEFONO"};
+        modelo.getDataVector().removeAllElements();
+        modelo.setColumnIdentifiers(titulos);
+        
+        try {
+            String sql = "select * from proveedor where idProveedor like ?";
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, id + "%");
             rs = ps.executeQuery();
             while(rs.next()){
                 String idProveedor = rs.getString("idProveedor");

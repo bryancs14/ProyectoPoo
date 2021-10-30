@@ -9,10 +9,9 @@ import entidad.Proveedor;
 import datos.ProveedorDAO;
 import datos.CompraDAO;
 import entidad.Compra;
-import datos.JefeDeCompraDAO;
-import entidad.JefeDeCompra;
 import datos.ProductoDAO;
 import entidad.Producto;
+import entidad.Supervisor;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,7 +20,7 @@ public class DialogCompra extends javax.swing.JDialog {
 
     private DefaultTableModel modelo = new DefaultTableModel();
     private Proveedor proveedorSelec = null;
-    private JefeDeCompra compradorSelec=null;
+    private Supervisor supervisorSelec = null;
     private Producto productoSelec=null;
     
     public DialogCompra(java.awt.Frame parent, boolean modal) {
@@ -55,12 +54,11 @@ public class DialogCompra extends javax.swing.JDialog {
         txtIdCompra.setText("");
         txtImporte.setText("");
         txtFechaH.setText("");
+        txtIdSupervisor.setText("");
+        txtNombreSupervisor.setText("");
         txtIdProveedor.setText("");
         txtNombreProveedor.setText("");
-        txtTelefono.setText("");
-        txtIdComprador.setText("");
-        txtNombreComprador.setText("");
-        txtCorreo.setText("");
+        txtTelefonoProveedor.setText("");
         txtIdCompra.requestFocus();
     }
 
@@ -99,22 +97,20 @@ public class DialogCompra extends javax.swing.JDialog {
         txtIdCompra = new javax.swing.JTextField();
         txtFechaH = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtIdComprador = new javax.swing.JTextField();
-        txtNombreComprador = new javax.swing.JTextField();
-        btnSeleccionarComprador = new javax.swing.JButton();
-        txtCorreo = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtIdProveedor = new javax.swing.JTextField();
+        txtNombreProveedor = new javax.swing.JTextField();
+        btnSeleccionarProveedor1 = new javax.swing.JButton();
+        txtTelefonoProveedor = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtIdProveedor = new javax.swing.JTextField();
-        txtNombreProveedor = new javax.swing.JTextField();
+        txtIdSupervisor = new javax.swing.JTextField();
+        txtNombreSupervisor = new javax.swing.JTextField();
         btnSeleccionarProveedor = new javax.swing.JButton();
-        txtTelefono = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,7 +123,7 @@ public class DialogCompra extends javax.swing.JDialog {
         jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 1010, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 1020, 240));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PRODUCTOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
@@ -137,12 +133,17 @@ public class DialogCompra extends javax.swing.JDialog {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel6.setText("STOCK");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         txtIdProducto.setEditable(false);
         jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 170, -1));
 
         txtStock.setEditable(false);
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 170, -1));
 
         txtNombreProducto.setEditable(false);
@@ -154,7 +155,7 @@ public class DialogCompra extends javax.swing.JDialog {
         txtPrecio.setEditable(false);
         jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, -1));
 
-        jLabel13.setText("PRECIO");
+        jLabel13.setText("PRECIO COMPRA");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         btnBuscarProducto.setBackground(new java.awt.Color(255, 255, 255));
@@ -165,9 +166,9 @@ public class DialogCompra extends javax.swing.JDialog {
                 btnBuscarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 130, 30));
+        jPanel1.add(btnBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 130, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 380, 240));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 380, 270));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("OPCIONES"));
@@ -233,7 +234,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 140, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 210, 430));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 220, 450));
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "COMPRA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
@@ -254,55 +255,55 @@ public class DialogCompra extends javax.swing.JDialog {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 380, 200));
 
-        jPanel4.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "JEFE DE COMPRA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PROVEEDOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setText("ID COMPRADOR");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        jLabel10.setText("ID PROVEEDOR");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        jLabel7.setText("NOMBRE");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        txtIdComprador.setEditable(false);
-        jPanel4.add(txtIdComprador, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 170, -1));
-
-        txtNombreComprador.setEditable(false);
-        jPanel4.add(txtNombreComprador, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, -1));
-
-        btnSeleccionarComprador.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionarComprador.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionarComprador.setText("Seleccionar");
-        btnSeleccionarComprador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarCompradorActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnSeleccionarComprador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 130, 30));
-
-        txtCorreo.setEditable(false);
-        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, -1));
-
-        jLabel10.setText("CORREO");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 380, 200));
-
-        jPanel5.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PROVEEDOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setText("ID PROVEEDOR");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-
-        jLabel9.setText("NOMBRE");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jLabel14.setText("NOMBRE");
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         txtIdProveedor.setEditable(false);
-        jPanel5.add(txtIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 170, -1));
+        jPanel6.add(txtIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 170, -1));
 
         txtNombreProveedor.setEditable(false);
-        jPanel5.add(txtNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));
+        jPanel6.add(txtNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));
+
+        btnSeleccionarProveedor1.setBackground(new java.awt.Color(255, 255, 255));
+        btnSeleccionarProveedor1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnSeleccionarProveedor1.setText("Seleccionar");
+        btnSeleccionarProveedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarProveedor1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnSeleccionarProveedor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 130, 30));
+
+        txtTelefonoProveedor.setEditable(false);
+        jPanel6.add(txtTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 170, -1));
+
+        jLabel15.setText("TELEFONO");
+        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 380, 240));
+
+        jPanel5.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUPERVISOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setText("ID SUPERVISOR");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        jLabel9.setText("NOMBRE");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        txtIdSupervisor.setEditable(false);
+        jPanel5.add(txtIdSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 170, -1));
+
+        txtNombreSupervisor.setEditable(false);
+        jPanel5.add(txtNombreSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 170, -1));
 
         btnSeleccionarProveedor.setBackground(new java.awt.Color(255, 255, 255));
         btnSeleccionarProveedor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
@@ -312,15 +313,9 @@ public class DialogCompra extends javax.swing.JDialog {
                 btnSeleccionarProveedorActionPerformed(evt);
             }
         });
-        jPanel5.add(btnSeleccionarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 130, 30));
+        jPanel5.add(btnSeleccionarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 130, 30));
 
-        txtTelefono.setEditable(false);
-        jPanel5.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 170, -1));
-
-        jLabel11.setText("TELEFONO");
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 380, 240));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 380, 170));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -390,15 +385,13 @@ public class DialogCompra extends javax.swing.JDialog {
                     txtImporte.setText(String.valueOf(compraBuscada.getImporte()));
                     txtFechaH.setText(compraBuscada.getFechaHora());
                     txtIdProveedor.setText(compraBuscada.getProveedor().getIdProveedor());
-                    txtNombreProveedor.setText(compraBuscada.getProveedor().getNombreP());
-                    txtTelefono.setText(compraBuscada.getProveedor().getTelefono());
-                    txtIdComprador.setText(compraBuscada.getJefeDeCompra().getIdComprador());
-                    txtNombreComprador.setText(compraBuscada.getJefeDeCompra().getNombreC());
-                    txtCorreo.setText(compraBuscada.getJefeDeCompra().getCorreo());
-                    txtIdProducto.setText(compraBuscada.getProducto().getIdProducto());
-                    txtNombreProducto.setText(compraBuscada.getProducto().getNombrePro());
-                    txtPrecio.setText(String.valueOf(compraBuscada.getProducto().getPrecio()));
-                    txtStock.setText(String.valueOf(compraBuscada.getProducto().getStock()));
+                    txtNombreProveedor.setText(compraBuscada.getProveedor().getNombre());
+                    txtIdSupervisor.setText(compraBuscada.getSupervisor().getIdSupervisor());
+                    txtNombreSupervisor.setText(compraBuscada.getSupervisor().getNombre());
+//                    txtIdProducto.setText(compraBuscada.getProducto().getIdProducto());
+//                    txtNombreProducto.setText(compraBuscada.getProducto().getNombrePro());
+//                    txtPrecio.setText(String.valueOf(compraBuscada.getProducto().getPrecio()));
+//                    txtStock.setText(String.valueOf(compraBuscada.getProducto().getStock()));
                     
                     habilitar();
                 }
@@ -453,17 +446,13 @@ public class DialogCompra extends javax.swing.JDialog {
         txtStock.setText(proveedorSelec.getNombre());
     }//GEN-LAST:event_btnSeleccionarProveedorActionPerformed
 
-    private void btnSeleccionarCompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCompradorActionPerformed
-        DialogBuscarJefeDeCompra f = new DialogBuscarJefeDeCompra();
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockActionPerformed
 
-        f.setVisible(true);
-
-        compradorSelec = f.compradorSelec;
-
-        txtIdComprador.setText(compradorSelec.getIdComprador());
-        txtNombreComprador.setText(compradorSelec.getNombre());
-        txtCorreo.setText(compradorSelec.getCorreo());
-    }//GEN-LAST:event_btnSeleccionarCompradorActionPerformed
+    private void btnSeleccionarProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProveedor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeleccionarProveedor1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -515,40 +504,38 @@ public class DialogCompra extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnSeleccionarComprador;
     private javax.swing.JButton btnSeleccionarProveedor;
+    private javax.swing.JButton btnSeleccionarProveedor1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtFechaH;
     private javax.swing.JTextField txtIdCompra;
-    private javax.swing.JTextField txtIdComprador;
     private javax.swing.JTextField txtIdProducto;
     private javax.swing.JTextField txtIdProveedor;
+    private javax.swing.JTextField txtIdSupervisor;
     private javax.swing.JTextField txtImporte;
-    private javax.swing.JTextField txtNombreComprador;
     private javax.swing.JTextField txtNombreProducto;
     private javax.swing.JTextField txtNombreProveedor;
+    private javax.swing.JTextField txtNombreSupervisor;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtStock;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTelefonoProveedor;
     // End of variables declaration//GEN-END:variables
 }

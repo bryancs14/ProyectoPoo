@@ -141,7 +141,7 @@ public class DialogBuscarProveedor extends javax.swing.JDialog {
         // TODO add your handling code here:
         String idProveedor=txtIdProveedor.getText();
         try {
-            ProveedorDAO.getInstancia().mostrar(modelo, idProveedor);
+            ProveedorDAO.getInstancia().mostrarPorId(modelo, idProveedor);
         } catch (SQLException prove) {
             JOptionPane.showMessageDialog(null, prove.getMessage());
         }
@@ -150,11 +150,8 @@ public class DialogBuscarProveedor extends javax.swing.JDialog {
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         int i = Tabla.getSelectedRow();
         if(i!=-1) {
-
             proveedorSelec.setIdProveedor(modelo.getValueAt(i, 0).toString());
             proveedorSelec.setNombre(modelo.getValueAt(i, 1).toString());
-            
-
             this.dispose();
         } else
         JOptionPane.showMessageDialog(null, "Debes Seleccionar un elemento");

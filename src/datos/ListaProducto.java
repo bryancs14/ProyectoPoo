@@ -40,13 +40,14 @@ public class ListaProducto {
     
     public void show(DefaultTableModel modelo) {
         Object datos[][] = new Object[lista.size()][5];
-        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO", "STOCK"};
+        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO COMPRA", "PRECIO VENTA", "STOCK"};
         for(int i=0; i<lista.size(); i++) {
             Producto x = lista.get(i);
             datos[i][0] = x.getIdProducto();
             datos[i][1] = x.getNombre();
-            datos[i][2] = x.getPrecio();
-            datos[i][3] = x.getStock();
+            datos[i][2] = x.getPrecioCompra();
+            datos[i][3] = x.getPrecioVenta();
+            datos[i][4] = x.getStock();
         }
         modelo.setDataVector(datos, titulos);
     }

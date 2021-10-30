@@ -15,16 +15,14 @@ public class Supervisor {
     private String idSupervisor;
     private String nombre;
     private String contraseña;
-    private String telefono;
 
     public Supervisor() {
     }
 
-    public Supervisor(String idSupervisor, String nombre, String contraseña, String telefono) {
+    public Supervisor(String idSupervisor, String nombre, String contraseña) {
         this.idSupervisor = idSupervisor;
         this.nombre = nombre;
         this.contraseña = contraseña;
-        this.telefono = telefono;
     }
 
     public Supervisor(String idSupervisor) {
@@ -53,14 +51,6 @@ public class Supervisor {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
     @Override
