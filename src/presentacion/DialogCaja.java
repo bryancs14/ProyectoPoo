@@ -20,9 +20,15 @@ public class DialogCaja extends javax.swing.JDialog {
     public DialogCaja() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(650, 700);
+        setSize(650, 470);
         setLocationRelativeTo(null);
         desHabilitar();
+        try {
+            supermercadoSelec = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null, su.getMessage());
+            dispose();
+        }
         try {
             CajaDAO.getInstancia().mostrar(modelo);
         } catch (SQLException su) {
@@ -48,9 +54,6 @@ public class DialogCaja extends javax.swing.JDialog {
     private void limpiarEntradas(){
         txtIdCaja.setText("");
         txtNdeCaja.setText("");
-        txtIdSupermercado.setText("");
-        txtNombre.setText("");
-        txtDireccion.setText("");
         txtIdCaja.requestFocus();
     }
     @SuppressWarnings("unchecked")
@@ -59,20 +62,13 @@ public class DialogCaja extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtIdSupermercado = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        btnSeleccionarSupermercado = new javax.swing.JButton();
-        txtDireccion = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNdeCaja = new javax.swing.JTextField();
@@ -90,41 +86,7 @@ public class DialogCaja extends javax.swing.JDialog {
         jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 600, 230));
-
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setText("ID SUPERMERCADO");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-
-        jLabel6.setText("NOMBRE");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        txtIdSupermercado.setEditable(false);
-        jPanel1.add(txtIdSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 170, -1));
-
-        txtNombre.setEditable(false);
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));
-
-        btnSeleccionarSupermercado.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionarSupermercado.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionarSupermercado.setText("Seleccionar");
-        btnSeleccionarSupermercado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarSupermercadoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSeleccionarSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 130, 30));
-
-        txtDireccion.setEditable(false);
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 170, -1));
-
-        jLabel8.setText("DIRECCION");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 380, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 380, 230));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("OPCIONES"));
@@ -158,7 +120,7 @@ public class DialogCaja extends javax.swing.JDialog {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 140, 30));
+        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, 30));
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
@@ -168,7 +130,7 @@ public class DialogCaja extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 140, 30));
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 140, 30));
 
         btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
         btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
@@ -178,9 +140,19 @@ public class DialogCaja extends javax.swing.JDialog {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, 30));
+        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 140, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 210, 390));
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, 30));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 210, 400));
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CAJA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
@@ -198,18 +170,6 @@ public class DialogCaja extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSeleccionarSupermercadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSupermercadoActionPerformed
-        // TODO add your handling code here:
-        DialogBuscarSupermercado f = new DialogBuscarSupermercado();
-        f.setVisible(true);
-        supermercadoSelec = f.supermercadoSelec;
-        
-        txtIdSupermercado.setText(supermercadoSelec.getIdSupermercado());
-        txtNombre.setText(supermercadoSelec.getNombre());
-        txtDireccion.setText(supermercadoSelec.getDireccion());
-
-    }//GEN-LAST:event_btnSeleccionarSupermercadoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
@@ -258,12 +218,7 @@ public class DialogCaja extends javax.swing.JDialog {
                 if(cajaBuscada != null)
                 {
                     txtNdeCaja.setText(cajaBuscada.getSupermercado().getNombre());
-                    
                     supermercadoSelec = cajaBuscada.getSupermercado();
-                    
-                    txtIdSupermercado.setText(cajaBuscada.getSupermercado().getIdSupermercado());
-                    txtNombre.setText(cajaBuscada.getSupermercado().getNombre());
-                    txtDireccion.setText(cajaBuscada.getSupermercado().getDireccion());
                     habilitar();
             }
             else
@@ -300,6 +255,11 @@ public class DialogCaja extends javax.swing.JDialog {
         limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnRestaurarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,21 +309,14 @@ public class DialogCaja extends javax.swing.JDialog {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
-    private javax.swing.JButton btnSeleccionarSupermercado;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtIdCaja;
-    private javax.swing.JTextField txtIdSupermercado;
     private javax.swing.JTextField txtNdeCaja;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,7 +14,6 @@ import java.util.Objects;
 public class Producto {
     private String idProducto;
     private String nombre;
-    private double precioCompra;
     private double precioVenta;
     private int stock;
     private Categoria categoria;
@@ -23,14 +22,21 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String idProducto, String nombre, double precioCompra, double precioVenta, int stock, Categoria categoria, Administrador administrador) {
+    public Producto(String idProducto, String nombre, double precioVenta, int stock, Categoria categoria, Administrador administrador) {
         this.idProducto = idProducto;
         this.nombre = nombre;
-        this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
         this.stock = stock;
         this.categoria = categoria;
         this.administrador = administrador;
+    }
+
+    public Producto(String idProducto, String nombre, double precioVenta, int stock, Categoria categoria) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
+        this.precioVenta = precioVenta;
+        this.stock = stock;
+        this.categoria = categoria;
     }
 
     public Producto(String idProducto) {
@@ -51,14 +57,6 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public double getPrecioCompra() {
-        return precioCompra;
-    }
-
-    public void setPrecioCompra(double precioCompra) {
-        this.precioCompra = precioCompra;
     }
 
     public double getPrecioVenta() {

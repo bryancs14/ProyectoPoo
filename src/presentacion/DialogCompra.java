@@ -23,7 +23,7 @@ public class DialogCompra extends javax.swing.JDialog {
     private Supervisor supervisorSelec = null;
     private Producto productoSelec=null;
     
-    public DialogCompra(java.awt.Frame parent, boolean modal) {
+    public DialogCompra() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
         setSize(650, 700);
@@ -484,7 +484,7 @@ public class DialogCompra extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogCompra dialog = new DialogCompra(new javax.swing.JFrame(), true);
+                DialogCompra dialog = new DialogCompra();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

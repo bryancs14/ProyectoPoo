@@ -52,7 +52,7 @@ public class CarritoDAO {
                 ps = cn.prepareStatement(sql);
                 ps.setString(1, carrito.getIdCarrito());
                 ps.setString(2, x.getProducto().getIdProducto());
-                ps.setInt(3, x.getCantidadComprada());
+                ps.setInt(3, x.getCantidadVendida());
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -136,15 +136,13 @@ public class CarritoDAO {
             rs = ps.executeQuery();
             while(rs.next()){
                 String idCompra = rs.getString("idCompra");
-                double importe = rs.getDouble("importe");
+                String importe = String.valueOf(rs.getDouble("importe"));
                 String fechaHora = rs.getString("fechaHora");
                 String medioPago = rs.getString("medioPago");
-                int puntosGanados = rs.getInt("puntosGanados");
+                String puntosGanados = String.valueOf(rs.getInt("puntosGanados"));
                 String idCliente = rs.getString("idCliente");
                 String idCaja = rs.getString("idCaja");
-                String importes = String.valueOf(importe);
-                String puntosGanadoss = String.valueOf(puntosGanados);
-                String fila[] = {idCompra, importes, fechaHora, medioPago, puntosGanadoss, idCliente, idCaja};
+                String fila[] = {idCompra, importe, fechaHora, medioPago, puntosGanados, idCliente, idCaja};
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {

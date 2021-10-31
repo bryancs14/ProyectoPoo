@@ -26,7 +26,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
     public DialogBuscarCategoria() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(500, 430);
+        setSize(590, 460);
         setLocationRelativeTo(null);
         try {
             CategoriaDAO.getInstancia().mostrar(modelo);
@@ -69,7 +69,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 txtNombreKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 340, 50));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 340, 50));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +77,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 70, 30));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 100, 30));
 
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnSeleccionarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 100, 30));
+        getContentPane().add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 100, 30));
 
         btnTodos.setText("Todos");
         btnTodos.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnTodosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 80, 30));
+        getContentPane().add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 100, 30));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -101,12 +101,12 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 70, 30));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 100, 30));
 
         Tabla.setModel(modelo);
         jScrollPane1.setViewportView(Tabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 520, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 520, 210));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -13,14 +13,14 @@ import java.util.Objects;
  */
 public class DetalleCarrito {
     private Producto producto;
-    private int cantidadComprada;
+    private int cantidadVendida;
 
     public DetalleCarrito() {
     }
 
-    public DetalleCarrito(Producto producto, int cantidadComprada) {
+    public DetalleCarrito(Producto producto, int cantidadVendida) {
         this.producto = producto;
-        this.cantidadComprada = cantidadComprada;
+        this.cantidadVendida = cantidadVendida;
     }
     
     public DetalleCarrito(Producto producto) {
@@ -35,12 +35,12 @@ public class DetalleCarrito {
         this.producto = producto;
     }
 
-    public int getCantidadComprada() {
-        return cantidadComprada;
+    public int getCantidadVendida() {
+        return cantidadVendida;
     }
 
-    public void setCantidadComprada(int cantidadComprada) {
-        this.cantidadComprada = cantidadComprada;
+    public void setCantidadVendida(int cantidadVendida) {
+        this.cantidadVendida = cantidadVendida;
     }
 
     @Override

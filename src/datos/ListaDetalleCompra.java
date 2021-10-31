@@ -57,15 +57,15 @@ public class ListaDetalleCompra {
     public void mostrar(DefaultTableModel modelo)
     {
       Object datos[][]=new Object[lista.size()][5];
-      String titulos[]={"ID PRODUCTO", "NOMBRE", "PRECIO", "STOCK", "CANTIDAD COMPRADA"};
+      String titulos[]={"ID PRODUCTO", "NOMBRE", "STOCK", "PRECIO COMPRA", "CANTIDAD COMPRADA"};
 
       for(int i=0;i<lista.size();i++)
       {
         DetalleCompra x=lista.get(i);
         datos[i][0]=x.getProducto().getIdProducto();
         datos[i][1]=x.getProducto().getNombre();
-        datos[i][2]=x.getProducto().getPrecioCompra();
-        datos[i][3]=x.getProducto().getStock();
+        datos[i][2]=x.getProducto().getStock();
+        datos[i][3]=x.getPrecioCompra();
         datos[i][4]=x.getCantidadComprada();
       }
       modelo.setDataVector(datos, titulos);

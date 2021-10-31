@@ -12,13 +12,15 @@ package entidad;
 public class DetalleCompra {
     private Producto producto;
     private int cantidadComprada;
+    private double precioCompra;
     
     public DetalleCompra() {
     }
 
-    public DetalleCompra(Producto producto, int cantidadComprada) {
+    public DetalleCompra(Producto producto, int cantidadComprada, double precioCompra) {
         this.producto = producto;
         this.cantidadComprada = cantidadComprada;
+        this.precioCompra = precioCompra;
     }
 
     public DetalleCompra(Producto producto) {
@@ -39,6 +41,14 @@ public class DetalleCompra {
 
     public void setCantidadComprada(int cantidadComprada) {
         this.cantidadComprada = cantidadComprada;
+    }
+
+    public double getPrecioCompra() {
+        return precioCompra;
+    }
+
+    public void setPrecioCompra(double precioCompra) {
+        this.precioCompra = precioCompra;
     }
     
 }

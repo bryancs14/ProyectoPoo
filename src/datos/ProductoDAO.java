@@ -29,20 +29,18 @@ public class ProductoDAO {
         try {
             String idProducto = producto.getIdProducto();
             String nombre = producto.getNombre();
-            double precioCompra = producto.getPrecioCompra();
             double precioVenta = producto.getPrecioVenta();
             int stock = producto.getStock();
             String idCategoria = producto.getCategoria().getIdCategoria();
             String idAdministrador = producto.getAdministrador().getIdAdministrador();
-            String sql = "insert into productos(idProducto, nombre, precioCompra, precioVenta, stock, idCategoria, idAdministrador) values (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into productos(idProducto, nombre, precioVenta, stock, idCategoria, idAdministrador) values (?, ?, ?, ?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idProducto);
             ps.setString(2, nombre);
-            ps.setDouble(3, precioCompra);
-            ps.setDouble(4, precioVenta);
-            ps.setInt(5, stock);
-            ps.setString(6, idCategoria);
-            ps.setString(7, idAdministrador);
+            ps.setDouble(3, precioVenta);
+            ps.setInt(4, stock);
+            ps.setString(5, idCategoria);
+            ps.setString(6, idAdministrador);
             ps.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -63,14 +61,11 @@ public class ProductoDAO {
             rs = ps.executeQuery();
             if(rs.next()){
                 String nombre = rs.getString("nombre");
-                double precioCompra = rs.getDouble("precio");
-                double precioVenta = rs.getDouble("precio");
+                double precioVenta = rs.getDouble("precioVenta");
                 int stock = rs.getInt("stock");
                 String idCategoria = rs.getString("idCategoria");
-                String idAdministrador = rs.getString("idAdministrador");
                 Categoria categoria = CategoriaDAO.getInstancia().buscarCategoria(idCategoria);
-                Administrador admin = AdministradorDAO.getInstancia().buscarAdministrador(idAdministrador);
-                producto = new Producto(idProducto, nombre, precioCompra, precioVenta, stock, categoria, admin);
+                producto = new Producto(idProducto, nombre, precioVenta, stock, categoria);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -87,20 +82,17 @@ public class ProductoDAO {
         try {
             String idProducto = producto.getIdProducto();
             String nombre = producto.getNombre();
-            double precioCompra = producto.getPrecioCompra();
             double precioVenta = producto.getPrecioVenta();
             int stock = producto.getStock();
             String idCategoria = producto.getCategoria().getIdCategoria();
             String idAdministrador = producto.getAdministrador().getIdAdministrador();
-            String sql = "update productos set nombre = ?, precioCompra = ?, precioVenta = ?, stock = ?, idCategoria = ?, idAdministrador = ? where idProducto = ?";
+            String sql = "update productos set nombre = ?, precioVenta = ?, stock = ?, idCategoria = ? where idProducto = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, nombre);
-            ps.setDouble(2, precioCompra);
-            ps.setDouble(3, precioVenta);
-            ps.setInt(4, stock);
-            ps.setString(5, idCategoria);
-            ps.setString(6, idAdministrador);
-            ps.setString(7, idProducto);
+            ps.setDouble(2, precioVenta);
+            ps.setInt(3, stock);
+            ps.setString(4, idCategoria);
+            ps.setString(5, idProducto);
             ps.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -129,7 +121,7 @@ public class ProductoDAO {
     public void mostrar(DefaultTableModel modelo) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO COMPRA", "PRECIO VENTA", "STOCK", "ID CATEGORIA", "ID ADMINISTRADOR"};
+        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO VENTA", "STOCK", "ID CATEGORIA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -139,13 +131,11 @@ public class ProductoDAO {
             while(rs.next()){
                 String idProducto = rs.getString("idProducto");
                 String nombre = rs.getString("nombre");
-                String precioCompra = String.valueOf(rs.getDouble("precioCompra"));
                 String precioVenta = String.valueOf(rs.getDouble("precioventa"));
                 String stock = String .valueOf(rs.getInt("stock"));
                 String idCategoria = rs.getString("idCategoria");
-                String idAdminisrador = rs.getString("idAdministrador");
 
-                String fila[] = {idProducto, nombre, precioCompra, precioVenta, stock, idCategoria, idAdminisrador};
+                String fila[] = {idProducto, nombre, precioVenta, stock, idCategoria};
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {
@@ -159,7 +149,7 @@ public class ProductoDAO {
     public void mostrarPorNombre(DefaultTableModel modelo, String nom) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO COMPRA", "PRECIO VENTA", "STOCK", "ID CATEGORIA", "ID ADMINISTRADOR"};
+        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO VENTA", "STOCK", "ID CATEGORIA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -170,13 +160,11 @@ public class ProductoDAO {
             while(rs.next()){
                 String idProducto = rs.getString("idProducto");
                 String nombre = rs.getString("nombre");
-                String precioCompra = String.valueOf(rs.getDouble("precioCompra"));
                 String precioVenta = String.valueOf(rs.getDouble("precioventa"));
                 String stock = String .valueOf(rs.getInt("stock"));
                 String idCategoria = rs.getString("idCategoria");
-                String idAdminisrador = rs.getString("idAdministrador");
 
-                String fila[] = {idProducto, nombre, precioCompra, precioVenta, stock, idCategoria, idAdminisrador};
+                String fila[] = {idProducto, nombre, precioVenta, stock, idCategoria};
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {

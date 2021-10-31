@@ -7,7 +7,6 @@ package presentacion;
 
 import datos.CajaDAO;
 import datos.ProductoDAO;
-import entidad.Administrador;
 import entidad.Categoria;
 import entidad.Producto;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +19,7 @@ import javax.swing.JOptionPane;
 public class DialogProducto extends javax.swing.JDialog {
 
     private DefaultTableModel modelo = new DefaultTableModel();
-    private Categoria categoriaSelec;
+    private Categoria categoriaSelected = null;
     
     /**
      * Creates new form DialogProducto
@@ -54,11 +53,10 @@ public class DialogProducto extends javax.swing.JDialog {
     }     
     
     private void limpiarEntradas(){
-        txtIdPRODUCTO.setText("");
-        txtNOMBRE.setText("");
-        txtPRECIO.setText("");
-        txtSTOCK.setText("");
-        txtIdPRODUCTO.requestFocus();
+        txtIdProducto.setText("");
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtIdProducto.requestFocus();
     }
 
     /**
@@ -70,38 +68,30 @@ public class DialogProducto extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtIdPRODUCTO = new javax.swing.JTextField();
-        txtNOMBRE = new javax.swing.JTextField();
-        txtPRECIO = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        txtSTOCK = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        txtIdProducto = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        txtIdCategoria = new javax.swing.JTextField();
+        txtNombreCategoria = new javax.swing.JTextField();
+        btnSeleccionarCategoria = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtIdPRODUCTO.setBorder(javax.swing.BorderFactory.createTitledBorder("ID PRODUCTO"));
-        getContentPane().add(txtIdPRODUCTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, -1));
-
-        txtNOMBRE.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE"));
-        getContentPane().add(txtNOMBRE, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 140, -1));
-
-        txtPRECIO.setBorder(javax.swing.BorderFactory.createTitledBorder("PRECIO"));
-        getContentPane().add(txtPRECIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 140, -1));
-
         jTable1.setModel(modelo);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 670, 290));
-
-        txtSTOCK.setBorder(javax.swing.BorderFactory.createTitledBorder("STOCK"));
-        getContentPane().add(txtSTOCK, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 140, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 650, 290));
 
         btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +99,7 @@ public class DialogProducto extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 90, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 100, -1));
 
         btnConsultar.setText("CONSULTAR");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +107,7 @@ public class DialogProducto extends javax.swing.JDialog {
                 btnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 100, -1));
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 100, -1));
 
         btnActualizar.setText("ACTUALIZAR");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +115,7 @@ public class DialogProducto extends javax.swing.JDialog {
                 btnActualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 100, -1));
+        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 100, -1));
 
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +123,7 @@ public class DialogProducto extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 90, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 100, -1));
 
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +131,7 @@ public class DialogProducto extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 90, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 100, -1));
 
         btnRestaurar.setText("RESTAURAR");
         btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,36 +139,70 @@ public class DialogProducto extends javax.swing.JDialog {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
+        getContentPane().add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 100, -1));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("PRODUCTO"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtIdProducto.setBorder(javax.swing.BorderFactory.createTitledBorder("ID PRODUCTO"));
+        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, -1));
+
+        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE"));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 150, -1));
+
+        txtPrecio.setBorder(javax.swing.BorderFactory.createTitledBorder("PRECIO"));
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 140, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 140));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("CATEGORIA"));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtIdCategoria.setEditable(false);
+        txtIdCategoria.setBorder(javax.swing.BorderFactory.createTitledBorder("ID CATEGORIA"));
+        jPanel2.add(txtIdCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 110, -1));
+
+        txtNombreCategoria.setEditable(false);
+        txtNombreCategoria.setBorder(javax.swing.BorderFactory.createTitledBorder("NOMBRE CATEGORIA"));
+        jPanel2.add(txtNombreCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, -1));
+
+        btnSeleccionarCategoria.setText("SELECCIONAR");
+        btnSeleccionarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarCategoriaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSeleccionarCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 290, 140));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
-        String idProducto = txtIdPRODUCTO.getText();
-        String nombre = txtNOMBRE.getText();
-        double precio = Double.parseDouble(txtPRECIO.getText());
-        int stock = Integer.parseInt(txtSTOCK.getText());
         
-        Administrador admin = new Administrador();
+        if(categoriaSelected != null) {
+            String idProducto = txtIdProducto.getText();
+            String nombre = txtNombre.getText();
+            double precio = Double.parseDouble(txtPrecio.getText());
 
-        Producto producto = new Producto(idProducto, nombre, precio, stock, categoriaSelec, admin);
-        
-        try{
-            ProductoDAO.getInstancia().agregar(producto);
-            ProductoDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null, "Dato registrado");
-        } catch(SQLException su){
-            JOptionPane.showMessageDialog(null, su.getMessage());
+            Producto producto = new Producto(idProducto, nombre, precio, 0, categoriaSelected);
+
+            try{
+                ProductoDAO.getInstancia().agregar(producto);
+                ProductoDAO.getInstancia().mostrar(modelo);
+                JOptionPane.showMessageDialog(null, "Dato registrado");
+            } catch(SQLException su){
+                JOptionPane.showMessageDialog(null, su.getMessage());
+            }
+            limpiarEntradas();
+            desHabilitar();
         }
-        limpiarEntradas();
-        desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
 
-        String idProducto = txtIdPRODUCTO.getText();
+        String idProducto = txtIdProducto.getText();
         if(idProducto.equalsIgnoreCase(""))
             JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
         else
@@ -187,13 +211,9 @@ public class DialogProducto extends javax.swing.JDialog {
                 Producto productoBuscado = ProductoDAO.getInstancia().buscarProducto(idProducto);
                 if(productoBuscado != null)
                 {
-                    txtNOMBRE.setText(productoBuscado.getNombre());
-                    txtPRECIO.setText(String.valueOf(productoBuscado.getPrecio()));
-                    txtSTOCK.setText(String.valueOf(productoBuscado.getStock()));
-                    
-                    
-                    categoriaSelec = productoBuscado.getCategoria();
-                    
+                    txtNombre.setText(productoBuscado.getNombre());
+                    txtPrecio.setText(String.valueOf(productoBuscado.getPrecioVenta()));
+                    categoriaSelected = productoBuscado.getCategoria();
                     
                     habilitar();
             }
@@ -207,13 +227,12 @@ public class DialogProducto extends javax.swing.JDialog {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         try{
-            String idProducto = txtIdPRODUCTO.getText();
-            String nombre = txtNOMBRE.getText();
-            double precio = Double.parseDouble(txtPRECIO.getText());
-            int stock = Integer.parseInt(txtSTOCK.getText());
-            Administrador admin = new Administrador();
+            String idProducto = txtIdProducto.getText();
+            String nombre = txtNombre.getText();
+            double precio = Double.parseDouble(txtPrecio.getText());
+//            int stock = Integer.parseInt(txtSTOCK.getText());
 
-            Producto producto = new Producto(idProducto, nombre, precio, stock, categoriaSelec, admin);
+            Producto producto = new Producto(idProducto, nombre, precio, 0, categoriaSelected);
             
             ProductoDAO.getInstancia().actualizar(producto);
             ProductoDAO.getInstancia().mostrar(modelo);
@@ -232,7 +251,7 @@ public class DialogProducto extends javax.swing.JDialog {
             int res = JOptionPane.showConfirmDialog(this, "¿Proceso Eliminarlo? ", "Eliminar caja", JOptionPane.YES_NO_OPTION );
 
             if( res == JOptionPane.YES_OPTION ){
-                String idCaja = txtIdPRODUCTO.getText();
+                String idCaja = txtIdProducto.getText();
                 CajaDAO.getInstancia().eliminar(idCaja);
                 CajaDAO.getInstancia().mostrar(modelo);
                 JOptionPane.showMessageDialog(this,"Producto eliminado");
@@ -254,6 +273,14 @@ public class DialogProducto extends javax.swing.JDialog {
     private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRestaurarActionPerformed
+
+    private void btnSeleccionarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCategoriaActionPerformed
+        // TODO add your handling code here:
+        DialogBuscarCategoria d = new DialogBuscarCategoria();
+        categoriaSelected = d.categoriaSelec;
+        txtIdCategoria.setText(categoriaSelected.getIdCategoria());
+        txtNombreCategoria.setText(categoriaSelected.getNombre());
+    }//GEN-LAST:event_btnSeleccionarCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,11 +331,15 @@ public class DialogProducto extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnSeleccionarCategoria;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtIdPRODUCTO;
-    private javax.swing.JTextField txtNOMBRE;
-    private javax.swing.JTextField txtPRECIO;
-    private javax.swing.JTextField txtSTOCK;
+    private javax.swing.JTextField txtIdCategoria;
+    private javax.swing.JTextField txtIdProducto;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreCategoria;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }
