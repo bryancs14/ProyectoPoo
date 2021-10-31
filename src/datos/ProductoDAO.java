@@ -33,7 +33,7 @@ public class ProductoDAO {
             int stock = producto.getStock();
             String idCategoria = producto.getCategoria().getIdCategoria();
             String idAdministrador = producto.getAdministrador().getIdAdministrador();
-            String sql = "insert into productos(idProducto, nombre, precioVenta, stock, idCategoria, idAdministrador) values (?, ?, ?, ?, ?, ?)";
+            String sql = "insert into producto(idProducto, nombre, precioVenta, stock, idCategoria, idAdministrador) values (?, ?, ?, ?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idProducto);
             ps.setString(2, nombre);
@@ -55,7 +55,7 @@ public class ProductoDAO {
         PreparedStatement ps = null;
         Producto producto = null;
         try {
-            String sql = "select * from productos where idProducto = ?";
+            String sql = "select * from producto where idProducto = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idProducto);
             rs = ps.executeQuery();
@@ -86,7 +86,7 @@ public class ProductoDAO {
             int stock = producto.getStock();
             String idCategoria = producto.getCategoria().getIdCategoria();
             String idAdministrador = producto.getAdministrador().getIdAdministrador();
-            String sql = "update productos set nombre = ?, precioVenta = ?, stock = ?, idCategoria = ? where idProducto = ?";
+            String sql = "update producto set nombre = ?, precioVenta = ?, stock = ?, idCategoria = ? where idProducto = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, nombre);
             ps.setDouble(2, precioVenta);
@@ -106,7 +106,7 @@ public class ProductoDAO {
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
         try {
-            String sql = "delete from productos where idProducto = ?";
+            String sql = "delete from producto where idProducto = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idProducto);
             ps.executeUpdate();
@@ -125,7 +125,7 @@ public class ProductoDAO {
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
-            String sql = "select * from productos";
+            String sql = "select * from producto";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
@@ -153,7 +153,7 @@ public class ProductoDAO {
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
-            String sql = " select * from productos where nombre like ?";
+            String sql = " select * from producto where nombre like ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, nom + "%");
             rs = ps.executeQuery();

@@ -27,7 +27,7 @@ public class DialogProducto extends javax.swing.JDialog {
     public DialogProducto() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(600, 505);
+        setSize(710, 630);
         setLocationRelativeTo(null);
         desHabilitar();
         try {

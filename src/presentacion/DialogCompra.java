@@ -26,7 +26,7 @@ public class DialogCompra extends javax.swing.JDialog {
     public DialogCompra() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(650, 700);
+        setSize(1080, 780);
         setLocationRelativeTo(null);
         desHabilitar();
         try {

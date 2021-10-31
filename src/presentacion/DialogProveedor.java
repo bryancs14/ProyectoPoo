@@ -20,7 +20,7 @@ public class DialogProveedor extends javax.swing.JDialog {
     public DialogProveedor() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(593, 491);
+        setSize(610, 600);
         setLocationRelativeTo(null);
         desHabilitar();
         try {
