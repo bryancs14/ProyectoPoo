@@ -322,7 +322,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
+        DialogBuscarProducto x = new DialogBuscarProducto();
+        x.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
