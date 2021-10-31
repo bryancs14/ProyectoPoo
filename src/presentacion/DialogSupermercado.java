@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class DialogSupermercado extends javax.swing.JDialog {
-private Supermercado supermercado;
+private Supermercado supermercado = null;
     
     public DialogSupermercado() {
         super(FrmPrincipal.getInstancia(), true);
@@ -149,11 +149,14 @@ private Supermercado supermercado;
         String idSupermercado = txtIdSupermercado.getText();
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
-        supermercado = new Supermercado(idSupermercado, nombre, direccion);
          try {
             if(supermercado == null) {
+                supermercado = new Supermercado(idSupermercado, nombre, direccion);
                 SupermercadoDAO.getInstancia().agregar(supermercado);
             } else {
+                supermercado.setIdSupermercado(idSupermercado);
+                supermercado.setNombre(nombre);
+                supermercado.setDireccion(direccion);
                 SupermercadoDAO.getInstancia().actualizar(supermercado);
             }
             JOptionPane.showMessageDialog(null, "Guardado correctamente");

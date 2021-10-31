@@ -8,8 +8,11 @@ package presentacion;
 import entidad.Proveedor;
 import datos.ProveedorDAO;
 import datos.CompraDAO;
+import datos.ListaDetalleCompra;
 import entidad.Compra;
 import datos.ProductoDAO;
+import entidad.DetalleCarrito;
+import entidad.DetalleCompra;
 import entidad.Producto;
 import entidad.Supervisor;
 import java.sql.SQLException;
@@ -21,34 +24,17 @@ public class DialogCompra extends javax.swing.JDialog {
     private DefaultTableModel modelo = new DefaultTableModel();
     private Proveedor proveedorSelec = null;
     private Supervisor supervisorSelec = null;
-    private Producto productoSelec=null;
+    private Producto productoSelec = null;
+    private ListaDetalleCompra listaCompra = new ListaDetalleCompra();
+    int posicion;
     
     public DialogCompra() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
         setSize(1080, 780);
         setLocationRelativeTo(null);
-        desHabilitar();
-        try {
-            CompraDAO.getInstancia().mostrar(modelo);
-        } catch (SQLException comp) {
-            JOptionPane.showMessageDialog(null,comp.getMessage());
-        }
     }
-    private void habilitar(){
-        btnActualizar.setEnabled(true);
-        btnEliminar.setEnabled(true);
-        btnGuardar.setEnabled(false);
-        btnConsultar.setEnabled(false);
-    }
-    
-     
-    private void desHabilitar(){
-        btnActualizar.setEnabled(false);
-        btnEliminar.setEnabled(false);
-        btnGuardar.setEnabled(true);
-        btnConsultar.setEnabled(true);
-    }     
+      
     
     private void limpiarEntradas(){
         txtIdCompra.setText("");
@@ -72,24 +58,23 @@ public class DialogCompra extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaProductos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtIdProducto = new javax.swing.JTextField();
-        txtStock = new javax.swing.JTextField();
+        txtCantidadComprada = new javax.swing.JTextField();
         txtNombreProducto = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtPrecio = new javax.swing.JTextField();
+        txtPrecioCompra = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         btnBuscarProducto = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnRestaurar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtImporte = new javax.swing.JTextField();
@@ -102,7 +87,7 @@ public class DialogCompra extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         txtIdProveedor = new javax.swing.JTextField();
         txtNombreProveedor = new javax.swing.JTextField();
-        btnSeleccionarProveedor1 = new javax.swing.JButton();
+        btnSeleccionarProveedor = new javax.swing.JButton();
         txtTelefonoProveedor = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -110,18 +95,18 @@ public class DialogCompra extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         txtIdSupervisor = new javax.swing.JTextField();
         txtNombreSupervisor = new javax.swing.JTextField();
-        btnSeleccionarProveedor = new javax.swing.JButton();
+        btnSeleccionarSupervisor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 204, 153));
-        jTable1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
-        jTable1.setModel(modelo);
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setGridColor(new java.awt.Color(255, 153, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
-        jScrollPane1.setViewportView(jTable1);
+        tablaProductos.setBackground(new java.awt.Color(255, 204, 153));
+        tablaProductos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
+        tablaProductos.setModel(modelo);
+        tablaProductos.setFillsViewportHeight(true);
+        tablaProductos.setGridColor(new java.awt.Color(255, 153, 0));
+        tablaProductos.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        jScrollPane1.setViewportView(tablaProductos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 1020, 240));
 
@@ -132,28 +117,25 @@ public class DialogCompra extends javax.swing.JDialog {
         jLabel4.setText("ID PRODUCTO");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        jLabel6.setText("STOCK");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jLabel6.setText("CANTIDAD COMPRADA");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         txtIdProducto.setEditable(false);
         jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 170, -1));
 
-        txtStock.setEditable(false);
-        txtStock.addActionListener(new java.awt.event.ActionListener() {
+        txtCantidadComprada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStockActionPerformed(evt);
+                txtCantidadCompradaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 170, -1));
+        jPanel1.add(txtCantidadComprada, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 170, -1));
 
         txtNombreProducto.setEditable(false);
         jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, -1));
 
         jLabel12.setText("NOMBRE");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        txtPrecio.setEditable(false);
-        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, -1));
+        jPanel1.add(txtPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, -1));
 
         jLabel13.setText("PRECIO COMPRA");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
@@ -166,7 +148,23 @@ public class DialogCompra extends javax.swing.JDialog {
                 btnBuscarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 130, 30));
+        jPanel1.add(btnBuscarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 130, 30));
+
+        btnAgregar.setText("AGREGAR");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 380, 270));
 
@@ -182,27 +180,7 @@ public class DialogCompra extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 140, 30));
-
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 140, 30));
-
-        btnConsultar.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 140, 30));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 140, 30));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
@@ -212,27 +190,17 @@ public class DialogCompra extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 30));
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 140, 30));
 
-        btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setText("Restaurar");
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 140, 30));
-
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 140, 30));
+        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 140, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 220, 450));
 
@@ -271,15 +239,15 @@ public class DialogCompra extends javax.swing.JDialog {
         txtNombreProveedor.setEditable(false);
         jPanel6.add(txtNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));
 
-        btnSeleccionarProveedor1.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionarProveedor1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionarProveedor1.setText("Seleccionar");
-        btnSeleccionarProveedor1.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        btnSeleccionarProveedor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnSeleccionarProveedor.setText("Seleccionar");
+        btnSeleccionarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarProveedor1ActionPerformed(evt);
+                btnSeleccionarProveedorActionPerformed(evt);
             }
         });
-        jPanel6.add(btnSeleccionarProveedor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 130, 30));
+        jPanel6.add(btnSeleccionarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 130, 30));
 
         txtTelefonoProveedor.setEditable(false);
         jPanel6.add(txtTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 170, -1));
@@ -305,15 +273,15 @@ public class DialogCompra extends javax.swing.JDialog {
         txtNombreSupervisor.setEditable(false);
         jPanel5.add(txtNombreSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 170, -1));
 
-        btnSeleccionarProveedor.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionarProveedor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionarProveedor.setText("Seleccionar");
-        btnSeleccionarProveedor.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarSupervisor.setBackground(new java.awt.Color(255, 255, 255));
+        btnSeleccionarSupervisor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
+        btnSeleccionarSupervisor.setText("Seleccionar");
+        btnSeleccionarSupervisor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarProveedorActionPerformed(evt);
+                btnSeleccionarSupervisorActionPerformed(evt);
             }
         });
-        jPanel5.add(btnSeleccionarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 130, 30));
+        jPanel5.add(btnSeleccionarSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 130, 30));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 380, 170));
 
@@ -323,136 +291,81 @@ public class DialogCompra extends javax.swing.JDialog {
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         // TODO add your handling code here:
         DialogBuscarProducto f = new DialogBuscarProducto();
-        
         f.setVisible(true);
-        
         productoSelec = f.productoSelec;
-
-        txtIdProducto.setText(productoSelec.getIdProveedor());
+        txtIdProducto.setText(productoSelec.getIdProducto());
         txtNombreProducto.setText(productoSelec.getNombre());
-        txtPrecio.setText(productoSelec.getPrecio());
-        txtStock.setText(productoSelec.getStock());
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        String idCompra = txtIdCompra.getText();
-        double importe = Double.parseDouble(txtImporte.getText());
-        String fechaHora= txtFechaH.getText();
-        
-        Compra compra= new Compra(idCompra, importe, fechaHora, proveedorSelec, compradorSelec, productoSelec);
-        try{
-            CompraDAO.getInstancia().agregar(compra);
-            CompraDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null, "Dato registrado");
-        } catch(SQLException comp){
-            JOptionPane.showMessageDialog(null, comp.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
+        if(productoSelec != null) {
             String idCompra = txtIdCompra.getText();
-            double importe =Double.parseDouble(txtImporte.getText());
-            String fechahora= txtFechaH.getText();
+            double importe = Double.parseDouble(txtImporte.getText());
+            String fechaHora= txtFechaH.getText();
 
-            Compra compra= new Compra(idCompra, importe,fechahora, proveedorSelec, compradorSelec, productoSelec);
-
-            CompraDAO.getInstancia().actualizar(compra);
-            CompraDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Actualizacion exitosa");
-        } catch (SQLException com) {
-            JOptionPane.showMessageDialog(null,com.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-        String idCompra=txtIdCompra.getText();
-        if(idCompra.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
-        else
-        {
+            Compra compra= new Compra(idCompra, importe, fechaHora, proveedorSelec, supervisorSelec);
             try{
-                Compra compraBuscada = CompraDAO.getInstancia().buscarCompra(idCompra);
-                if(compraBuscada != null)
-                {
-                    txtIdCompra.setText(compraBuscada.getIdCompra());
-                    txtImporte.setText(String.valueOf(compraBuscada.getImporte()));
-                    txtFechaH.setText(compraBuscada.getFechaHora());
-                    txtIdProveedor.setText(compraBuscada.getProveedor().getIdProveedor());
-                    txtNombreProveedor.setText(compraBuscada.getProveedor().getNombre());
-                    txtIdSupervisor.setText(compraBuscada.getSupervisor().getIdSupervisor());
-                    txtNombreSupervisor.setText(compraBuscada.getSupervisor().getNombre());
-//                    txtIdProducto.setText(compraBuscada.getProducto().getIdProducto());
-//                    txtNombreProducto.setText(compraBuscada.getProducto().getNombrePro());
-//                    txtPrecio.setText(String.valueOf(compraBuscada.getProducto().getPrecio()));
-//                    txtStock.setText(String.valueOf(compraBuscada.getProducto().getStock()));
-                    
-                    habilitar();
-                }
-                else
-                JOptionPane.showMessageDialog(null, "El ID Compra no existe");
-            } catch(SQLException comp) {
-                JOptionPane.showMessageDialog(null,comp.getMessage());
+                CompraDAO.getInstancia().agregar(compra);
+                CompraDAO.getInstancia().mostrar(modelo);
+                JOptionPane.showMessageDialog(null, "Dato registrado");
+            } catch(SQLException comp){
+                JOptionPane.showMessageDialog(null, comp.getMessage());
             }
+            limpiarEntradas();
         }
-    }//GEN-LAST:event_btnConsultarActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnSeleccionarSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSupervisorActionPerformed
+        DialogBuscarSupervisor f = new DialogBuscarSupervisor();
+        f.setVisible(true);
+        supervisorSelec = f.supervisorSelec;
+        txtIdProducto.setText(proveedorSelec.getIdProveedor());
+        txtCantidadComprada.setText(proveedorSelec.getNombre());
+    }//GEN-LAST:event_btnSeleccionarSupervisorActionPerformed
+
+    private void txtCantidadCompradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadCompradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadCompradaActionPerformed
+
+    private void btnSeleccionarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProveedorActionPerformed
+        // TODO add your handling code here:
+        DialogBuscarProveedor f = new DialogBuscarProveedor();
+        f.setVisible(true);
+        proveedorSelec = f.proveedorSelec;
+        txtIdProducto.setText(proveedorSelec.getIdProveedor());
+        txtCantidadComprada.setText(proveedorSelec.getNombre());
+    }//GEN-LAST:event_btnSeleccionarProveedorActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        int cantidadComprada = Integer.parseInt(txtCantidadComprada.getText());
+        double precioCompra = Double.parseDouble(txtPrecioCompra.getText());
+        DetalleCompra detalleCompra = new DetalleCompra(productoSelec, cantidadComprada, precioCompra);
+        listaCompra.add(detalleCompra);
+        listaCompra.mostrar(modelo);
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        try{
-
-            int res = JOptionPane.showConfirmDialog(this, "¿Proceso Eliminarlo? ", "Eliminar Compra", JOptionPane.YES_NO_OPTION );
-
-            if( res == JOptionPane.YES_OPTION ){
-                String idCompra = txtIdCompra.getText();
-                CompraDAO.getInstancia().eliminar(idCompra);
-                CompraDAO.getInstancia().mostrar(modelo);
-                JOptionPane.showMessageDialog(this,"Compra eliminado");
-
-            } else
-            JOptionPane.showMessageDialog(null,"El Id Compra no existe");
-        } catch (SQLException comp) {
-            JOptionPane.showMessageDialog(null,comp.getMessage());
+        posicion = tablaProductos.getSelectedRow();
+        if(posicion != -1) {
+            listaCompra.delete(posicion);
+            listaCompra.mostrar(modelo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un producto de la tabla");
         }
-        limpiarEntradas();
-        desHabilitar();
     }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnSeleccionarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProveedorActionPerformed
-        DialogBuscarProveedor f = new DialogBuscarProveedor();
-        
-        f.setVisible(true);
-        
-        proveedorSelec = f.proveedorSelec;
-
-        txtIdProducto.setText(proveedorSelec.getIdProveedor());
-        txtStock.setText(proveedorSelec.getNombre());
-    }//GEN-LAST:event_btnSeleccionarProveedorActionPerformed
-
-    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStockActionPerformed
-
-    private void btnSeleccionarProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProveedor1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSeleccionarProveedor1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -497,15 +410,14 @@ public class DialogCompra extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscarProducto;
-    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRestaurar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionarProveedor;
-    private javax.swing.JButton btnSeleccionarProveedor1;
+    private javax.swing.JButton btnSeleccionarSupervisor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -524,7 +436,8 @@ public class DialogCompra extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaProductos;
+    private javax.swing.JTextField txtCantidadComprada;
     private javax.swing.JTextField txtFechaH;
     private javax.swing.JTextField txtIdCompra;
     private javax.swing.JTextField txtIdProducto;
@@ -534,8 +447,7 @@ public class DialogCompra extends javax.swing.JDialog {
     private javax.swing.JTextField txtNombreProducto;
     private javax.swing.JTextField txtNombreProveedor;
     private javax.swing.JTextField txtNombreSupervisor;
-    private javax.swing.JTextField txtPrecio;
-    private javax.swing.JTextField txtStock;
+    private javax.swing.JTextField txtPrecioCompra;
     private javax.swing.JTextField txtTelefonoProveedor;
     // End of variables declaration//GEN-END:variables
 }

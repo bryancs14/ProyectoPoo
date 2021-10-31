@@ -145,11 +145,11 @@ public class DialogBuscarCaja extends javax.swing.JDialog {
     private void txtIdCajaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdCajaKeyReleased
         // TODO add your handling code here:
         String idCaja=txtIdCaja.getText();
-//        try {
-////            CajaDAO.getInstancia().buscarCaja(idCaja, modelo);
-//        } catch (SQLException su) {
-//            JOptionPane.showMessageDialog(null, su.getMessage());
-//        }
+        try {
+            CajaDAO.getInstancia().mostrarPorId(modelo, idCaja);
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null, su.getMessage());
+        }
     }//GEN-LAST:event_txtIdCajaKeyReleased
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
@@ -176,12 +176,12 @@ public class DialogBuscarCaja extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String idCarrera=txtIdCaja.getText();
-        /*try {
-            CajaDAO.getInstancia().buscarPorNombre(idCarrera, modelo);
+        String idCaja = txtIdCaja.getText();
+        try {
+            CajaDAO.getInstancia().mostrarPorId(modelo, idCaja);
         } catch (SQLException su) {
             JOptionPane.showMessageDialog(null, su.getMessage());
-        }*/
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**

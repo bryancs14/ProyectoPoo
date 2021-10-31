@@ -27,7 +27,7 @@ public class DialogCarrito extends java.awt.Dialog {
     public DialogCarrito() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(800, 800);
+        setSize(690, 580);
         setLocationRelativeTo(null);
     }
 

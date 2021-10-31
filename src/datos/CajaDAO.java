@@ -126,4 +126,30 @@ public class CajaDAO {
             ps.close();
         }
     }
+    
+    public void mostrarPorId(DefaultTableModel modelo, String id) throws SQLException{
+        cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        String titulos[] = {"ID CAJA", "NUMERO DE CAJA"};
+        modelo.getDataVector().removeAllElements();
+        modelo.setColumnIdentifiers(titulos);
+        try {
+            String sql = "select * from caja where idCaja like ?";
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, id + "%");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                String idCaja = rs.getString("idCaja");
+                int numeroCaja = rs.getInt("numeroCaja");
+                String numero = String.valueOf(numeroCaja);
+                String filas[] = {idCaja, numero};
+                modelo.addRow(filas);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            cn.close();
+            ps.close();
+        }
+    }
 }

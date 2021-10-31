@@ -120,7 +120,7 @@ public class ClienteDAO {
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
-            String sql = "select * from client";
+            String sql = "select * from cliente";
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){

@@ -277,6 +277,7 @@ public class DialogProducto extends javax.swing.JDialog {
     private void btnSeleccionarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCategoriaActionPerformed
         // TODO add your handling code here:
         DialogBuscarCategoria d = new DialogBuscarCategoria();
+        d.setVisible(true);
         categoriaSelected = d.categoriaSelec;
         txtIdCategoria.setText(categoriaSelected.getIdCategoria());
         txtNombreCategoria.setText(categoriaSelected.getNombre());

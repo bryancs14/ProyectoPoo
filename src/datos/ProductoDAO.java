@@ -32,15 +32,13 @@ public class ProductoDAO {
             double precioVenta = producto.getPrecioVenta();
             int stock = producto.getStock();
             String idCategoria = producto.getCategoria().getIdCategoria();
-            String idAdministrador = producto.getAdministrador().getIdAdministrador();
-            String sql = "insert into producto(idProducto, nombre, precioVenta, stock, idCategoria, idAdministrador) values (?, ?, ?, ?, ?, ?)";
+            String sql = "insert into producto(idProducto, nombre, precioVenta, stock, idCategoria) values (?, ?, ?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idProducto);
             ps.setString(2, nombre);
             ps.setDouble(3, precioVenta);
             ps.setInt(4, stock);
             ps.setString(5, idCategoria);
-            ps.setString(6, idAdministrador);
             ps.executeUpdate();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);

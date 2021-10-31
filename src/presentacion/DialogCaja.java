@@ -25,14 +25,9 @@ public class DialogCaja extends javax.swing.JDialog {
         desHabilitar();
         try {
             supermercadoSelec = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
-        } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null, su.getMessage());
-            dispose();
-        }
-        try {
             CajaDAO.getInstancia().mostrar(modelo);
         } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null,su.getMessage());
+            JOptionPane.showMessageDialog(null, su.getMessage());
         }
     }
 
