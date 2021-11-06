@@ -112,7 +112,7 @@ public class CajeroDAO {
     public void mostrar(DefaultTableModel modelo) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID CAJERO", "NOMBRE", "TURNO", "ID CAJA"};
+        String titulos[] = {"ID CAJERO", "NOMBRE", "TURNO", "N° CAJA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -125,7 +125,10 @@ public class CajeroDAO {
                 String nombre = rs.getString("nombre");
                 String turno = rs.getString("turno");
                 String idCaja = rs.getString("idCaja");
-                String fila[] = {idCajero, nombre, turno, idCaja};
+                Caja caja = CajaDAO.getInstancia().buscarCaja(idCaja);
+                int nCaja = caja.getNumeroDeCaja();
+                
+                Object fila[] = {idCajero, nombre, turno, nCaja};
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {
@@ -139,7 +142,7 @@ public class CajeroDAO {
     public void mostrarPorNombre(DefaultTableModel modelo, String nom) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID CAJERO", "NOMBRE", "TURNO", "ID CAJA"};
+        String titulos[] = {"ID CAJERO", "NOMBRE", "TURNO", "N° CAJA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -152,7 +155,10 @@ public class CajeroDAO {
                 String nombre = rs.getString("nombre");
                 String turno = rs.getString("turno");
                 String idCaja = rs.getString("idCaja");
-                String fila[] = {idCajero, nombre, turno, idCaja};
+                Caja caja = CajaDAO.getInstancia().buscarCaja(idCaja);
+                int nCaja = caja.getNumeroDeCaja();
+                
+                Object fila[] = {idCajero, nombre, turno, nCaja};
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {

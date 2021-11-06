@@ -27,7 +27,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
         try {
             supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
             if(supermercado != null) {
-                txtIdSupermercado.setText(supermercado.getIdSupermercado());
+                
                 txtNombreSuper.setText(supermercado.getNombre());
                 txtDireccion.setText(supermercado.getDireccion());
             }
@@ -38,20 +38,19 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
     
     private void limpiarEntradas(){
-        txtIdAdministrador.setText("");
+       
         txtNombreAdmi.setText("");
         txtContraseña.setText("");
-        txtIdSupermercado.setText("");
         txtNombreSuper.setText("");
         txtDireccion.setText("");
-        txtIdAdministrador.requestFocus();
+        txtNombreAdmi.requestFocus();
     }
     
     private void traerAdmin() {
         try {
             administrador = AdministradorDAO.getInstancia().obtenerPrimerAdmin();
             if(administrador != null) {
-                txtIdAdministrador.setText(administrador.getIdAdministrador());
+                
                 txtNombreAdmi.setText(administrador.getNombre());
                 txtContraseña.setText(administrador.getContraseña());
             }
@@ -70,9 +69,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtIdSupermercado = new javax.swing.JTextField();
         txtNombreSuper = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -83,10 +80,8 @@ public class DialogAdministrador extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNombreAdmi = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtIdAdministrador = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,23 +89,17 @@ public class DialogAdministrador extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setText("ID SUPERMERCADO");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-
         jLabel6.setText("NOMBRE");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        txtIdSupermercado.setEditable(false);
-        jPanel1.add(txtIdSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 170, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         txtNombreSuper.setEditable(false);
-        jPanel1.add(txtNombreSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));
+        jPanel1.add(txtNombreSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 170, -1));
 
         txtDireccion.setEditable(false);
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 170, -1));
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 170, -1));
 
         jLabel8.setText("DIRECCION");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 380, 180));
 
@@ -156,16 +145,12 @@ public class DialogAdministrador extends javax.swing.JDialog {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("NOMBRE");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        jPanel3.add(txtNombreAdmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 160, -1));
-
-        jLabel1.setText("ID ADMINISTRADOR");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-        jPanel3.add(txtIdAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 160, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jPanel3.add(txtNombreAdmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 160, -1));
 
         jLabel3.setText("CONTRASEÑA");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 20));
-        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 160, 20));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 20));
+        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 160, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 380, 160));
 
@@ -178,16 +163,16 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        String idAdmi=txtIdAdministrador.getText();
+        
         String nombreAdmi=txtNombreAdmi.getText();
         String contraseña=txtContraseña.getText();
-        administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercado);
+        
         try{
             if(administrador == null) {
-                administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercado);
+                administrador= new Administrador("1", nombreAdmi, contraseña, supermercado);
                 AdministradorDAO.getInstancia().agregar(administrador);
             } else {
-                administrador.setIdAdministrador(idAdmi);
+                
                 administrador.setNombre(nombreAdmi);
                 administrador.setContraseña(contraseña);
                 AdministradorDAO.getInstancia().actualizar(administrador);
@@ -251,19 +236,15 @@ public class DialogAdministrador extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar1;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtIdAdministrador;
-    private javax.swing.JTextField txtIdSupermercado;
     private javax.swing.JTextField txtNombreAdmi;
     private javax.swing.JTextField txtNombreSuper;
     // End of variables declaration//GEN-END:variables

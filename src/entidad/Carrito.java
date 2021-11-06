@@ -17,7 +17,18 @@ public class Carrito {
 
     public Carrito() {
     }
-
+    
+    public Carrito(String idCarrito, double importe, String fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja, ListaDetalleCarrito LDC) {
+        this.idCarrito = idCarrito;
+        this.importe = importe;
+        this.fechaHora = fechaHora;
+        this.medioDePago = medioDePago;
+        this.puntosGanados = puntosGanados;
+        this.cliente = cliente;
+        this.caja = caja;
+        this.LDC = LDC;
+    }
+    
     public Carrito(String idCarrito, double importe, String fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja) {
         this.idCarrito = idCarrito;
         this.importe = importe;

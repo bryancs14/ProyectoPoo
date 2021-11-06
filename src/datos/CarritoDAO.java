@@ -31,24 +31,26 @@ public class CarritoDAO {
             String idCarrito = carrito.getIdCarrito();
             double importe = carrito.getImporte();
             String fechaHora = carrito.getFechaHora();
+            String medioPago = carrito.getMedioDePago();
             int puntosGanados = carrito.getPuntosGanados();
             String idCliente = carrito.getCliente().getIdCliente();
             String idCaja = carrito.getCaja().getIdCaja();
-            String sql = "insert into carrito(idCompra, importe, fechaHora, medioPago, puntosGanados, idCliente, idCaja) values(?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into carrito(idCarrito, importe, fechaHora, medioPago, puntosGanados, idCliente, idCaja) values(?, ?, ?, ?, ?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idCarrito); // Otra forma ps.setString(1, carrito.getIdCarrito());
             ps.setDouble(2, importe);
             ps.setString(3, fechaHora);
-            ps.setInt(4, puntosGanados);
-            ps.setString(5, idCliente);
-            ps.setString(6, idCaja);
+            ps.setString(4, medioPago);
+            ps.setInt(5, puntosGanados);
+            ps.setString(6, idCliente);
+            ps.setString(7, idCaja);
             ps.executeUpdate();
             
             ListaDetalleCarrito LDC = carrito.getLDC();
             
             for(int i = 0; i < LDC.size(); i++){
                 DetalleCarrito x = LDC.getElemento(i);
-                sql = "insert into carritoProductos(idCompra, idProducto, cantidadComprada) values(?, ?, ?)";
+                sql = "insert into carritoproducto(idCarrito, idProducto, cantidadComprada) values(?, ?, ?)";
                 ps = cn.prepareStatement(sql);
                 ps.setString(1, carrito.getIdCarrito());
                 ps.setString(2, x.getProducto().getIdProducto());
@@ -69,7 +71,7 @@ public class CarritoDAO {
         PreparedStatement ps = null;
         Carrito carrito = null;
         try{
-            String sql = "select * from carrito where idCompra = ?";
+            String sql = "select * from carrito where idCarrito = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idCompra);
             rs = ps.executeQuery();
@@ -83,7 +85,7 @@ public class CarritoDAO {
                 Cliente cliente = ClienteDAO.getInstancia().buscarCliente(idCliente);
                 Caja caja = CajaDAO.getInstancia().buscarCaja(idCaja);
                 carrito = new Carrito(idCompra, importe, fechaHora, medioPago, puntoGanados, cliente, caja);
-                sql = "select * from carritoproductos where idCompra = ?";
+                sql = "select * from carritoproducto where idCarrito = ?";
                 ps = cn.prepareStatement(sql);
                 ps.setString(1, idCompra);
                 rs = ps.executeQuery();
@@ -108,11 +110,11 @@ public class CarritoDAO {
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
         try {
-            String sql = "delete from carrito where idCompra = ?";
+            String sql = "delete from carrito where idCarrito = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idCompra);
             ps.executeUpdate();
-            sql = "delete from carritoproductos where idCompra = ?";
+            sql = "delete from carritoproducto where idCarrito = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idCompra);
             ps.executeUpdate();
@@ -127,7 +129,7 @@ public class CarritoDAO {
     public void mostrar(DefaultTableModel modelo) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID COMPRA", "IMPORTE", "FECHA - HORA", "MEDIO DE PAGO", "PUNTOS GANADOS", "ID CLIETNE", "ID CAJA"};
+        String titulos[] = {"ID CARRITO", "IMPORTE", "FECHA - HORA", "MEDIO DE PAGO", "PUNTOS GANADOS", "ID CLIENTE", "ID CAJA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -135,7 +137,7 @@ public class CarritoDAO {
             ps = cn.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
-                String idCompra = rs.getString("idCompra");
+                String idCompra = rs.getString("idCarrito");
                 String importe = String.valueOf(rs.getDouble("importe"));
                 String fechaHora = rs.getString("fechaHora");
                 String medioPago = rs.getString("medioPago");

@@ -18,21 +18,21 @@ private Supermercado supermercado = null;
     } 
     
     private void limpiarEntradas(){
-        txtIdSupermercado.setText("");
+        
         txtNombre.setText("");
         txtDireccion.setText("");
-        txtIdSupermercado.requestFocus();
+        txtNombre.requestFocus();
     }
 
     private void habilitar(){
         btnGuardar.setEnabled(true);
-        btnRestaurar.setEnabled(false);
+        
         btnSalir.setEnabled(false);
     }
     
     private void deshabilitar(){
         btnGuardar.setEnabled(false);
-        btnRestaurar.setEnabled(true);
+        
         btnSalir.setEnabled(true);
     }
     
@@ -40,7 +40,7 @@ private Supermercado supermercado = null;
         try {
             supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
             if(supermercado != null) {
-                txtIdSupermercado.setText(supermercado.getIdSupermercado());
+                
                 txtNombre.setText(supermercado.getNombre());
                 txtDireccion.setText(supermercado.getDireccion());
             }
@@ -61,12 +61,9 @@ private Supermercado supermercado = null;
         jPanel1 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnRestaurar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtIdSupermercado = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -86,7 +83,7 @@ private Supermercado supermercado = null;
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 160, 40));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -96,34 +93,20 @@ private Supermercado supermercado = null;
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 160, 40));
-
-        btnRestaurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
-        btnRestaurar.setText("Restaurar");
-        btnRestaurar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 160, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 160, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 220, 240));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DEL SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 2, 12))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("ID SUPERMERCADO");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
         jLabel2.setText("NOMBRE");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel3.setText("DIRECCION");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        jPanel2.add(txtIdSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 180, -1));
-        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 180, 60));
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 180, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 180, 30));
+        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 180, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 340, 240));
         jPanel2.getAccessibleContext().setAccessibleName("SUPERMERCADO");
@@ -146,15 +129,16 @@ private Supermercado supermercado = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String idSupermercado = txtIdSupermercado.getText();
+        
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
          try {
             if(supermercado == null) {
-                supermercado = new Supermercado(idSupermercado, nombre, direccion);
+                supermercado = new Supermercado("1",nombre, direccion);
                 SupermercadoDAO.getInstancia().agregar(supermercado);
             } else {
-                supermercado.setIdSupermercado(idSupermercado);
+                
+                
                 supermercado.setNombre(nombre);
                 supermercado.setDireccion(direccion);
                 SupermercadoDAO.getInstancia().actualizar(supermercado);
@@ -170,11 +154,6 @@ private Supermercado supermercado = null;
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
-        limpiarEntradas();
-        deshabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,9 +199,7 @@ private Supermercado supermercado = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
@@ -230,7 +207,6 @@ private Supermercado supermercado = null;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtIdSupermercado;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

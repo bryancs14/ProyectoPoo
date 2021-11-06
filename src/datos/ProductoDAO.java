@@ -117,7 +117,7 @@ public class ProductoDAO {
     public void mostrar(DefaultTableModel modelo) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO VENTA", "STOCK", "ID CATEGORIA"};
+        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO VENTA", "STOCK", "CATEGORIA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -130,8 +130,10 @@ public class ProductoDAO {
                 String precioVenta = String.valueOf(rs.getDouble("precioventa"));
                 String stock = String .valueOf(rs.getInt("stock"));
                 String idCategoria = rs.getString("idCategoria");
-
-                String fila[] = {idProducto, nombre, precioVenta, stock, idCategoria};
+                Categoria categoria = CategoriaDAO.getInstancia().buscarCategoria(idCategoria);
+                String nombreCategoria= categoria.getNombre();
+                
+                String fila[] = {idProducto, nombre, precioVenta, stock, nombreCategoria};
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {
@@ -145,7 +147,7 @@ public class ProductoDAO {
     public void mostrarPorNombre(DefaultTableModel modelo, String nom) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
-        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO VENTA", "STOCK", "ID CATEGORIA"};
+        String titulos[] = {"ID PRODUCTO", "NOMBRE", "PRECIO VENTA", "STOCK", "CATEGORIA"};
         modelo.getDataVector().removeAllElements();
         modelo.setColumnIdentifiers(titulos);
         try {
@@ -159,8 +161,11 @@ public class ProductoDAO {
                 String precioVenta = String.valueOf(rs.getDouble("precioventa"));
                 String stock = String .valueOf(rs.getInt("stock"));
                 String idCategoria = rs.getString("idCategoria");
-
-                String fila[] = {idProducto, nombre, precioVenta, stock, idCategoria};
+                Categoria categoria = CategoriaDAO.getInstancia().buscarCategoria(idCategoria);
+                String nombreCategoria= categoria.getNombre();
+                
+                String fila[] = {idProducto, nombre, precioVenta, stock, nombreCategoria};
+                
                 modelo.addRow(fila);
             }
         } catch (SQLException e) {

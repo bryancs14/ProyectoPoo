@@ -56,6 +56,8 @@ public class DialogProducto extends javax.swing.JDialog {
         txtIdProducto.setText("");
         txtNombre.setText("");
         txtPrecio.setText("");
+        txtIdCategoria.setText("");
+        txtNombreCategoria.setText("");
         txtIdProducto.requestFocus();
     }
 
@@ -213,7 +215,10 @@ public class DialogProducto extends javax.swing.JDialog {
                 {
                     txtNombre.setText(productoBuscado.getNombre());
                     txtPrecio.setText(String.valueOf(productoBuscado.getPrecioVenta()));
+                   
                     categoriaSelected = productoBuscado.getCategoria();
+                    txtIdCategoria.setText(categoriaSelected.getIdCategoria());
+                    txtNombreCategoria.setText(categoriaSelected.getNombre());
                     
                     habilitar();
             }
@@ -272,6 +277,8 @@ public class DialogProducto extends javax.swing.JDialog {
 
     private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
         // TODO add your handling code here:
+         limpiarEntradas();
+         desHabilitar();
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
     private void btnSeleccionarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCategoriaActionPerformed

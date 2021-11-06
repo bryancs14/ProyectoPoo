@@ -49,7 +49,7 @@ public class DialogCajero extends javax.swing.JDialog {
     private void limpiarEntradas(){
         txtIdCajero.setText("");
         txtNombre.setText("");
-        txtTurno.setText("");
+        cboTurno.setSelectedIndex(0);
         txtContraseña.setText("");
         txtIdCaja.setText("");
         txtNdeCaja.setText("");
@@ -81,8 +81,8 @@ public class DialogCajero extends javax.swing.JDialog {
         txtIdCajero = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtTurno = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
+        cboTurno = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -203,8 +203,10 @@ public class DialogCajero extends javax.swing.JDialog {
 
         jLabel6.setText("TURNO");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-        jPanel3.add(txtTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 160, -1));
         jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 160, -1));
+
+        cboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoger", "MAÑANA", "TARDE", "NOCHE" }));
+        jPanel3.add(cboTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 160, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 380, 210));
 
@@ -224,7 +226,7 @@ public class DialogCajero extends javax.swing.JDialog {
         // TODO add your handling code here:
         String idCajero=txtIdCajero.getText();
         String nombre=txtNombre.getText();
-        String turno=txtTurno.getText();
+        String turno=cboTurno.getSelectedItem().toString();
         String contraseña=txtContraseña.getText();
 
         Cajero cajero= new Cajero(idCajero,nombre,turno,contraseña,cajaSelec);
@@ -243,7 +245,7 @@ public class DialogCajero extends javax.swing.JDialog {
         try{
             String idCajero=txtIdCajero.getText();
             String nombre=txtNombre.getText();
-            String turno=txtTurno.getText();
+            String turno=cboTurno.getSelectedItem().toString();
             String contraseña=txtContraseña.getText();
 
             Cajero cajero= new Cajero(idCajero, nombre, turno, contraseña, cajaSelec);
@@ -272,7 +274,13 @@ public class DialogCajero extends javax.swing.JDialog {
                 {
                     txtIdCajero.setText(cajeroBuscado.getIdCajero());
                     txtNombre.setText(cajeroBuscado.getNombre());
-                    txtTurno.setText(cajeroBuscado.getTurno());
+                    
+                    switch(cajeroBuscado.getTurno())
+                    {
+                        case "MAÑANA": cboTurno.setSelectedIndex(1); break;
+                        case "TARDE": cboTurno.setSelectedIndex(2); break;
+                        case "NOCHE": cboTurno.setSelectedIndex(3); break;
+                    }
                     txtContraseña.setText(cajeroBuscado.getContraseña());
                     
                     cajaSelec = cajeroBuscado.getCaja();
@@ -365,6 +373,7 @@ public class DialogCajero extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSeleccionarCategoria;
+    private javax.swing.JComboBox<String> cboTurno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -381,6 +390,5 @@ public class DialogCajero extends javax.swing.JDialog {
     private javax.swing.JTextField txtIdCajero;
     private javax.swing.JTextField txtNdeCaja;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTurno;
     // End of variables declaration//GEN-END:variables
 }
