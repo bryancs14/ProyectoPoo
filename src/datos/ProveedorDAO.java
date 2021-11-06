@@ -33,7 +33,7 @@ public class ProveedorDAO {
             String idProveedor = proveedor.getIdProveedor();
             String nombre = proveedor.getNombre();
             String telefono = proveedor.getTelefono();
-            String sql = "insert into supermercado(idProveedor, nombre, telefono) values(?, ?, ?)";
+            String sql = "insert into proveedor(idProveedor, nombre, telefono) values(?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idProveedor);
             ps.setString(2, nombre);

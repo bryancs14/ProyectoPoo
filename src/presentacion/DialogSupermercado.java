@@ -173,7 +173,7 @@ private Supermercado supermercado = null;
 
     private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
         limpiarEntradas();
-        habilitar();
+        deshabilitar();
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
     /**

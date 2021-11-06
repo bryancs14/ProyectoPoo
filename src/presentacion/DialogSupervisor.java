@@ -48,7 +48,8 @@ public class DialogSupervisor extends javax.swing.JDialog {
     private void limpiarEntradas(){
         txtIdSupervisor.setText("");
         txtNombre.setText("");
-        txtContraseña.requestFocus();
+        txtContraseña.setText("");
+        txtIdSupervisor.requestFocus();
     }
 
     /**

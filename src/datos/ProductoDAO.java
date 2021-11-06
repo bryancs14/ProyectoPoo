@@ -4,7 +4,6 @@
  */
 package datos;
 import entidad.Producto;
-import entidad.Administrador;
 import entidad.Categoria;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
@@ -83,7 +82,6 @@ public class ProductoDAO {
             double precioVenta = producto.getPrecioVenta();
             int stock = producto.getStock();
             String idCategoria = producto.getCategoria().getIdCategoria();
-            String idAdministrador = producto.getAdministrador().getIdAdministrador();
             String sql = "update producto set nombre = ?, precioVenta = ?, stock = ?, idCategoria = ? where idProducto = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, nombre);

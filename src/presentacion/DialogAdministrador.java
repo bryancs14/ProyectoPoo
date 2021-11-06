@@ -183,8 +183,16 @@ public class DialogAdministrador extends javax.swing.JDialog {
         String contraseña=txtContraseña.getText();
         administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercado);
         try{
-            AdministradorDAO.getInstancia().actualizar(administrador);
-            JOptionPane.showMessageDialog(null, "Administrador registrado");
+            if(administrador == null) {
+                administrador= new Administrador(idAdmi, nombreAdmi, contraseña, supermercado);
+                AdministradorDAO.getInstancia().agregar(administrador);
+            } else {
+                administrador.setIdAdministrador(idAdmi);
+                administrador.setNombre(nombreAdmi);
+                administrador.setContraseña(contraseña);
+                AdministradorDAO.getInstancia().actualizar(administrador);
+            }
+            JOptionPane.showMessageDialog(null, "Guardado correctamente");
             dispose();
         } catch(SQLException su){
             JOptionPane.showMessageDialog(null, su.getMessage());
@@ -194,6 +202,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
     private void btnRestaurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurar1ActionPerformed
         // TODO add your handling code here:
+        limpiarEntradas();
     }//GEN-LAST:event_btnRestaurar1ActionPerformed
 
     /**

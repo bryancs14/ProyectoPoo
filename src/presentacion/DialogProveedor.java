@@ -47,6 +47,7 @@ public class DialogProveedor extends javax.swing.JDialog {
     private void limpiarEntradas(){
         txtIdProveedor.setText("");
         txtNombre.setText("");
+        txtTelefono.setText("");
         txtIdProveedor.requestFocus();
     }
 

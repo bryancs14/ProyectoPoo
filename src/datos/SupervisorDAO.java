@@ -31,7 +31,7 @@ public class SupervisorDAO {
             String idSupervisor = supervisor.getIdSupervisor();
             String nombre = supervisor.getNombre();
             String contraseña = supervisor.getContraseña();
-            String sql = "insert into supermercado(idSupervisor, nombre, contraseña) values(?, ?, ?)";
+            String sql = "insert into supervisor(idSupervisor, nombre, contraseña) values(?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idSupervisor);
             ps.setString(2, nombre);
@@ -50,7 +50,7 @@ public class SupervisorDAO {
         PreparedStatement ps = null;
         Supervisor supervisor = null;
         try {
-            String sql = "select * from proveedor where idProveedor = ?";
+            String sql = "select * from supervisor where idSupervisor = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idSupervisor);
             rs = ps.executeQuery();

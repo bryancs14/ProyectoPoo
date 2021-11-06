@@ -3,22 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/entidad/Compra.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogBuscarCategoria.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogProducto.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/FrmPrincipal.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/Conexion.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCajero.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCaja.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/ClienteDAO.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/entidad/DetalleCarrito.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/SupermercadoDAO.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogSupermercado.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/CarritoDAO.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogProveedor.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCompra.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/ProductoDAO.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogBuscarCaja.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogBuscarCliente1.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogSupervisor.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogAdministrador.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/SupervisorDAO.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/ProveedorDAO.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCajero.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/CajeroDAO.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCarrito.java</file>
         </group>
     </open-files>
