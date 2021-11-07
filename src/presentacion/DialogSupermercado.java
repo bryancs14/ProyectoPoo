@@ -8,11 +8,12 @@ import javax.swing.JOptionPane;
 
 public class DialogSupermercado extends javax.swing.JDialog {
 private Supermercado supermercado = null;
-    
+
+
     public DialogSupermercado() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(610, 380);
+        setSize(706, 427);
         setLocationRelativeTo(null);
         traerSuper();
     } 
@@ -66,8 +67,7 @@ private Supermercado supermercado = null;
         jLabel3 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,7 +95,7 @@ private Supermercado supermercado = null;
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 160, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 220, 240));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 220, 240));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS DEL SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Black", 2, 12))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,39 +106,34 @@ private Supermercado supermercado = null;
         jLabel3.setText("DIRECCION");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
         jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 180, 30));
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 180, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 340, 240));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 340, 240));
         jPanel2.getAccessibleContext().setAccessibleName("SUPERMERCADO");
 
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 102));
-        jLabel7.setText("SUPERMERCADO");
-        jLabel7.setMaximumSize(new java.awt.Dimension(500, 59));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, 50));
+        txtNombre.setFont(new java.awt.Font("Colonna MT", 1, 36)); // NOI18N
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 340, 40));
 
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("SUPERMERCADO");
-        jLabel6.setMaximumSize(new java.awt.Dimension(500, 59));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 430, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Aorus\\Downloads\\Vídeo Full HD 1920x1080 px (1).gif")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
-         try {
+        try {
             if(supermercado == null) {
                 supermercado = new Supermercado("1",nombre, direccion);
                 SupermercadoDAO.getInstancia().agregar(supermercado);
             } else {
-                
-                
+
                 supermercado.setNombre(nombre);
                 supermercado.setDireccion(direccion);
                 SupermercadoDAO.getInstancia().actualizar(supermercado);
@@ -149,11 +144,6 @@ private Supermercado supermercado = null;
             JOptionPane.showMessageDialog(null, s.getMessage());
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,10 +190,9 @@ private Supermercado supermercado = null;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtDireccion;

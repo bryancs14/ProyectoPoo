@@ -61,7 +61,6 @@ public class DialogBuscarCliente1 extends javax.swing.JDialog {
 
         Tabla.setAutoCreateRowSorter(true);
         Tabla.setBackground(new java.awt.Color(255, 204, 153));
-        Tabla.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         Tabla.setModel(modelo);
         Tabla.setGridColor(new java.awt.Color(255, 153, 0));
         Tabla.setSelectionBackground(new java.awt.Color(255, 153, 0));
