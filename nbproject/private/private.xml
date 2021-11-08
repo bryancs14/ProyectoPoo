@@ -5,7 +5,11 @@
         <group>
             <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/datos/CarritoDAO.java</file>
             <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/DialogCarrito1.java</file>
-            <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/DialogBuscarCaja.java</file>
+            <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/DialogCarrito.java</file>
+            <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/FrmPrincipal.java</file>
+            <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/DialogSupermercado.java</file>
+            <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/DialogBuscarCliente1.java</file>
+            <file>file:/D:/PROGRAMACION%20ORIENTADA%20A%20OBJETOS/POO-CURSO%202021-2/pro/ProyectoPoo/src/presentacion/DialogBuscarProducto.java</file>
         </group>
     </open-files>
 </project-private>

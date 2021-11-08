@@ -13,7 +13,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
     public FrmPrincipal() {
         initComponents();
-        setSize(800, 500);
+        
         setLocationRelativeTo(null);
     }
 
@@ -26,6 +26,42 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanelSupermercado9 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanelSupermercado8 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jPanelSupermercado7 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jPanelSupermercado6 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanelSupermercado5 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanelSupermercado4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanelSupermercado3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanelSupermercado2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanelSupermercado1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanelSupermercado = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -59,7 +95,172 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem20 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(230, 230, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelSupermercado9.setBackground(new java.awt.Color(247, 247, 0));
+        jPanelSupermercado9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/3775748-check-date-list-planner-time_108972.png"))); // NOI18N
+        jPanelSupermercado9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setText("Compra");
+        jPanelSupermercado9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 270, 60));
+
+        jPanelSupermercado8.setBackground(new java.awt.Color(247, 247, 0));
+        jPanelSupermercado8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/customer_seller_icon_179551.png"))); // NOI18N
+        jPanelSupermercado8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setText("Proveedor");
+        jPanelSupermercado8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 270, 60));
+
+        jPanelSupermercado7.setBackground(new java.awt.Color(247, 247, 0));
+        jPanelSupermercado7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1490129329-rounded38_82203.png"))); // NOI18N
+        jPanelSupermercado7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("Supervisor");
+        jPanelSupermercado7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 270, 60));
+
+        jPanelSupermercado6.setBackground(new java.awt.Color(245, 253, 0));
+        jPanelSupermercado6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/shop_cashier_man_icon_187602.png"))); // NOI18N
+        jPanelSupermercado6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setText("Cliente");
+        jPanelSupermercado6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 270, 60));
+
+        jPanelSupermercado5.setBackground(new java.awt.Color(245, 253, 0));
+        jPanelSupermercado5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cart_outline_icon_139049.png"))); // NOI18N
+        jPanelSupermercado5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setText("Carrito");
+        jPanelSupermercado5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 60));
+
+        jPanelSupermercado4.setBackground(new java.awt.Color(245, 253, 0));
+        jPanelSupermercado4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/mouse_pointer_icon_128799.png"))); // NOI18N
+        jPanelSupermercado4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("Categoria");
+        jPanelSupermercado4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 270, 60));
+
+        jPanelSupermercado3.setBackground(new java.awt.Color(245, 253, 0));
+        jPanelSupermercado3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cashier_icon_179531.png"))); // NOI18N
+        jPanelSupermercado3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("Cajero");
+        jPanelSupermercado3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 270, 60));
+
+        jPanelSupermercado2.setBackground(new java.awt.Color(245, 253, 0));
+        jPanelSupermercado2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/3925411-cashbox-cashier-shop-icon_111535.png"))); // NOI18N
+        jPanelSupermercado2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("Caja");
+        jPanelSupermercado2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 40, -1));
+
+        jPanel2.add(jPanelSupermercado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, 60));
+
+        jPanelSupermercado1.setBackground(new java.awt.Color(245, 253, 0));
+        jPanelSupermercado1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/iconfinder-contat-us-25support-4211853_115069.png"))); // NOI18N
+        jPanelSupermercado1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Aministrador");
+        jPanelSupermercado1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanel2.add(jPanelSupermercado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 270, 60));
+
+        jPanelSupermercado.setBackground(new java.awt.Color(255, 255, 100));
+        jPanelSupermercado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSupermercado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Supermercado");
+        jPanelSupermercado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sales_sale_supermarket_stock_market_icon_153849 (1).png"))); // NOI18N
+        jPanelSupermercado.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
+
+        jPanel2.add(jPanelSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 270, 60));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel22.setText("SUPERMARKET");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 180, -1));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 190, 10));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 800));
+
+        jPanel3.setBackground(new java.awt.Color(214, 219, 2));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/238-2385310_super-market-atm-machine-simulator-shopping-mall.jpg"))); // NOI18N
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 770));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 850, 770));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 780));
+
+        jMenuBar1.setBackground(new java.awt.Color(153, 255, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
 
         jMenu1.setText("Supermercado");
 
@@ -151,8 +352,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem8);
 
-        jMenuBar1.add(jMenu4);
-
         jMenu5.setText("Producto");
 
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/producto.png"))); // NOI18N
@@ -173,7 +372,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem10);
 
-        jMenuBar1.add(jMenu5);
+        jMenu4.add(jMenu5);
+
+        jMenuBar1.add(jMenu4);
 
         jMenu6.setText("Carrito");
 
@@ -413,6 +614,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -444,5 +667,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelSupermercado;
+    private javax.swing.JPanel jPanelSupermercado1;
+    private javax.swing.JPanel jPanelSupermercado2;
+    private javax.swing.JPanel jPanelSupermercado3;
+    private javax.swing.JPanel jPanelSupermercado4;
+    private javax.swing.JPanel jPanelSupermercado5;
+    private javax.swing.JPanel jPanelSupermercado6;
+    private javax.swing.JPanel jPanelSupermercado7;
+    private javax.swing.JPanel jPanelSupermercado8;
+    private javax.swing.JPanel jPanelSupermercado9;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
