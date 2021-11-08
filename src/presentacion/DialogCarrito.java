@@ -347,7 +347,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnSeleccionarCajaActionPerformed(evt);
             }
         });
-        jPanel6.add(btnSeleccionarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, 30));
+        jPanel6.add(btnSeleccionarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 130, 30));
 
         txtNCaja.setEditable(false);
         jPanel6.add(txtNCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));

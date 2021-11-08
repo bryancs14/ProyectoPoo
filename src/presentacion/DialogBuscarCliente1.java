@@ -25,7 +25,7 @@ public class DialogBuscarCliente1 extends javax.swing.JDialog {
     public DialogBuscarCliente1() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(489, 417);
+        
         setLocationRelativeTo(null);
         try {
             ClienteDAO.getInstancia().mostrar(modelo);

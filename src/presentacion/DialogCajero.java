@@ -9,6 +9,7 @@ import datos.CajaDAO;
 import datos.CajeroDAO;
 import entidad.Caja;
 import entidad.Cajero;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,7 +22,7 @@ public class DialogCajero extends javax.swing.JDialog {
     public DialogCajero() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(640, 710);
+        
         setLocationRelativeTo(null);
         desHabilitar();
         try {
@@ -60,167 +61,242 @@ public class DialogCajero extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4Blanco = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        btnSeleccionarCategoria = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtNdeCaja = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtIdCajero = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2Direccion = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel2Direccion1 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel2Direccion2 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        txtContraseña = new javax.swing.JPasswordField();
+        cboTurno = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         txtIdCaja = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        txtNdeCaja = new javax.swing.JTextField();
+        jLabel2Direccion3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtIdCajero = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JPasswordField();
-        cboTurno = new javax.swing.JComboBox<>();
+        btnSalir = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        btnSeleccionarCaja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 204, 153));
-        jTable1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel4Blanco.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4Blanco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(107, 227, 249));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4Blanco.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 10, 480));
+
+        jTable1.setBackground(new java.awt.Color(153, 255, 255));
         jTable1.setModel(modelo);
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setGridColor(new java.awt.Color(255, 153, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable1.setSelectionBackground(new java.awt.Color(255, 204, 102));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 600, 220));
+        jPanel4Blanco.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 840, 220));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CAJA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel7.setText("ID CAJERO");
+        jPanel4Blanco.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 90, 20));
 
-        btnSeleccionarCategoria.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionarCategoria.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionarCategoria.setText("Seleccionar");
-        btnSeleccionarCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarCategoriaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSeleccionarCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 130, 30));
+        txtIdCajero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdCajero.setForeground(new java.awt.Color(204, 204, 204));
+        txtIdCajero.setText("Ingrese su nombre de \"Supermercado\"");
+        txtIdCajero.setBorder(null);
+        jPanel4Blanco.add(txtIdCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 240, 30));
+        jPanel4Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 290, 10));
 
-        jLabel3.setText("ID CAJA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jLabel2Direccion.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2Direccion.setText("NOMBRE");
+        jPanel4Blanco.add(jLabel2Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 90, 20));
 
-        jLabel5.setText("Nº DE CAJA");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombre.setText("Ingrese su direccion");
+        txtNombre.setBorder(null);
+        jPanel4Blanco.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 240, 30));
+        jPanel4Blanco.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 290, 10));
 
-        txtNdeCaja.setEditable(false);
-        jPanel1.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 160, -1));
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel8.setText("CAJERO");
+        jPanel4Blanco.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 240, 100));
 
-        txtIdCaja.setEditable(false);
-        jPanel1.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 160, -1));
+        jLabel2Direccion1.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2Direccion1.setText("TURNO");
+        jPanel4Blanco.add(jLabel2Direccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 90, 20));
+        jPanel4Blanco.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 290, 10));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 380, 170));
+        jLabel2Direccion2.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2Direccion2.setText("CONTRASEÑA");
+        jPanel4Blanco.add(jLabel2Direccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 130, 20));
+        jPanel4Blanco.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 290, 10));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("OPCIONES"));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtContraseña.setForeground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setText("jPasswordField1");
+        jPanel4Blanco.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 441, 290, 30));
 
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
+        cboTurno.setForeground(new java.awt.Color(153, 153, 153));
+        cboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESCOGER", "MAÑANA", "TARDE", "NOCHE" }));
+        jPanel4Blanco.add(cboTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 290, 30));
+
+        jLabel10.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel10.setText("CAJA");
+        jPanel4Blanco.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 240, 100));
+
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel11.setText("ID CAJA");
+        jPanel4Blanco.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 90, 20));
+
+        txtIdCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdCaja.setForeground(new java.awt.Color(204, 204, 204));
+        txtIdCaja.setText("Ingrese Id Caja");
+        txtIdCaja.setBorder(null);
+        txtIdCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel4Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 240, 30));
+        jPanel4Blanco.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 290, 10));
+        jPanel4Blanco.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 290, 10));
+
+        txtNdeCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNdeCaja.setForeground(new java.awt.Color(204, 204, 204));
+        txtNdeCaja.setText("Ingrese numero de caja");
+        txtNdeCaja.setBorder(null);
+        jPanel4Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 240, 30));
+
+        jLabel2Direccion3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2Direccion3.setText("Nº DE CAJA");
+        jPanel4Blanco.add(jLabel2Direccion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 90, 20));
+
+        jLabel12.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cajero4.png"))); // NOI18N
+        jPanel4Blanco.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 120, 120));
+
+        btnGuardar.setBackground(new java.awt.Color(107, 227, 249));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.setBorder(null);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 140, 30));
+        jPanel4Blanco.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 140, 40));
 
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar.png"))); // NOI18N
-        btnActualizar.setText("Actualizar");
+        btnActualizar.setBackground(new java.awt.Color(107, 227, 249));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setBorder(null);
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 140, 30));
+        jPanel4Blanco.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 140, 40));
 
-        btnConsultar.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultar.png"))); // NOI18N
-        btnConsultar.setText("Consultar");
+        btnConsultar.setBackground(new java.awt.Color(107, 227, 249));
+        btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnConsultar.setText("CONSULTAR");
+        btnConsultar.setBorder(null);
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 140, 30));
+        jPanel4Blanco.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 140, 40));
 
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setBackground(new java.awt.Color(107, 227, 249));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setBorder(null);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 140, 30));
+        jPanel4Blanco.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 140, 40));
 
-        btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
-        btnRestaurar.setText("Restaurar");
+        btnRestaurar.setBackground(new java.awt.Color(107, 227, 249));
+        btnRestaurar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRestaurar.setText("RESTAURAR");
+        btnRestaurar.setBorder(null);
         btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 140, 30));
+        jPanel4Blanco.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 140, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 210, 400));
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel4Blanco.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CAJERO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cajera002.jpg"))); // NOI18N
+        jPanel4Blanco.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 400, 610, 410));
 
-        jLabel2.setText("NOMBRE");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 160, -1));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cajero3.png"))); // NOI18N
+        jPanel4Blanco.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 210, 140));
 
-        jLabel1.setText("ID CAJERO");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-        jPanel3.add(txtIdCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 160, -1));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cajero.jpg"))); // NOI18N
+        jPanel4Blanco.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 610, 400));
 
-        jLabel4.setText("CONTRASEÑA");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        btnSeleccionarCaja.setBackground(new java.awt.Color(107, 227, 249));
+        btnSeleccionarCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSeleccionarCaja.setText("SELECCIONAR");
+        btnSeleccionarCaja.setBorder(null);
+        btnSeleccionarCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarCajaActionPerformed(evt);
+            }
+        });
+        jPanel4Blanco.add(btnSeleccionarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 140, 40));
 
-        jLabel6.setText("TURNO");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 160, -1));
-
-        cboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoger", "MAÑANA", "TARDE", "NOCHE" }));
-        jPanel3.add(cboTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 160, -1));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 380, 210));
+        getContentPane().add(jPanel4Blanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSeleccionarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCategoriaActionPerformed
-        // TODO add your handling code here:
-        DialogBuscarCaja f = new DialogBuscarCaja();
-        f.setVisible(true);
-        cajaSelec = f.cajaSelec;
-        txtIdCaja.setText(cajaSelec.getIdCaja());
-        txtNdeCaja.setText(String.valueOf(cajaSelec.getNumeroDeCaja()));  
-    }//GEN-LAST:event_btnSeleccionarCategoriaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
@@ -324,6 +400,39 @@ public class DialogCajero extends javax.swing.JDialog {
         desHabilitar();
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnSeleccionarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCajaActionPerformed
+        // TODO add your handling code here:
+        DialogBuscarCaja f = new DialogBuscarCaja();
+        f.setVisible(true);
+        cajaSelec = f.cajaSelec;
+
+        txtIdCaja.setText(cajaSelec.getIdCaja());
+        txtNdeCaja.setText(String.valueOf(cajaSelec.getNumeroDeCaja()));
+
+    }//GEN-LAST:event_btnSeleccionarCajaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -372,18 +481,30 @@ public class DialogCajero extends javax.swing.JDialog {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
-    private javax.swing.JButton btnSeleccionarCategoria;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnSeleccionarCaja;
     private javax.swing.JComboBox<String> cboTurno;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2Direccion;
+    private javax.swing.JLabel jLabel2Direccion1;
+    private javax.swing.JLabel jLabel2Direccion2;
+    private javax.swing.JLabel jLabel2Direccion3;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4Blanco;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTable jTable1;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtIdCaja;

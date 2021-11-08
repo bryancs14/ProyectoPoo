@@ -182,7 +182,7 @@ public class DialogCategoria extends javax.swing.JDialog {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 440, 180));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/categoria2.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -200, 920, 940));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -200, 500, 940));
 
         jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel6.setText("NOMBRE");

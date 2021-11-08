@@ -9,6 +9,7 @@ import entidad.Supermercado;
 import datos.CajaDAO;
 import datos.SupermercadoDAO;
 import entidad.Caja;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +21,7 @@ public class DialogCaja extends javax.swing.JDialog {
     public DialogCaja() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(650, 470);
+        
         setLocationRelativeTo(null);
         desHabilitar();
         try {
@@ -55,113 +56,156 @@ public class DialogCaja extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel1Blanco = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtNdeCaja = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         txtIdCaja = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2Direccion = new javax.swing.JLabel();
+        txtNdeCaja = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 204, 153));
-        jTable1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
-        jTable1.setModel(modelo);
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setGridColor(new java.awt.Color(255, 153, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
-        jScrollPane1.setViewportView(jTable1);
+        jPanel1Blanco.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1Blanco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 380, 230));
-
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("OPCIONES"));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnGuardar.setText("Guardar");
+        btnGuardar.setBackground(new java.awt.Color(102, 255, 204));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.setBorder(null);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 140, 30));
+        jPanel1Blanco.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 130, 40));
 
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnActualizar.setText("Actualizar");
+        btnActualizar.setBackground(new java.awt.Color(102, 255, 204));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setBorder(null);
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 140, 30));
+        jPanel1Blanco.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 130, 40));
 
-        btnConsultar.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnConsultar.setText("Consultar");
+        btnConsultar.setBackground(new java.awt.Color(102, 255, 204));
+        btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnConsultar.setText("CONSULTAR");
+        btnConsultar.setBorder(null);
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 140, 30));
+        jPanel1Blanco.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 130, 40));
 
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setBackground(new java.awt.Color(102, 255, 204));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setBorder(null);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 140, 30));
+        jPanel1Blanco.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 130, 40));
 
-        btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setText("Restaurar");
+        btnRestaurar.setBackground(new java.awt.Color(102, 255, 204));
+        btnRestaurar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRestaurar.setText("RESTAURAR");
+        btnRestaurar.setBorder(null);
         btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 140, 30));
+        jPanel1Blanco.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 130, 40));
+
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel5.setText("ID CAJA");
+        jPanel1Blanco.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 90, 20));
+
+        txtIdCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdCaja.setForeground(new java.awt.Color(204, 204, 204));
+        txtIdCaja.setText("Ingrese Id Caja");
+        txtIdCaja.setBorder(null);
+        txtIdCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel1Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 240, 30));
+        jPanel1Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 290, 10));
+
+        jLabel2Direccion.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel2Direccion.setText("Nº DE CAJA");
+        jPanel1Blanco.add(jLabel2Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 90, 20));
+
+        txtNdeCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNdeCaja.setForeground(new java.awt.Color(204, 204, 204));
+        txtNdeCaja.setText("Ingrese numero de caja");
+        txtNdeCaja.setBorder(null);
+        jPanel1Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 240, 30));
+        jPanel1Blanco.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 290, 10));
+
+        jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/caja2.jpg"))); // NOI18N
+        jPanel1Blanco.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 750, 690));
+
+        jTable1.setBackground(new java.awt.Color(102, 255, 204));
+        jTable1.setModel(modelo);
+        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
+        jTable1.setSelectionBackground(new java.awt.Color(255, 204, 0));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1Blanco.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 480, 230));
+
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cashier2_117800.png"))); // NOI18N
+        jPanel1Blanco.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 100));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSalir.setText("Salir");
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, 30));
+        jPanel1Blanco.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 210, 400));
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel8.setText("CAJA");
+        jPanel1Blanco.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 240, 100));
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CAJA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setText("Nº DE CAJA");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-        jPanel3.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 160, -1));
-
-        jLabel1.setText("ID CAJA");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-        jPanel3.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 160, -1));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 380, 150));
+        getContentPane().add(jPanel1Blanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,6 +295,23 @@ public class DialogCaja extends javax.swing.JDialog {
         desHabilitar();
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -305,11 +366,15 @@ public class DialogCaja extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel2Direccion;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1Blanco;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtIdCaja;
     private javax.swing.JTextField txtNdeCaja;
