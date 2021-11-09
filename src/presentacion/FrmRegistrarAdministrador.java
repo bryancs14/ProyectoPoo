@@ -1,21 +1,21 @@
 
 package presentacion;
 import datos.Conexion;
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class FrmRegistrarAdministrador extends javax.swing.JFrame {
 
     public FrmRegistrarAdministrador() {
         initComponents();
         setLocationRelativeTo(null);
-    }
-    
-    private void limpiarEntradas(){
-        txtIdAdministrador.setText("");
-        txtNombre.setText("");
-        txtContraseña.setText("");
-        txtIdAdministrador.requestFocus();
+        this.setSize(370, 500);
+//        txtIdAdministrador.setBorder(new LineBorder(Color.LIGHT_GRAY));
+//        txtNombre.setBorder(new LineBorder(Color.LIGHT_GRAY));
+//        txtContraseña.setBorder(new LineBorder(Color.LIGHT_GRAY));
     }
 
     /**
@@ -27,188 +27,234 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtIdAdministrador = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
-        btnRegistrar = new javax.swing.JButton();
-        btnRestaurar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfil.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 30, 40));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/id.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 30, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel5.setText("REGISTRARSE");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/candado_1.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 30, 40));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel5)
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(116, 98, 98));
+        jLabel1.setText("REGISTRARSE");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
-        jLabel1.setText("ID ADMINISTRADOR");
+        txtIdAdministrador.setBackground(new java.awt.Color(255, 255, 255));
+        txtIdAdministrador.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtIdAdministrador.setText("ID ADMINISTRADOR");
+        txtIdAdministrador.setBorder(null);
+        txtIdAdministrador.setCaretColor(new java.awt.Color(213, 212, 212));
+        txtIdAdministrador.setSelectionColor(new java.awt.Color(213, 212, 212));
+        txtIdAdministrador.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIdAdministradorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdAdministradorFocusLost(evt);
+            }
+        });
+        getContentPane().add(txtIdAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 190, 40));
 
-        jLabel2.setText("CONTRASEÑA");
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNombre.setText("NOMBRE");
+        txtNombre.setBorder(null);
+        txtNombre.setCaretColor(new java.awt.Color(213, 212, 212));
+        txtNombre.setSelectionColor(new java.awt.Color(213, 212, 212));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 190, 40));
 
-        jLabel3.setText("NOMBRE");
-
-        btnRegistrar.setBackground(new java.awt.Color(51, 51, 255));
-        btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login.png"))); // NOI18N
-        btnRegistrar.setText("REGISTRAR");
-        btnRegistrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtContraseña.setText("CONTRASEÑA");
+        txtContraseña.setToolTipText("CONTRASEÑA");
+        txtContraseña.setBorder(null);
+        txtContraseña.setCaretColor(new java.awt.Color(213, 212, 212));
+        txtContraseña.setSelectionColor(new java.awt.Color(213, 212, 212));
+        txtContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtContraseñaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtContraseñaFocusLost(evt);
+            }
+        });
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 190, 40));
+
+        btnRegistrar.setBackground(new java.awt.Color(89, 180, 89));
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseExited(evt);
             }
         });
 
-        btnRestaurar.setBackground(new java.awt.Color(51, 51, 255));
-        btnRestaurar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRestaurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
-        btnRestaurar.setText("RESTAURAR");
-        btnRestaurar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 254, 255));
+        jLabel2.setText("REGISTRAR");
 
-        btnSalir.setBackground(new java.awt.Color(51, 51, 255));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
-        btnSalir.setText("SALIR");
-        btnSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnRestaurar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))))
-                .addContainerGap(33, Short.MAX_VALUE))
+        javax.swing.GroupLayout btnRegistrarLayout = new javax.swing.GroupLayout(btnRegistrar);
+        btnRegistrar.setLayout(btnRegistrarLayout);
+        btnRegistrarLayout.setHorizontalGroup(
+            btnRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnRegistrarLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jLabel2)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRestaurar)
-                    .addComponent(btnRegistrar)
-                    .addComponent(btnSalir))
-                .addGap(33, 33, 33))
+        btnRegistrarLayout.setVerticalGroup(
+            btnRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnRegistrarLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 250, 40));
+
+        Fondo.setBackground(new java.awt.Color(243, 243, 246));
+        Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    private void txtIdAdministradorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdAdministradorFocusGained
+        String idAdministrador = txtIdAdministrador.getText();
         
+        if(idAdministrador.equalsIgnoreCase("ID ADMINISTRADOR")){
+            txtIdAdministrador.setText("");
+            txtIdAdministrador.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtIdAdministradorFocusGained
+
+    private void txtIdAdministradorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdAdministradorFocusLost
+        String idAdministrador = txtIdAdministrador.getText();
+        
+        if(idAdministrador.equalsIgnoreCase("ID ADMINISTRADOR") || idAdministrador.equalsIgnoreCase("")){
+            txtIdAdministrador.setText("ID ADMINISTRADOR");
+            txtIdAdministrador.setForeground(new Color(127,132,138));
+        }
+    }//GEN-LAST:event_txtIdAdministradorFocusLost
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equals("NOMBRE")){
+            txtNombre.setText("");
+            txtNombre.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equals("NOMBRE") || nombre.equals("")){
+            txtNombre.setText("NOMBRE");
+            txtNombre.setForeground(new Color(127,132,138));
+        }
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusGained
+        String contraseña = String.valueOf(txtContraseña.getPassword());
+        if(contraseña.equals("CONTRASEÑA")){
+            txtContraseña.setText("");
+            txtContraseña.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtContraseñaFocusGained
+
+    private void txtContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusLost
+        String contraseña = String.valueOf(txtContraseña.getPassword());
+        
+        if(contraseña.equals("CONTRASEÑA") || contraseña.equals("")){
+            txtContraseña.setText("CONTRASEÑA");
+            txtContraseña.setForeground(new Color(127,132,138));
+        }
+    }//GEN-LAST:event_txtContraseñaFocusLost
+
+    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         String idAdministrador = txtIdAdministrador.getText();
         String nombre = txtNombre.getText();
         String contraseña = String.valueOf(txtContraseña.getPassword());
-        
+
         if(idAdministrador.equals(""))
-            JOptionPane.showMessageDialog(null, "INGRESA UN ID");
-        else if(nombre.equals(""))
-            JOptionPane.showMessageDialog(null, "INGRESA UN NOMBRE");
+        JOptionPane.showMessageDialog(null, "INGRESA UN ID");
+        else if(nombre.equalsIgnoreCase(""))
+        JOptionPane.showMessageDialog(null, "INGRESA UN NOMBRE");
         else if(contraseña.equals(""))
-            JOptionPane.showMessageDialog(null, "INGRESA UNA CONTRASEÑA");
-        
+        JOptionPane.showMessageDialog(null, "INGRESA UNA CONTRASEÑA");
+
         Connection cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps;
         String sql = "insert into administrador2(idAdministrador, nombre, contraseña) values(?, ?, ?)";
-        
+
         try {
             ps = cn.prepareStatement(sql);
             ps.setString(1, idAdministrador);
             ps.setString(2, nombre);
             ps.setString(3, contraseña);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "ADMINISTRADOR AÑADIDO");
-            
+            JOptionPane.showMessageDialog(null, "ADMINISTRADOR REGISTRADO");
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
         }
+    }//GEN-LAST:event_btnRegistrarMouseClicked
+
+    
+    public void setColor(JPanel h){
+        h.setBackground(new Color(68, 155, 68));
+    }
+    
+    public void resetColor(JPanel h){
+        h.setBackground(new Color(89, 180, 89));
+    }
+    
+    private void btnRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseEntered
+        setColor(btnRegistrar);
+    }//GEN-LAST:event_btnRegistrarMouseEntered
+
+    private void btnRegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseExited
+        resetColor(btnRegistrar);
+    }//GEN-LAST:event_btnRegistrarMouseExited
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
         
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
-        limpiarEntradas();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,15 +293,13 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnRestaurar;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JPanel Fondo;
+    private javax.swing.JPanel btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtIdAdministrador;
     private javax.swing.JTextField txtNombre;
