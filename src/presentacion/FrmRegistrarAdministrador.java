@@ -13,9 +13,9 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.setSize(370, 500);
-//        txtIdAdministrador.setBorder(new LineBorder(Color.LIGHT_GRAY));
-//        txtNombre.setBorder(new LineBorder(Color.LIGHT_GRAY));
-//        txtContraseña.setBorder(new LineBorder(Color.LIGHT_GRAY));
+        txtIdAdministrador.setBorder(new LineBorder(Color.LIGHT_GRAY));
+        txtNombre.setBorder(new LineBorder(Color.LIGHT_GRAY));
+        txtContraseña.setBorder(new LineBorder(Color.LIGHT_GRAY));
     }
 
     /**
@@ -220,7 +220,7 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
 
         Connection cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps;
-        String sql = "insert into administrador2(idAdministrador, nombre, contraseña) values(?, ?, ?)";
+        String sql = "insert into administrador(idAdministrador, nombre, contraseña) values(?, ?, ?)";
 
         try {
             ps = cn.prepareStatement(sql);

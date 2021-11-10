@@ -1,5 +1,7 @@
 
 package presentacion;
+import java.awt.Color;
+import javax.swing.JPanel;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -13,10 +15,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
     public FrmPrincipal() {
         initComponents();
-        
         setLocationRelativeTo(null);
     }
-
+    
+    public void setColor(JPanel x){
+        x.setBackground(new Color(255, 255, 100));
+    }
+    
+    public void resetColor(JPanel x){
+        x.setBackground(new Color(245, 253, 0));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,557 +35,1848 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanelSupermercado9 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jPanelSupermercado8 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jPanelSupermercado7 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jPanelSupermercado6 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jPanelSupermercado5 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jPanelSupermercado4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanelSupermercado3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanelSupermercado2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanelSupermercado1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanelSupermercado = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        jPanelOperaciones = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanel3 = new javax.swing.JPanel();
+        btnCompra = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        btnProveedor = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        btnSupervisor = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        btnCliente = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        btnCarrito = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        btnCategoria = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        btnCajero = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        btnCaja = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btnAdministrador = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnSupermercado = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jPanelCarrito = new javax.swing.JPanel();
+        btnAgregarCarrito = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        btnBuscarCarrito = new javax.swing.JPanel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jPanelCaja = new javax.swing.JPanel();
+        btnAgregarCaja = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        btnBuscarCaja = new javax.swing.JPanel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jPanelCajero = new javax.swing.JPanel();
+        btnAgregarCajero = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        btnBuscarCajero = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jPanelCategoria = new javax.swing.JPanel();
+        btnAgregarCategoria = new javax.swing.JPanel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnBuscarCategoria = new javax.swing.JPanel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        btnProducto = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jPanelCliente = new javax.swing.JPanel();
+        btnBuscarCliente = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jPanelProveedor = new javax.swing.JPanel();
+        btnAgregarProveedor = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        btnBuscarProveedor = new javax.swing.JPanel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jPanelCompra = new javax.swing.JPanel();
+        btnAgregarCompra = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        btnBuscarCompra = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jPanelSupervisor = new javax.swing.JPanel();
+        btnAgregarSupervisor = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        btnBuscarSupervisor = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jPanelAdministrador = new javax.swing.JPanel();
+        btnEditarAdmin = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jPanelProducto = new javax.swing.JPanel();
+        btnAgregarProducto = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        btnBuscarProducto = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
-        jMenu9 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenu10 = new javax.swing.JMenu();
-        jMenuItem19 = new javax.swing.JMenuItem();
-        jMenuItem20 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(230, 230, 0));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelSupermercado9.setBackground(new java.awt.Color(247, 247, 0));
-        jPanelSupermercado9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/3775748-check-date-list-planner-time_108972.png"))); // NOI18N
-        jPanelSupermercado9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setText("Compra");
-        jPanelSupermercado9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 270, 60));
-
-        jPanelSupermercado8.setBackground(new java.awt.Color(247, 247, 0));
-        jPanelSupermercado8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/customer_seller_icon_179551.png"))); // NOI18N
-        jPanelSupermercado8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setText("Proveedor");
-        jPanelSupermercado8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 270, 60));
-
-        jPanelSupermercado7.setBackground(new java.awt.Color(247, 247, 0));
-        jPanelSupermercado7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1490129329-rounded38_82203.png"))); // NOI18N
-        jPanelSupermercado7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setText("Supervisor");
-        jPanelSupermercado7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 270, 60));
-
-        jPanelSupermercado6.setBackground(new java.awt.Color(245, 253, 0));
-        jPanelSupermercado6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/shop_cashier_man_icon_187602.png"))); // NOI18N
-        jPanelSupermercado6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel12.setText("Cliente");
-        jPanelSupermercado6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 270, 60));
-
-        jPanelSupermercado5.setBackground(new java.awt.Color(245, 253, 0));
-        jPanelSupermercado5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cart_outline_icon_139049.png"))); // NOI18N
-        jPanelSupermercado5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setText("Carrito");
-        jPanelSupermercado5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 60));
-
-        jPanelSupermercado4.setBackground(new java.awt.Color(245, 253, 0));
-        jPanelSupermercado4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/mouse_pointer_icon_128799.png"))); // NOI18N
-        jPanelSupermercado4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setText("Categoria");
-        jPanelSupermercado4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 270, 60));
-
-        jPanelSupermercado3.setBackground(new java.awt.Color(245, 253, 0));
-        jPanelSupermercado3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cashier_icon_179531.png"))); // NOI18N
-        jPanelSupermercado3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Cajero");
-        jPanelSupermercado3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 270, 60));
-
-        jPanelSupermercado2.setBackground(new java.awt.Color(245, 253, 0));
-        jPanelSupermercado2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/3925411-cashbox-cashier-shop-icon_111535.png"))); // NOI18N
-        jPanelSupermercado2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Caja");
-        jPanelSupermercado2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 40, -1));
-
-        jPanel2.add(jPanelSupermercado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, 60));
-
-        jPanelSupermercado1.setBackground(new java.awt.Color(245, 253, 0));
-        jPanelSupermercado1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/iconfinder-contat-us-25support-4211853_115069.png"))); // NOI18N
-        jPanelSupermercado1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Aministrador");
-        jPanelSupermercado1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jPanel2.add(jPanelSupermercado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 270, 60));
-
-        jPanelSupermercado.setBackground(new java.awt.Color(255, 255, 100));
-        jPanelSupermercado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSupermercado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Supermercado");
-        jPanelSupermercado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sales_sale_supermarket_stock_market_icon_153849 (1).png"))); // NOI18N
-        jPanelSupermercado.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
-
-        jPanel2.add(jPanelSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 270, 60));
+        jPanelOperaciones.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelOperaciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel22.setText("SUPERMARKET");
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 180, -1));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 190, 10));
+        jPanelOperaciones.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, -1));
+        jPanelOperaciones.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 190, 10));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 800));
+        btnCompra.setBackground(new java.awt.Color(247, 247, 0));
+        btnCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCompraMouseExited(evt);
+            }
+        });
+        btnCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(214, 219, 2));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/3775748-check-date-list-planner-time_108972.png"))); // NOI18N
+        btnCompra.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
 
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/238-2385310_super-market-atm-machine-simulator-shopping-mall.jpg"))); // NOI18N
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 770));
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setText("Compra");
+        btnCompra.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 850, 770));
+        jPanelOperaciones.add(btnCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 270, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 780));
+        btnProveedor.setBackground(new java.awt.Color(247, 247, 0));
+        btnProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProveedorMouseExited(evt);
+            }
+        });
+        btnProveedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/customer_seller_icon_179551.png"))); // NOI18N
+        btnProveedor.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setText("Proveedor");
+        btnProveedor.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 270, 60));
+
+        btnSupervisor.setBackground(new java.awt.Color(247, 247, 0));
+        btnSupervisor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSupervisor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSupervisorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSupervisorMouseExited(evt);
+            }
+        });
+        btnSupervisor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1490129329-rounded38_82203.png"))); // NOI18N
+        btnSupervisor.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("Supervisor");
+        btnSupervisor.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 270, 60));
+
+        btnCliente.setBackground(new java.awt.Color(245, 253, 0));
+        btnCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnClienteMouseExited(evt);
+            }
+        });
+        btnCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/shop_cashier_man_icon_187602.png"))); // NOI18N
+        btnCliente.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setText("Cliente");
+        btnCliente.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 270, 60));
+
+        btnCarrito.setBackground(new java.awt.Color(245, 253, 0));
+        btnCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCarritoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCarritoMouseExited(evt);
+            }
+        });
+        btnCarrito.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cart_outline_icon_139049.png"))); // NOI18N
+        btnCarrito.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setText("Carrito");
+        btnCarrito.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 270, 60));
+
+        btnCategoria.setBackground(new java.awt.Color(245, 253, 0));
+        btnCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCategoriaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCategoriaMouseExited(evt);
+            }
+        });
+        btnCategoria.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/mouse_pointer_icon_128799.png"))); // NOI18N
+        btnCategoria.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("Categoria");
+        btnCategoria.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 270, 60));
+
+        btnCajero.setBackground(new java.awt.Color(245, 253, 0));
+        btnCajero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCajero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCajeroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCajeroMouseExited(evt);
+            }
+        });
+        btnCajero.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cashier_icon_179531.png"))); // NOI18N
+        btnCajero.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 40, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("Cajero");
+        btnCajero.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 270, 60));
+
+        btnCaja.setBackground(new java.awt.Color(245, 253, 0));
+        btnCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCajaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCajaMouseExited(evt);
+            }
+        });
+        btnCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/3925411-cashbox-cashier-shop-icon_111535.png"))); // NOI18N
+        btnCaja.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("Caja");
+        btnCaja.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 40, -1));
+
+        jPanelOperaciones.add(btnCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, 60));
+
+        btnAdministrador.setBackground(new java.awt.Color(245, 253, 0));
+        btnAdministrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdministrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAdministradorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAdministradorMouseExited(evt);
+            }
+        });
+        btnAdministrador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/iconfinder-contat-us-25support-4211853_115069.png"))); // NOI18N
+        btnAdministrador.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Aministrador");
+        btnAdministrador.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jPanelOperaciones.add(btnAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 270, 60));
+
+        btnSupermercado.setBackground(new java.awt.Color(245, 253, 0));
+        btnSupermercado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSupermercado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSupermercadoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSupermercadoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSupermercadoMouseExited(evt);
+            }
+        });
+        btnSupermercado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Supermercado");
+        btnSupermercado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/sales_sale_supermarket_stock_market_icon_153849 (1).png"))); // NOI18N
+        btnSupermercado.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 30));
+
+        jPanelOperaciones.add(btnSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 270, 60));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel27.setText("X");
+        jLabel27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel27MouseClicked(evt);
+            }
+        });
+        jPanelOperaciones.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        getContentPane().add(jPanelOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 770));
+
+        jPanelCarrito.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCarritoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCarritoMouseExited(evt);
+            }
+        });
+
+        btnAgregarCarrito.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCarrito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCarritoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCarritoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCarritoMouseExited(evt);
+            }
+        });
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel36.setText("AGREGAR CARRITO");
+        jLabel36.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-carrito.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarCarritoLayout = new javax.swing.GroupLayout(btnAgregarCarrito);
+        btnAgregarCarrito.setLayout(btnAgregarCarritoLayout);
+        btnAgregarCarritoLayout.setHorizontalGroup(
+            btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCarritoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel36)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        btnAgregarCarritoLayout.setVerticalGroup(
+            btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        btnBuscarCarrito.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarCarrito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarCarritoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarCarritoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarCarritoMouseExited(evt);
+            }
+        });
+
+        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel37.setText("BUSCAR CARRITO");
+        jLabel37.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnBuscarCarritoLayout = new javax.swing.GroupLayout(btnBuscarCarrito);
+        btnBuscarCarrito.setLayout(btnBuscarCarritoLayout);
+        btnBuscarCarritoLayout.setHorizontalGroup(
+            btnBuscarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarCarritoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel58)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel37)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        btnBuscarCarritoLayout.setVerticalGroup(
+            btnBuscarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(btnBuscarCarritoLayout.createSequentialGroup()
+                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelCarritoLayout = new javax.swing.GroupLayout(jPanelCarrito);
+        jPanelCarrito.setLayout(jPanelCarritoLayout);
+        jPanelCarritoLayout.setHorizontalGroup(
+            jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCarritoLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jPanelCarritoLayout.setVerticalGroup(
+            jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCarritoLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 260, 100));
+        jPanelCarrito.setVisible(false);
+
+        jPanelCaja.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCajaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCajaMouseExited(evt);
+            }
+        });
+
+        btnAgregarCaja.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCaja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCajaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCajaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCajaMouseExited(evt);
+            }
+        });
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel32.setText("AGREGAR CAJA");
+        jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/caja1.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarCajaLayout = new javax.swing.GroupLayout(btnAgregarCaja);
+        btnAgregarCaja.setLayout(btnAgregarCajaLayout);
+        btnAgregarCajaLayout.setHorizontalGroup(
+            btnAgregarCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCajaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel32)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        btnAgregarCajaLayout.setVerticalGroup(
+            btnAgregarCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        btnBuscarCaja.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarCaja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarCajaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarCajaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarCajaMouseExited(evt);
+            }
+        });
+
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel33.setText("BUSCAR CAJA");
+        jLabel33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnBuscarCajaLayout = new javax.swing.GroupLayout(btnBuscarCaja);
+        btnBuscarCaja.setLayout(btnBuscarCajaLayout);
+        btnBuscarCajaLayout.setHorizontalGroup(
+            btnBuscarCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarCajaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel56)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel33)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        btnBuscarCajaLayout.setVerticalGroup(
+            btnBuscarCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelCajaLayout = new javax.swing.GroupLayout(jPanelCaja);
+        jPanelCaja.setLayout(jPanelCajaLayout);
+        jPanelCajaLayout.setHorizontalGroup(
+            jPanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajaLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanelCajaLayout.setVerticalGroup(
+            jPanelCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCajaLayout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(btnAgregarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 220, 90));
+        jPanelCaja.setVisible(false);
+
+        jPanelCajero.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCajero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCajeroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCajeroMouseExited(evt);
+            }
+        });
+
+        btnAgregarCajero.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCajero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCajero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCajeroMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCajeroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCajeroMouseExited(evt);
+            }
+        });
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel34.setText("AGREGAR CAJERO");
+        jLabel34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/clerk.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarCajeroLayout = new javax.swing.GroupLayout(btnAgregarCajero);
+        btnAgregarCajero.setLayout(btnAgregarCajeroLayout);
+        btnAgregarCajeroLayout.setHorizontalGroup(
+            btnAgregarCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCajeroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel34)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        btnAgregarCajeroLayout.setVerticalGroup(
+            btnAgregarCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnBuscarCajero.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarCajero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarCajero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarCajeroMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarCajeroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarCajeroMouseExited(evt);
+            }
+        });
+
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel35.setText("BUSCAR CAJERO");
+        jLabel35.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnBuscarCajeroLayout = new javax.swing.GroupLayout(btnBuscarCajero);
+        btnBuscarCajero.setLayout(btnBuscarCajeroLayout);
+        btnBuscarCajeroLayout.setHorizontalGroup(
+            btnBuscarCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarCajeroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel54)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel35)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnBuscarCajeroLayout.setVerticalGroup(
+            btnBuscarCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelCajeroLayout = new javax.swing.GroupLayout(jPanelCajero);
+        jPanelCajero.setLayout(jPanelCajeroLayout);
+        jPanelCajeroLayout.setHorizontalGroup(
+            jPanelCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCajeroLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanelCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregarCajero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarCajero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanelCajeroLayout.setVerticalGroup(
+            jPanelCajeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCajeroLayout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(btnAgregarCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 250, 90));
+        jPanelCajero.setVisible(false);
+
+        jPanelCategoria.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCategoriaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCategoriaMouseExited(evt);
+            }
+        });
+
+        btnAgregarCategoria.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCategoria.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCategoriaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCategoriaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCategoriaMouseExited(evt);
+            }
+        });
+
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/categoria 2.png"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("AGREGAR CATEGORIA");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnAgregarCategoriaLayout = new javax.swing.GroupLayout(btnAgregarCategoria);
+        btnAgregarCategoria.setLayout(btnAgregarCategoriaLayout);
+        btnAgregarCategoriaLayout.setHorizontalGroup(
+            btnAgregarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCategoriaLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        btnAgregarCategoriaLayout.setVerticalGroup(
+            btnAgregarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnBuscarCategoria.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarCategoria.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarCategoriaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarCategoriaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarCategoriaMouseExited(evt);
+            }
+        });
+
+        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel23.setText("BUSCAR CATEGORIA");
+        jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnBuscarCategoriaLayout = new javax.swing.GroupLayout(btnBuscarCategoria);
+        btnBuscarCategoria.setLayout(btnBuscarCategoriaLayout);
+        btnBuscarCategoriaLayout.setHorizontalGroup(
+            btnBuscarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarCategoriaLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnBuscarCategoriaLayout.setVerticalGroup(
+            btnBuscarCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel51, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnProducto.setBackground(new java.awt.Color(245, 253, 0));
+        btnProducto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnProductoMouseExited(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel24.setText("PRODUCTO");
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/producto1.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnProductoLayout = new javax.swing.GroupLayout(btnProducto);
+        btnProducto.setLayout(btnProductoLayout);
+        btnProductoLayout.setHorizontalGroup(
+            btnProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnProductoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnProductoLayout.setVerticalGroup(
+            btnProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel50, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelCategoriaLayout = new javax.swing.GroupLayout(jPanelCategoria);
+        jPanelCategoria.setLayout(jPanelCategoriaLayout);
+        jPanelCategoriaLayout.setHorizontalGroup(
+            jPanelCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCategoriaLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(jPanelCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscarCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        jPanelCategoriaLayout.setVerticalGroup(
+            jPanelCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCategoriaLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(btnAgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBuscarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 280, 160));
+        jPanelCategoria.setVisible(false);
+
+        jPanelCliente.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelClienteMouseExited(evt);
+            }
+        });
+
+        btnBuscarCliente.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarClienteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarClienteMouseExited(evt);
+            }
+        });
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel38.setText("BUSCAR CLIENTE");
+        jLabel38.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout btnBuscarClienteLayout = new javax.swing.GroupLayout(btnBuscarCliente);
+        btnBuscarCliente.setLayout(btnBuscarClienteLayout);
+        btnBuscarClienteLayout.setHorizontalGroup(
+            btnBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarClienteLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel38)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        btnBuscarClienteLayout.setVerticalGroup(
+            btnBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel49, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelClienteLayout = new javax.swing.GroupLayout(jPanelCliente);
+        jPanelCliente.setLayout(jPanelClienteLayout);
+        jPanelClienteLayout.setHorizontalGroup(
+            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelClienteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelClienteLayout.setVerticalGroup(
+            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelClienteLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(btnBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 230, 60));
+        jPanelCliente.setVisible(false);
+
+        jPanelProveedor.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelProveedorMouseExited(evt);
+            }
+        });
+
+        btnAgregarProveedor.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarProveedorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarProveedorMouseExited(evt);
+            }
+        });
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel41.setText("AGREGAR PROVEEDOR");
+        jLabel41.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarProveedorLayout = new javax.swing.GroupLayout(btnAgregarProveedor);
+        btnAgregarProveedor.setLayout(btnAgregarProveedorLayout);
+        btnAgregarProveedorLayout.setHorizontalGroup(
+            btnAgregarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel47)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel41)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        btnAgregarProveedorLayout.setVerticalGroup(
+            btnAgregarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(jLabel47))
+        );
+
+        btnBuscarProveedor.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarProveedorMouseExited(evt);
+            }
+        });
+
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel42.setText("BUSCAR PROVEEDOR");
+        jLabel42.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnBuscarProveedorLayout = new javax.swing.GroupLayout(btnBuscarProveedor);
+        btnBuscarProveedor.setLayout(btnBuscarProveedorLayout);
+        btnBuscarProveedorLayout.setHorizontalGroup(
+            btnBuscarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel48)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel42)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnBuscarProveedorLayout.setVerticalGroup(
+            btnBuscarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(btnBuscarProveedorLayout.createSequentialGroup()
+                .addComponent(jLabel48)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanelProveedorLayout = new javax.swing.GroupLayout(jPanelProveedor);
+        jPanelProveedor.setLayout(jPanelProveedorLayout);
+        jPanelProveedorLayout.setHorizontalGroup(
+            jPanelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProveedorLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        jPanelProveedorLayout.setVerticalGroup(
+            jPanelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProveedorLayout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(btnAgregarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 270, 80));
+        jPanelProveedor.setVisible(false);
+
+        jPanelCompra.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCompraMouseExited(evt);
+            }
+        });
+
+        btnAgregarCompra.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCompra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCompraMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCompraMouseExited(evt);
+            }
+        });
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel43.setText("AGREGAR COMPRA");
+        jLabel43.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-carrito.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarCompraLayout = new javax.swing.GroupLayout(btnAgregarCompra);
+        btnAgregarCompra.setLayout(btnAgregarCompraLayout);
+        btnAgregarCompraLayout.setHorizontalGroup(
+            btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCompraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel43)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnAgregarCompraLayout.setVerticalGroup(
+            btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnBuscarCompra.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarCompra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarCompraMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarCompraMouseExited(evt);
+            }
+        });
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel44.setText("BUSCAR COMPRA");
+        jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout btnBuscarCompraLayout = new javax.swing.GroupLayout(btnBuscarCompra);
+        btnBuscarCompra.setLayout(btnBuscarCompraLayout);
+        btnBuscarCompraLayout.setHorizontalGroup(
+            btnBuscarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarCompraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jLabel44)
+                .addGap(34, 34, 34))
+        );
+        btnBuscarCompraLayout.setVerticalGroup(
+            btnBuscarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        javax.swing.GroupLayout jPanelCompraLayout = new javax.swing.GroupLayout(jPanelCompra);
+        jPanelCompra.setLayout(jPanelCompraLayout);
+        jPanelCompraLayout.setHorizontalGroup(
+            jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCompraLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanelCompraLayout.setVerticalGroup(
+            jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCompraLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 650, 230, 80));
+        jPanelCompra.setVisible(false);
+
+        jPanelSupervisor.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelSupervisor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelSupervisorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelSupervisorMouseExited(evt);
+            }
+        });
+
+        btnAgregarSupervisor.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarSupervisor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarSupervisor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarSupervisorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarSupervisorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarSupervisorMouseExited(evt);
+            }
+        });
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel39.setText("AGREGAR SUPERVISOR");
+        jLabel39.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarSupervisorLayout = new javax.swing.GroupLayout(btnAgregarSupervisor);
+        btnAgregarSupervisor.setLayout(btnAgregarSupervisorLayout);
+        btnAgregarSupervisorLayout.setHorizontalGroup(
+            btnAgregarSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarSupervisorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel39)
+                .addGap(53, 53, 53))
+        );
+        btnAgregarSupervisorLayout.setVerticalGroup(
+            btnAgregarSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        btnBuscarSupervisor.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarSupervisor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarSupervisor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarSupervisorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarSupervisorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarSupervisorMouseExited(evt);
+            }
+        });
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel40.setText("BUSCAR SUPERVISOR");
+        jLabel40.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout btnBuscarSupervisorLayout = new javax.swing.GroupLayout(btnBuscarSupervisor);
+        btnBuscarSupervisor.setLayout(btnBuscarSupervisorLayout);
+        btnBuscarSupervisorLayout.setHorizontalGroup(
+            btnBuscarSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarSupervisorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel40)
+                .addGap(28, 28, 28))
+        );
+        btnBuscarSupervisorLayout.setVerticalGroup(
+            btnBuscarSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelSupervisorLayout = new javax.swing.GroupLayout(jPanelSupervisor);
+        jPanelSupervisor.setLayout(jPanelSupervisorLayout);
+        jPanelSupervisorLayout.setHorizontalGroup(
+            jPanelSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSupervisorLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(jPanelSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscarSupervisor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregarSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanelSupervisorLayout.setVerticalGroup(
+            jPanelSupervisorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSupervisorLayout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(btnAgregarSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 260, 90));
+        jPanelSupervisor.setVisible(false);
+
+        jPanelAdministrador.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelAdministrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelAdministradorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelAdministradorMouseExited(evt);
+            }
+        });
+
+        btnEditarAdmin.setBackground(new java.awt.Color(245, 253, 0));
+        btnEditarAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarAdmin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEditarAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarAdminMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditarAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditarAdminMouseExited(evt);
+            }
+        });
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel31.setText("EDITAR ADMINISTRADOR");
+        jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnEditarAdminLayout = new javax.swing.GroupLayout(btnEditarAdmin);
+        btnEditarAdmin.setLayout(btnEditarAdminLayout);
+        btnEditarAdminLayout.setHorizontalGroup(
+            btnEditarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnEditarAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel31)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        btnEditarAdminLayout.setVerticalGroup(
+            btnEditarAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelAdministradorLayout = new javax.swing.GroupLayout(jPanelAdministrador);
+        jPanelAdministrador.setLayout(jPanelAdministradorLayout);
+        jPanelAdministradorLayout.setHorizontalGroup(
+            jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAdministradorLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(btnEditarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanelAdministradorLayout.setVerticalGroup(
+            jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdministradorLayout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(btnEditarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 270, 60));
+        jPanelAdministrador.setVisible(false);
+
+        jPanelProducto.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelProductoMouseExited(evt);
+            }
+        });
+
+        btnAgregarProducto.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarProducto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarProductoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarProductoMouseExited(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel25.setText("AGREGAR PRODUCTO");
+        jLabel25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnAgregarProductoLayout = new javax.swing.GroupLayout(btnAgregarProducto);
+        btnAgregarProducto.setLayout(btnAgregarProductoLayout);
+        btnAgregarProductoLayout.setHorizontalGroup(
+            btnAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarProductoLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        btnAgregarProductoLayout.setVerticalGroup(
+            btnAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+        );
+
+        btnBuscarProducto.setBackground(new java.awt.Color(245, 253, 0));
+        btnBuscarProducto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBuscarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarProductoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarProductoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarProductoMouseExited(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel28.setText("BUSCAR PRODUCTO");
+        jLabel28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout btnBuscarProductoLayout = new javax.swing.GroupLayout(btnBuscarProducto);
+        btnBuscarProducto.setLayout(btnBuscarProductoLayout);
+        btnBuscarProductoLayout.setHorizontalGroup(
+            btnBuscarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarProductoLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        btnBuscarProductoLayout.setVerticalGroup(
+            btnBuscarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelProductoLayout = new javax.swing.GroupLayout(jPanelProducto);
+        jPanelProducto.setLayout(jPanelProductoLayout);
+        jPanelProductoLayout.setHorizontalGroup(
+            jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProductoLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        jPanelProductoLayout.setVerticalGroup(
+            jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProductoLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(btnAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 280, 110));
+        jPanelProducto.setVisible(false);
+
+        Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/238-2385310_super-market-atm-machine-simulator-shopping-mall.jpg"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 850, 770));
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 255));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
-
-        jMenu1.setText("Supermercado");
-
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/supermercado.png"))); // NOI18N
-        jMenuItem1.setText("Editar supermercado");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Administrador");
-
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/admin.png"))); // NOI18N
-        jMenuItem3.setText("Editar Administrador");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu8.setText("Caja");
-
-        jMenuItem15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/caja.png"))); // NOI18N
-        jMenuItem15.setText("Mantenedor Caja");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMenuItem15);
-
-        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jMenuItem16.setText("Buscar Caja");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMenuItem16);
-
-        jMenuBar1.add(jMenu8);
-
-        jMenu3.setText("Cajero");
-
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cajero.png"))); // NOI18N
-        jMenuItem5.setText("Mantenedor Cajero");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem5);
-
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jMenuItem6.setText("Buscar Cajero");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Categoria");
-
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/categoria.png"))); // NOI18N
-        jMenuItem7.setText("Mantenedor Categoria");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem7);
-
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jMenuItem8.setText("Buscar Categoria");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem8);
-
-        jMenu5.setText("Producto");
-
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/producto.png"))); // NOI18N
-        jMenuItem9.setText("Mantenedor Producto");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem9);
-
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jMenuItem10.setText("Buscar Producto");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem10);
-
-        jMenu4.add(jMenu5);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu6.setText("Carrito");
-
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carrito.png"))); // NOI18N
-        jMenuItem11.setText("Mantenedor Carrito");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuItem11);
-
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jMenuItem12.setText("Buscar Carrito");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuItem12);
-
-        jMenuBar1.add(jMenu6);
-
-        jMenu7.setText("Cliente");
-
-        jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jMenuItem14.setText("Buscar Cliente");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem14);
-
-        jMenuBar1.add(jMenu7);
-
-        jMenu11.setText("Supervisor");
-
-        jMenuItem2.setText("Mantenedor Supervisor");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu11.add(jMenuItem2);
-
-        jMenuItem18.setText("Buscar Supervisor");
-        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem18ActionPerformed(evt);
-            }
-        });
-        jMenu11.add(jMenuItem18);
-
-        jMenuBar1.add(jMenu11);
-
-        jMenu9.setText("Proveedor");
-
-        jMenuItem4.setText("Mantenedor Proveedor");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu9.add(jMenuItem4);
-
-        jMenuItem17.setText("Buscar Proveedor");
-        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem17ActionPerformed(evt);
-            }
-        });
-        jMenu9.add(jMenuItem17);
-
-        jMenuBar1.add(jMenu9);
-
-        jMenu10.setText("Compra");
-
-        jMenuItem19.setText("Mantenedor Compra");
-        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem19ActionPerformed(evt);
-            }
-        });
-        jMenu10.add(jMenuItem19);
-
-        jMenuItem20.setText("Buscar Compra");
-        jMenu10.add(jMenuItem20);
-
-        jMenuBar1.add(jMenu10);
-
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        DialogSupermercado f = new DialogSupermercado();
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void btnSupermercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupermercadoMouseClicked
+        DialogSupermercado x = new DialogSupermercado();
+        x.setVisible(true);
+    }//GEN-LAST:event_btnSupermercadoMouseClicked
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        DialogAdministrador f = new DialogAdministrador();
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void btnSupermercadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupermercadoMouseEntered
+        setColor(btnSupermercado);
+    }//GEN-LAST:event_btnSupermercadoMouseEntered
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-        DialogCajero f = new DialogCajero();
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void btnSupermercadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupermercadoMouseExited
+        resetColor(btnSupermercado);
+    }//GEN-LAST:event_btnSupermercadoMouseExited
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-       
-        DialogBuscarCajero f = new DialogBuscarCajero();
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void btnAdministradorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministradorMouseEntered
+        setColor(btnAdministrador);
+        jPanelAdministrador.setVisible(true);
+    }//GEN-LAST:event_btnAdministradorMouseEntered
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
+    private void btnAdministradorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministradorMouseExited
+        resetColor(btnAdministrador);
+        jPanelAdministrador.setVisible(false);
+    }//GEN-LAST:event_btnAdministradorMouseExited
+
+    private void btnCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseEntered
+        setColor(btnCaja);
+        jPanelCaja.setVisible(true);
+    }//GEN-LAST:event_btnCajaMouseEntered
+
+    private void btnCajaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajaMouseExited
+        resetColor(btnCaja);
+        jPanelCaja.setVisible(false);
+    }//GEN-LAST:event_btnCajaMouseExited
+
+    private void btnCajeroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajeroMouseEntered
+        setColor(btnCajero);
+        jPanelCajero.setVisible(true);
+    }//GEN-LAST:event_btnCajeroMouseEntered
+
+    private void btnCajeroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCajeroMouseExited
+        resetColor(btnCajero);
+        jPanelCajero.setVisible(false);
+    }//GEN-LAST:event_btnCajeroMouseExited
+
+    private void btnCategoriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCategoriaMouseEntered
+        setColor(btnCategoria);
+        jPanelCategoria.setVisible(true);
+        
+    }//GEN-LAST:event_btnCategoriaMouseEntered
+
+    private void btnCategoriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCategoriaMouseExited
+        resetColor(btnCategoria);
+        jPanelCategoria.setVisible(false);
+    }//GEN-LAST:event_btnCategoriaMouseExited
+
+    private void btnCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCarritoMouseEntered
+        setColor(btnCarrito);
+        jPanelCarrito.setVisible(true);
+    }//GEN-LAST:event_btnCarritoMouseEntered
+
+    private void btnCarritoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCarritoMouseExited
+        resetColor(btnCarrito);
+        jPanelCarrito.setVisible(false);
+    }//GEN-LAST:event_btnCarritoMouseExited
+
+    private void btnClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseEntered
+        setColor(btnCliente);
+        jPanelCliente.setVisible(true);
+    }//GEN-LAST:event_btnClienteMouseEntered
+
+    private void btnClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseExited
+        resetColor(btnCliente);
+        jPanelCliente.setVisible(false);
+        
+    }//GEN-LAST:event_btnClienteMouseExited
+
+    private void btnSupervisorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupervisorMouseEntered
+        setColor(btnSupervisor);
+        jPanelSupervisor.setVisible(true);
+    }//GEN-LAST:event_btnSupervisorMouseEntered
+
+    private void btnSupervisorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSupervisorMouseExited
+        resetColor(btnSupervisor);
+        jPanelSupervisor.setVisible(false);
+    }//GEN-LAST:event_btnSupervisorMouseExited
+
+    private void btnProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseEntered
+        setColor(btnProveedor);
+        jPanelProveedor.setVisible(true);
+    }//GEN-LAST:event_btnProveedorMouseEntered
+
+    private void btnProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseExited
+        resetColor(btnProveedor);
+        jPanelProveedor.setVisible(false);
+    }//GEN-LAST:event_btnProveedorMouseExited
+
+    private void btnCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompraMouseEntered
+        setColor(btnCompra);
+        jPanelCompra.setVisible(true);
+    }//GEN-LAST:event_btnCompraMouseEntered
+
+    private void btnCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompraMouseExited
+        resetColor(btnCompra);
+        jPanelCompra.setVisible(false);
+    }//GEN-LAST:event_btnCompraMouseExited
+
+    private void jPanelCategoriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCategoriaMouseExited
+        jPanelCategoria.setVisible(false);
+    }//GEN-LAST:event_jPanelCategoriaMouseExited
+
+    private void jPanelCategoriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCategoriaMouseEntered
+        jPanelCategoria.setVisible(true);
+    }//GEN-LAST:event_jPanelCategoriaMouseEntered
+
+    private void btnAgregarCategoriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCategoriaMouseEntered
+        jPanelCategoria.setVisible(true);
+        setColor(btnAgregarCategoria);
+    }//GEN-LAST:event_btnAgregarCategoriaMouseEntered
+
+    private void btnAgregarCategoriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCategoriaMouseExited
+        resetColor(btnAgregarCategoria);
+    }//GEN-LAST:event_btnAgregarCategoriaMouseExited
+
+    private void btnAgregarCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCategoriaMouseClicked
         DialogCategoria f = new DialogCategoria();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_btnAgregarCategoriaMouseClicked
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
+    private void btnBuscarCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaMouseClicked
         DialogBuscarCategoria f = new DialogBuscarCategoria();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-//
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCategoriaMouseClicked
+
+    private void btnBuscarCategoriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaMouseEntered
+        jPanelCategoria.setVisible(true);
+        setColor(btnBuscarCategoria);
+    }//GEN-LAST:event_btnBuscarCategoriaMouseEntered
+
+    private void btnBuscarCategoriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaMouseExited
+        resetColor(btnBuscarCategoria);
+    }//GEN-LAST:event_btnBuscarCategoriaMouseExited
+
+    private void btnProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductoMouseEntered
+        setColor(btnProducto);
+        jPanelProducto.setVisible(true);
+    }//GEN-LAST:event_btnProductoMouseEntered
+
+    private void btnProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductoMouseExited
+        resetColor(btnProducto);
+        jPanelCategoria.setVisible(true);
+        jPanelProducto.setVisible(false);
+    }//GEN-LAST:event_btnProductoMouseExited
+
+    private void btnAgregarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseClicked
         DialogProducto f = new DialogProducto();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_btnAgregarProductoMouseClicked
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void btnAgregarProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseEntered
+        setColor(btnAgregarProducto);
+        jPanelProducto.setVisible(true);
+    }//GEN-LAST:event_btnAgregarProductoMouseEntered
+
+    private void btnAgregarProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProductoMouseExited
+        resetColor(btnAgregarProducto);
+    }//GEN-LAST:event_btnAgregarProductoMouseExited
+
+    private void jPanelProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelProductoMouseEntered
+        jPanelProducto.setVisible(true);
+        jPanelCategoria.setVisible(true);
+    }//GEN-LAST:event_jPanelProductoMouseEntered
+
+    private void jPanelProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelProductoMouseExited
+       jPanelProducto.setVisible(false);
+    }//GEN-LAST:event_jPanelProductoMouseExited
+
+    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel27MouseClicked
+
+    private void btnBuscarProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProductoMouseExited
+        resetColor(btnBuscarProducto);
+    }//GEN-LAST:event_btnBuscarProductoMouseExited
+
+    private void btnBuscarProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProductoMouseEntered
+        setColor(btnBuscarProducto);
+        jPanelProducto.setVisible(true);
+    }//GEN-LAST:event_btnBuscarProductoMouseEntered
+
+    private void btnBuscarProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProductoMouseClicked
         DialogBuscarProducto x = new DialogBuscarProducto();
         x.setVisible(true);
+    }//GEN-LAST:event_btnBuscarProductoMouseClicked
 
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-        DialogCarrito f = new DialogCarrito();
+    private void btnEditarAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarAdminMouseClicked
+        DialogAdministrador f = new DialogAdministrador();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }//GEN-LAST:event_btnEditarAdminMouseClicked
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        // TODO add your handling code here:
-        DialogBuscarCategoria f = new DialogBuscarCategoria();
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    private void btnEditarAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarAdminMouseEntered
+        setColor(btnEditarAdmin);
+        jPanelAdministrador.setVisible(true);
+    }//GEN-LAST:event_btnEditarAdminMouseEntered
 
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        // TODO add your handling code here:
-        DialogBuscarCliente1 f = new DialogBuscarCliente1();
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
+    private void btnEditarAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarAdminMouseExited
+        resetColor(btnEditarAdmin);
+    }//GEN-LAST:event_btnEditarAdminMouseExited
 
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        // TODO add your handling code here:
+    private void jPanelAdministradorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAdministradorMouseEntered
+        jPanelAdministrador.setVisible(true);
+    }//GEN-LAST:event_jPanelAdministradorMouseEntered
+
+    private void jPanelAdministradorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAdministradorMouseExited
+        jPanelAdministrador.setVisible(false);
+    }//GEN-LAST:event_jPanelAdministradorMouseExited
+
+    private void btnAgregarCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCajaMouseClicked
         DialogCaja f = new DialogCaja();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
+    }//GEN-LAST:event_btnAgregarCajaMouseClicked
 
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        // TODO add your handling code here:
+    private void btnAgregarCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCajaMouseEntered
+        setColor(btnAgregarCaja);
+        jPanelCaja.setVisible(true);
+    }//GEN-LAST:event_btnAgregarCajaMouseEntered
+
+    private void btnAgregarCajaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCajaMouseExited
+        resetColor(btnAgregarCaja);
+    }//GEN-LAST:event_btnAgregarCajaMouseExited
+
+    private void btnBuscarCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCajaMouseClicked
         DialogBuscarCaja f = new DialogBuscarCaja();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
+    }//GEN-LAST:event_btnBuscarCajaMouseClicked
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        DialogProveedor f = new DialogProveedor();
+    private void btnBuscarCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCajaMouseEntered
+        setColor(btnBuscarCaja);
+        jPanelCaja.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCajaMouseEntered
+
+    private void btnBuscarCajaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCajaMouseExited
+       resetColor(btnBuscarCaja); 
+    }//GEN-LAST:event_btnBuscarCajaMouseExited
+
+    private void jPanelCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCajaMouseEntered
+        jPanelCaja.setVisible(true);
+    }//GEN-LAST:event_jPanelCajaMouseEntered
+
+    private void jPanelCajaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCajaMouseExited
+        jPanelCaja.setVisible(false);
+    }//GEN-LAST:event_jPanelCajaMouseExited
+
+    private void btnAgregarCajeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCajeroMouseClicked
+        DialogCajero f = new DialogCajero();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_btnAgregarCajeroMouseClicked
 
-    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-        // TODO add your handling code here:
-        DialogBuscarProveedor f = new DialogBuscarProveedor();
+    private void btnAgregarCajeroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCajeroMouseEntered
+        setColor(btnAgregarCajero);
+        jPanelCajero.setVisible(true);
+    }//GEN-LAST:event_btnAgregarCajeroMouseEntered
+
+    private void btnAgregarCajeroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCajeroMouseExited
+        resetColor(btnAgregarCajero);
+    }//GEN-LAST:event_btnAgregarCajeroMouseExited
+
+    private void btnBuscarCajeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCajeroMouseClicked
+        DialogBuscarCajero f = new DialogBuscarCajero();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem17ActionPerformed
+    }//GEN-LAST:event_btnBuscarCajeroMouseClicked
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+    private void btnBuscarCajeroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCajeroMouseEntered
+        setColor(btnBuscarCajero);
+        jPanelCajero.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCajeroMouseEntered
+
+    private void btnBuscarCajeroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCajeroMouseExited
+        resetColor(btnBuscarCajero);
+    }//GEN-LAST:event_btnBuscarCajeroMouseExited
+
+    private void jPanelCajeroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCajeroMouseEntered
+        jPanelCajero.setVisible(true);
+    }//GEN-LAST:event_jPanelCajeroMouseEntered
+
+    private void jPanelCajeroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCajeroMouseExited
+        jPanelCajero.setVisible(false);
+    }//GEN-LAST:event_jPanelCajeroMouseExited
+
+    private void btnAgregarCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCarritoMouseClicked
+        DialogCarrito f = new DialogCarrito();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnAgregarCarritoMouseClicked
+
+    private void btnAgregarCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCarritoMouseEntered
+        setColor(btnAgregarCarrito);
+        jPanelCarrito.setVisible(true);
+        
+    }//GEN-LAST:event_btnAgregarCarritoMouseEntered
+
+    private void btnAgregarCarritoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCarritoMouseExited
+        resetColor(btnAgregarCarrito);
+    }//GEN-LAST:event_btnAgregarCarritoMouseExited
+
+    private void btnBuscarCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCarritoMouseClicked
+        DialogBuscarCategoria f = new DialogBuscarCategoria();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCarritoMouseClicked
+
+    private void btnBuscarCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCarritoMouseEntered
+        setColor(btnBuscarCarrito);
+        jPanelCarrito.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCarritoMouseEntered
+
+    private void btnBuscarCarritoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCarritoMouseExited
+        resetColor(btnBuscarCarrito);
+    }//GEN-LAST:event_btnBuscarCarritoMouseExited
+
+    private void jPanelCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCarritoMouseEntered
+        jPanelCarrito.setVisible(true);
+    }//GEN-LAST:event_jPanelCarritoMouseEntered
+
+    private void jPanelCarritoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCarritoMouseExited
+        jPanelCarrito.setVisible(false);
+    }//GEN-LAST:event_jPanelCarritoMouseExited
+
+    private void btnBuscarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarClienteMouseClicked
+        DialogBuscarCliente1 f = new DialogBuscarCliente1();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnBuscarClienteMouseClicked
+
+    private void btnBuscarClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarClienteMouseEntered
+        setColor(btnBuscarCliente);
+        jPanelCliente.setVisible(true);
+    }//GEN-LAST:event_btnBuscarClienteMouseEntered
+
+    private void btnBuscarClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarClienteMouseExited
+        resetColor(btnBuscarCliente);
+    }//GEN-LAST:event_btnBuscarClienteMouseExited
+
+    private void jPanelClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelClienteMouseEntered
+        jPanelCliente.setVisible(true);
+    }//GEN-LAST:event_jPanelClienteMouseEntered
+
+    private void jPanelClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelClienteMouseExited
+        jPanelCliente.setVisible(false);
+    }//GEN-LAST:event_jPanelClienteMouseExited
+
+    private void btnAgregarSupervisorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSupervisorMouseClicked
         DialogSupervisor f = new DialogSupervisor();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btnAgregarSupervisorMouseClicked
 
-    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-        // TODO add your handling code here:
+    private void btnAgregarSupervisorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSupervisorMouseEntered
+        setColor(btnAgregarSupervisor);
+        jPanelSupervisor.setVisible(true);
+    }//GEN-LAST:event_btnAgregarSupervisorMouseEntered
+
+    private void btnAgregarSupervisorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSupervisorMouseExited
+        resetColor(btnAgregarSupervisor);
+    }//GEN-LAST:event_btnAgregarSupervisorMouseExited
+
+    private void btnBuscarSupervisorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarSupervisorMouseClicked
         DialogBuscarSupervisor f = new DialogBuscarSupervisor();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem18ActionPerformed
+    }//GEN-LAST:event_btnBuscarSupervisorMouseClicked
 
-    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-        // TODO add your handling code here:
+    private void btnBuscarSupervisorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarSupervisorMouseEntered
+        setColor(btnBuscarSupervisor);
+        jPanelSupervisor.setVisible(true);
+    }//GEN-LAST:event_btnBuscarSupervisorMouseEntered
+
+    private void btnBuscarSupervisorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarSupervisorMouseExited
+        resetColor(btnBuscarSupervisor);
+    }//GEN-LAST:event_btnBuscarSupervisorMouseExited
+
+    private void jPanelSupervisorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSupervisorMouseEntered
+        jPanelSupervisor.setVisible(true);
+    }//GEN-LAST:event_jPanelSupervisorMouseEntered
+
+    private void jPanelSupervisorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSupervisorMouseExited
+        jPanelSupervisor.setVisible(false);
+    }//GEN-LAST:event_jPanelSupervisorMouseExited
+
+    private void btnAgregarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProveedorMouseClicked
+        DialogProveedor f = new DialogProveedor();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnAgregarProveedorMouseClicked
+
+    private void btnAgregarProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProveedorMouseEntered
+        setColor(btnAgregarProveedor);
+        jPanelProveedor.setVisible(true);
+    }//GEN-LAST:event_btnAgregarProveedorMouseEntered
+
+    private void btnAgregarProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarProveedorMouseExited
+        resetColor(btnAgregarProveedor);
+    }//GEN-LAST:event_btnAgregarProveedorMouseExited
+
+    private void btnBuscarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseClicked
+        DialogBuscarProveedor f = new DialogBuscarProveedor();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnBuscarProveedorMouseClicked
+
+    private void btnBuscarProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseEntered
+        setColor(btnBuscarProveedor);
+        jPanelProveedor.setVisible(true);
+    }//GEN-LAST:event_btnBuscarProveedorMouseEntered
+
+    private void btnBuscarProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseExited
+        resetColor(btnBuscarProveedor);
+    }//GEN-LAST:event_btnBuscarProveedorMouseExited
+
+    private void jPanelProveedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelProveedorMouseEntered
+        jPanelProveedor.setVisible(true);
+    }//GEN-LAST:event_jPanelProveedorMouseEntered
+
+    private void jPanelProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelProveedorMouseExited
+        jPanelProveedor.setVisible(false);
+    }//GEN-LAST:event_jPanelProveedorMouseExited
+
+    private void btnAgregarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseClicked
         DialogCompra f = new DialogCompra();
         f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem19ActionPerformed
+    }//GEN-LAST:event_btnAgregarCompraMouseClicked
+
+    private void btnAgregarCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseEntered
+        setColor(btnAgregarCompra);
+        jPanelCompra.setVisible(true);
+    }//GEN-LAST:event_btnAgregarCompraMouseEntered
+
+    private void btnAgregarCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseExited
+        resetColor(btnAgregarCompra);
+    }//GEN-LAST:event_btnAgregarCompraMouseExited
+
+    private void btnBuscarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCompraMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCompraMouseClicked
+
+    private void btnBuscarCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCompraMouseEntered
+        setColor(btnBuscarCompra);
+        jPanelCompra.setVisible(true);
+    }//GEN-LAST:event_btnBuscarCompraMouseEntered
+
+    private void btnBuscarCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCompraMouseExited
+        resetColor(btnBuscarCompra);
+    }//GEN-LAST:event_btnBuscarCompraMouseExited
+
+    private void jPanelCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCompraMouseEntered
+        jPanelCompra.setVisible(true);
+    }//GEN-LAST:event_jPanelCompraMouseEntered
+
+    private void jPanelCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCompraMouseExited
+        jPanelCompra.setVisible(false);
+    }//GEN-LAST:event_jPanelCompraMouseExited
 
     /**
      * @param args the command line arguments
@@ -614,6 +1914,37 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JPanel btnAdministrador;
+    private javax.swing.JPanel btnAgregarCaja;
+    private javax.swing.JPanel btnAgregarCajero;
+    private javax.swing.JPanel btnAgregarCarrito;
+    private javax.swing.JPanel btnAgregarCategoria;
+    private javax.swing.JPanel btnAgregarCompra;
+    private javax.swing.JPanel btnAgregarProducto;
+    private javax.swing.JPanel btnAgregarProveedor;
+    private javax.swing.JPanel btnAgregarSupervisor;
+    private javax.swing.JPanel btnBuscarCaja;
+    private javax.swing.JPanel btnBuscarCajero;
+    private javax.swing.JPanel btnBuscarCarrito;
+    private javax.swing.JPanel btnBuscarCategoria;
+    private javax.swing.JPanel btnBuscarCliente;
+    private javax.swing.JPanel btnBuscarCompra;
+    private javax.swing.JPanel btnBuscarProducto;
+    private javax.swing.JPanel btnBuscarProveedor;
+    private javax.swing.JPanel btnBuscarSupervisor;
+    private javax.swing.JPanel btnCaja;
+    private javax.swing.JPanel btnCajero;
+    private javax.swing.JPanel btnCarrito;
+    private javax.swing.JPanel btnCategoria;
+    private javax.swing.JPanel btnCliente;
+    private javax.swing.JPanel btnCompra;
+    private javax.swing.JPanel btnEditarAdmin;
+    private javax.swing.JPanel btnProducto;
+    private javax.swing.JPanel btnProveedor;
+    private javax.swing.JPanel btnSupermercado;
+    private javax.swing.JPanel btnSupervisor;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -628,58 +1959,61 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelSupermercado;
-    private javax.swing.JPanel jPanelSupermercado1;
-    private javax.swing.JPanel jPanelSupermercado2;
-    private javax.swing.JPanel jPanelSupermercado3;
-    private javax.swing.JPanel jPanelSupermercado4;
-    private javax.swing.JPanel jPanelSupermercado5;
-    private javax.swing.JPanel jPanelSupermercado6;
-    private javax.swing.JPanel jPanelSupermercado7;
-    private javax.swing.JPanel jPanelSupermercado8;
-    private javax.swing.JPanel jPanelSupermercado9;
+    private javax.swing.JPanel jPanelAdministrador;
+    private javax.swing.JPanel jPanelCaja;
+    private javax.swing.JPanel jPanelCajero;
+    private javax.swing.JPanel jPanelCarrito;
+    private javax.swing.JPanel jPanelCategoria;
+    private javax.swing.JPanel jPanelCliente;
+    private javax.swing.JPanel jPanelCompra;
+    private javax.swing.JPanel jPanelOperaciones;
+    private javax.swing.JPanel jPanelProducto;
+    private javax.swing.JPanel jPanelProveedor;
+    private javax.swing.JPanel jPanelSupervisor;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

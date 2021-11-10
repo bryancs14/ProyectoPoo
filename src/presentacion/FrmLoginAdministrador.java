@@ -131,7 +131,7 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
         String idAdministrador = txtIdAdministrador.getText();
         String nombre = txtNombre.getText();
         String contraseña = String.valueOf(txtContraseña.getPassword());
-        String sql = "select * from administrador2 where idAdministrador = ? and nombre = ? and contraseña = ?";
+        String sql = "select * from administrador where idAdministrador = ? and nombre = ? and contraseña = ?";
         try {
             ps = cn.prepareStatement(sql);
 

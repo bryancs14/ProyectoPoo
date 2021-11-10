@@ -89,7 +89,15 @@ private Supermercado supermercado = null;
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Ingrese su nombre de \"Supermercado\"");
         txtNombre.setBorder(null);
-        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 240, 30));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 290, 30));
 
         jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
         jLabel4.setText("SUPERMERCADO");
@@ -107,7 +115,15 @@ private Supermercado supermercado = null;
         txtDireccion.setForeground(new java.awt.Color(204, 204, 204));
         txtDireccion.setText("Ingrese su direccion");
         txtDireccion.setBorder(null);
-        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 240, 30));
+        txtDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDireccionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDireccionFocusLost(evt);
+            }
+        });
+        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 290, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/istockphoto-1157106624-612x612.jpg"))); // NOI18N
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 540, -1));
@@ -148,6 +164,7 @@ private Supermercado supermercado = null;
             }
         });
         jPanel3.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+        btnSalir.setBorderPainted(false);
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, -1));
 
@@ -196,6 +213,42 @@ private Supermercado supermercado = null;
         btnSalir.setBackground(Color.white);
         btnSalir.setForeground(Color.black);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"")){
+            txtNombre.setText("");
+            txtNombre.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"") || nombre.equals("")){
+            txtNombre.setText("Ingrese su nombre de \"Supermercado\"");
+            txtNombre.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusGained
+        String direccion = txtDireccion.getText();
+        
+        if(direccion.equalsIgnoreCase("Ingrese su direccion")){
+            txtDireccion.setText("");
+            txtDireccion.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtDireccionFocusGained
+
+    private void txtDireccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusLost
+        String direccion = txtDireccion.getText();
+        
+        if(direccion.equalsIgnoreCase("Ingrese su direccion") || direccion.equals("")){
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtDireccionFocusLost
 
     /**
      * @param args the command line arguments

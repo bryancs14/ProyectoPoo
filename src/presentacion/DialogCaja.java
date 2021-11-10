@@ -92,7 +92,7 @@ public class DialogCaja extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1Blanco.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 130, 40));
+        jPanel1Blanco.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 130, 40));
 
         btnActualizar.setBackground(new java.awt.Color(102, 255, 204));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -147,7 +147,7 @@ public class DialogCaja extends javax.swing.JDialog {
         txtIdCaja.setText("Ingrese Id Caja");
         txtIdCaja.setBorder(null);
         txtIdCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel1Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 240, 30));
+        jPanel1Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, 30));
         jPanel1Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 290, 10));
 
         jLabel2Direccion.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
@@ -158,7 +158,7 @@ public class DialogCaja extends javax.swing.JDialog {
         txtNdeCaja.setForeground(new java.awt.Color(204, 204, 204));
         txtNdeCaja.setText("Ingrese numero de caja");
         txtNdeCaja.setBorder(null);
-        jPanel1Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 240, 30));
+        jPanel1Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 30));
         jPanel1Blanco.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 290, 10));
 
         jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
@@ -171,7 +171,7 @@ public class DialogCaja extends javax.swing.JDialog {
         jTable1.setSelectionBackground(new java.awt.Color(255, 204, 0));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1Blanco.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 480, 230));
+        jPanel1Blanco.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 480, 280));
 
         jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cashier2_117800.png"))); // NOI18N

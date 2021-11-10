@@ -25,7 +25,7 @@ public class DialogCategoria extends javax.swing.JDialog {
     public DialogCategoria() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        
+        setSize(990, 620);
         setLocationRelativeTo(null);
         desHabilitar();
         try {
@@ -100,7 +100,15 @@ public class DialogCategoria extends javax.swing.JDialog {
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Ingrese su nombre");
         txtNombre.setBorder(null);
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 240, 30));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 290, 30));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 290, 10));
 
         jLabel2Direccion.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
@@ -109,9 +117,17 @@ public class DialogCategoria extends javax.swing.JDialog {
 
         txtIdCategoria.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdCategoria.setForeground(new java.awt.Color(204, 204, 204));
-        txtIdCategoria.setText("Ingrese su IdCategoria");
+        txtIdCategoria.setText("Ingrese su ID Categoria");
         txtIdCategoria.setBorder(null);
-        jPanel1.add(txtIdCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 240, 30));
+        txtIdCategoria.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIdCategoriaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdCategoriaFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtIdCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 290, 30));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 290, 10));
 
         btnGuardar.setBackground(new java.awt.Color(255, 51, 102));
@@ -124,7 +140,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 90, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 90, 40));
 
         btnConsultar.setBackground(new java.awt.Color(255, 51, 102));
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -136,7 +152,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 90, 40));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 90, 40));
 
         btnActualizar.setBackground(new java.awt.Color(255, 51, 102));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -179,10 +195,10 @@ public class DialogCategoria extends javax.swing.JDialog {
         jTable1.setModel(modelo);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 440, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 460, 220));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/categoria2.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -200, 500, 940));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 510, 710));
 
         jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel6.setText("NOMBRE");
@@ -322,6 +338,42 @@ public class DialogCategoria extends javax.swing.JDialog {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equalsIgnoreCase("Ingrese su nombre")){
+            txtNombre.setText("");
+            txtNombre.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equalsIgnoreCase("Ingrese su nombre") || nombre.equals("")){
+            txtNombre.setText("Ingrese su nombre");
+            txtNombre.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtIdCategoriaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCategoriaFocusGained
+        String id = txtIdCategoria.getText();
+        
+        if(id.equalsIgnoreCase("Ingrese su ID Categoria")){
+            txtIdCategoria.setText("");
+            txtIdCategoria.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtIdCategoriaFocusGained
+
+    private void txtIdCategoriaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCategoriaFocusLost
+        String id = txtIdCategoria.getText();
+        
+        if(id.equalsIgnoreCase("Ingrese su ID Categoria") || id.equals("")){
+            txtIdCategoria.setText("Ingrese su ID Categoria");
+            txtIdCategoria.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtIdCategoriaFocusLost
 
     /**
      * @param args the command line arguments

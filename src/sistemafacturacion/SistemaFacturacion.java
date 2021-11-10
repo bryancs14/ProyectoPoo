@@ -10,10 +10,10 @@ public class SistemaFacturacion {
         
 //        FrmRegistrarAdministrador frmRegistrar = new FrmRegistrarAdministrador();
 //        frmRegistrar.setVisible(true);
-      FrmLoginAdministrador x = new FrmLoginAdministrador();
-       x.setVisible(true);
-//       FrmPrincipal f = new FrmPrincipal();
-//       f.setVisible(true);
+//        FrmLoginAdministrador x = new FrmLoginAdministrador();
+//        x.setVisible(true);
+       FrmPrincipal f = new FrmPrincipal();
+       f.setVisible(true);
     }
     
 }
