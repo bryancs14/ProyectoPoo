@@ -5,14 +5,17 @@
  */
 package presentacion;
 
+import datos.Conexion;
 import datos.CajaDAO;
 import datos.CajeroDAO;
 import entidad.Caja;
 import entidad.Cajero;
 import java.awt.Color;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class DialogCajero extends javax.swing.JDialog {
 
@@ -90,12 +93,13 @@ public class DialogCajero extends javax.swing.JDialog {
         btnActualizar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        btnRestaurar = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btnSeleccionarCaja = new javax.swing.JButton();
+        btnRestaurar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -238,16 +242,16 @@ public class DialogCajero extends javax.swing.JDialog {
         });
         jPanel4Blanco.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 140, 40));
 
-        btnRestaurar.setBackground(new java.awt.Color(107, 227, 249));
-        btnRestaurar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnRestaurar.setText("RESTAURAR");
-        btnRestaurar.setBorder(null);
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
+        btnReporte.setBackground(new java.awt.Color(107, 227, 249));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnReporte.setText("GENERAR REPORTE");
+        btnReporte.setBorder(null);
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
+                btnReporteActionPerformed(evt);
             }
         });
-        jPanel4Blanco.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 140, 40));
+        jPanel4Blanco.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 140, 40));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
@@ -293,6 +297,17 @@ public class DialogCajero extends javax.swing.JDialog {
         });
         jPanel4Blanco.add(btnSeleccionarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 140, 40));
 
+        btnRestaurar1.setBackground(new java.awt.Color(107, 227, 249));
+        btnRestaurar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRestaurar1.setText("RESTAURAR");
+        btnRestaurar1.setBorder(null);
+        btnRestaurar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaurar1ActionPerformed(evt);
+            }
+        });
+        jPanel4Blanco.add(btnRestaurar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 140, 40));
+
         getContentPane().add(jPanel4Blanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, -1));
 
         pack();
@@ -322,7 +337,7 @@ public class DialogCajero extends javax.swing.JDialog {
             String idCajero=txtIdCajero.getText();
             String nombre=txtNombre.getText();
             String turno=cboTurno.getSelectedItem().toString();
-            String contraseña=txtContraseña.getText();
+            String contraseña = txtContraseña.getText();
 
             Cajero cajero= new Cajero(idCajero, nombre, turno, contraseña, cajaSelec);
 
@@ -394,11 +409,22 @@ public class DialogCajero extends javax.swing.JDialog {
         desHabilitar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
-        // TODO add your handling code here:
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        JasperReport reporte;
+        Connection cn;
+        try {
+            
+            cn = Conexion.getInstancia().miConexion();
+            reporte = JasperCompileManager.compileReport("src/reportes/reporteCajero.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer.viewReport(jp, true);
+            
+         }catch(JRException e){
+            JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_btnReporteActionPerformed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         // TODO add your handling code here:
@@ -432,6 +458,10 @@ public class DialogCajero extends javax.swing.JDialog {
         txtNdeCaja.setText(String.valueOf(cajaSelec.getNumeroDeCaja()));
 
     }//GEN-LAST:event_btnSeleccionarCajaActionPerformed
+
+    private void btnRestaurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRestaurar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,7 +510,8 @@ public class DialogCajero extends javax.swing.JDialog {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRestaurar;
+    private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnRestaurar1;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionarCaja;
     private javax.swing.JComboBox<String> cboTurno;
