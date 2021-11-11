@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="900" pageHeight="800" orientation="Landscape" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="9e8fe527-1b30-4624-8fc8-7c30d0c9d798">
-	<property name="ireport.zoom" value="0.7513148009015784"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="1.1000000000000014"/>
+	<property name="ireport.x" value="41"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
@@ -26,16 +26,16 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="104" splitType="Stretch">
+		<band height="103" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="318" y="12" width="240" height="67" uuid="a18afa2e-c741-4967-b34e-23769ffed1d6"/>
+				<reportElement style="Title" x="353" y="13" width="240" height="67" uuid="a18afa2e-c741-4967-b34e-23769ffed1d6"/>
 				<textElement verticalAlignment="Middle">
 					<font size="54" isBold="false" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[CAJERO]]></text>
 			</staticText>
 			<image>
-				<reportElement x="215" y="0" width="128" height="102" uuid="bf645023-b321-4614-9898-45e79ddf16cb"/>
+				<reportElement x="239" y="1" width="128" height="102" uuid="bf645023-b321-4614-9898-45e79ddf16cb"/>
 				<imageExpression><![CDATA["C:\\Users\\maxpa\\Pictures\\cashier_icon_179531.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -44,64 +44,55 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="25" splitType="Stretch">
-			<rectangle>
-				<reportElement x="0" y="0" width="860" height="25" uuid="6b6231c6-5126-4b2c-8d0c-82861c536534"/>
-			</rectangle>
-			<frame>
-				<reportElement x="0" y="0" width="860" height="25" uuid="708a3ed8-5692-44e8-a74a-3da345b46212"/>
-				<staticText>
-					<reportElement x="69" y="1" width="100" height="20" uuid="14fab7de-51b6-4d93-a598-79e58bcc0b8f"/>
-					<textElement>
-						<font fontName="Bahnschrift" size="16"/>
-					</textElement>
-					<text><![CDATA[ID CAJERO]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="241" y="1" width="63" height="20" uuid="117a712d-cc1b-4e29-859d-6f44fe3bbb8e"/>
-					<textElement>
-						<font fontName="Bahnschrift" size="16"/>
-					</textElement>
-					<text><![CDATA[ID CAJA]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="451" y="0" width="62" height="20" uuid="f3a4f5c7-90e4-4c6d-9687-fbece67bb984"/>
-					<textElement>
-						<font fontName="Bahnschrift" size="14"/>
-					</textElement>
-					<text><![CDATA[NOMBRE]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="670" y="1" width="48" height="20" uuid="34c31ac6-45a9-46d8-bbf2-ddea5f0d5d84"/>
-					<textElement>
-						<font fontName="Bahnschrift" size="14"/>
-					</textElement>
-					<text><![CDATA[TURNO]]></text>
-				</staticText>
-			</frame>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="12" width="79" height="16" uuid="f510a1b2-5c62-4496-b5be-4ba4f86d4f46"/>
+				<textElement>
+					<font fontName="Bell MT" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID CAJERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="12" width="65" height="20" uuid="0692ffa4-3555-4eb3-b79e-4be6aa6ad129"/>
+				<textElement>
+					<font fontName="Bell MT" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID CAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="12" width="63" height="20" uuid="cf16d2c4-4189-4648-9d1b-2a1b33508deb"/>
+				<textElement>
+					<font fontName="Bell MT" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="698" y="14" width="57" height="18" uuid="592c788f-ef12-4db6-bbd1-427c57be1078"/>
+				<textElement>
+					<font fontName="Bell MT" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TURNO]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="49" splitType="Stretch">
-			<frame>
-				<reportElement x="0" y="0" width="860" height="49" uuid="d06ddd8e-e4b4-4a15-806f-eda5a6628141"/>
-				<textField>
-					<reportElement x="100" y="15" width="58" height="20" uuid="57fc4878-13b2-4ac4-b473-f2390e7bce19"/>
-					<textFieldExpression><![CDATA[$F{idCajero}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="255" y="15" width="49" height="20" uuid="5cf62b59-1dbc-4b0e-b090-af9eb836a7c3"/>
-					<textFieldExpression><![CDATA[$F{idCaja}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="451" y="15" width="55" height="20" uuid="806b9ec8-c563-43be-a04e-fa4c19f062ee"/>
-					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="670" y="15" width="48" height="20" uuid="7a4ef93d-6a72-4ece-82a8-3775e74fd88d"/>
-					<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
-				</textField>
-			</frame>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="127" y="10" width="64" height="20" uuid="4e67e47c-9b06-49dc-8880-6b666fd4364c"/>
+				<textFieldExpression><![CDATA[$F{idCajero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="10" width="50" height="20" uuid="eb19d771-3bf9-42c1-8b9f-431009432d0d"/>
+				<textFieldExpression><![CDATA[$F{idCaja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="10" width="58" height="15" uuid="abdaa55e-6aa2-459d-8566-473a0290bf86"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="703" y="9" width="43" height="16" uuid="a95ee719-bd01-492f-82a8-dcbb3cbe33ca"/>
+				<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
