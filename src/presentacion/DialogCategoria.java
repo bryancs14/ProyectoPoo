@@ -5,12 +5,17 @@
  */
 package presentacion;
 
+
 import datos.CategoriaDAO;
+import datos.Conexion;
 import entidad.Categoria;
 import java.awt.Color;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -83,6 +88,7 @@ public class DialogCategoria extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -109,6 +115,8 @@ public class DialogCategoria extends javax.swing.JDialog {
             }
         });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 290, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 51, 102));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 290, 10));
 
         jLabel2Direccion.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
@@ -128,6 +136,8 @@ public class DialogCategoria extends javax.swing.JDialog {
             }
         });
         jPanel1.add(txtIdCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 290, 30));
+
+        jSeparator2.setBackground(new java.awt.Color(255, 51, 102));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 290, 10));
 
         btnGuardar.setBackground(new java.awt.Color(255, 51, 102));
@@ -140,7 +150,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 90, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 100, 40));
 
         btnConsultar.setBackground(new java.awt.Color(255, 51, 102));
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -152,7 +162,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 90, 40));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 100, 40));
 
         btnActualizar.setBackground(new java.awt.Color(255, 51, 102));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -164,7 +174,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 90, 40));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 100, 40));
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 102));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -176,7 +186,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 90, 40));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 100, 40));
 
         btnEliminar.setBackground(new java.awt.Color(255, 51, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -189,7 +199,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 90, 40));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 100, 40));
 
         jTable1.setBackground(new java.awt.Color(255, 102, 102));
         jTable1.setModel(modelo);
@@ -232,6 +242,17 @@ public class DialogCategoria extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        btnReporte.setBackground(new java.awt.Color(255, 51, 102));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnReporte.setText("GENERAR REPORTE");
+        btnReporte.setBorder(null);
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 130, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 620));
 
@@ -375,6 +396,22 @@ public class DialogCategoria extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtIdCategoriaFocusLost
 
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        JasperReport reporte;
+        Connection cn;
+        try {
+
+            cn = Conexion.getInstancia().miConexion();
+            reporte = JasperCompileManager.compileReport("src/reportes/reporteCategoria.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer.viewReport(jp, true);
+
+        }catch(JRException e){
+            JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -424,6 +461,7 @@ public class DialogCategoria extends javax.swing.JDialog {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2Direccion;
     private javax.swing.JLabel jLabel3;

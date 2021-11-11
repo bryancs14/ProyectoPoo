@@ -4,14 +4,18 @@
  * and open the template in the editor.
  */
 package presentacion;
-
+import datos.Conexion;
 import datos.SupermercadoDAO;
 import entidad.Supermercado;
 import datos.AdministradorDAO;
 import entidad.Administrador;
 import java.sql.SQLException;
+import java.sql.*;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class DialogAdministrador extends javax.swing.JDialog {
 
@@ -77,6 +81,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnRestaurar1 = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNombreAdmi = new javax.swing.JTextField();
@@ -144,6 +149,17 @@ public class DialogAdministrador extends javax.swing.JDialog {
         });
         jPanel2.add(btnRestaurar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 140, 30));
 
+        btnReporte.setBackground(new java.awt.Color(102, 255, 204));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnReporte.setText("GENERAR REPORTE");
+        btnReporte.setBorder(null);
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 130, 40));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 200, 360));
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 0));
@@ -196,6 +212,21 @@ public class DialogAdministrador extends javax.swing.JDialog {
         limpiarEntradas();
     }//GEN-LAST:event_btnRestaurar1ActionPerformed
 
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        JasperReport reporte;
+        Connection cn;
+        try {
+
+            cn = Conexion.getInstancia().miConexion();
+            reporte = JasperCompileManager.compileReport("src/reportes/report1.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer.viewReport(jp, true);
+
+        }catch(JRException e){
+            JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
+        }
+    }//GEN-LAST:event_btnReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,6 +271,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnRestaurar1;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;

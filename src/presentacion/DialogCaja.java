@@ -4,15 +4,21 @@
  * and open the template in the editor.
  */
 package presentacion;
-//import datos.SupermercadoDAO;
+
+import datos.Conexion;
 import entidad.Supermercado;
 import datos.CajaDAO;
 import datos.SupermercadoDAO;
 import entidad.Caja;
 import java.awt.Color;
+import java.sql.*;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
+
+
 public class DialogCaja extends javax.swing.JDialog {
 
     private DefaultTableModel modelo = new DefaultTableModel();
@@ -73,6 +79,7 @@ public class DialogCaja extends javax.swing.JDialog {
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -92,7 +99,7 @@ public class DialogCaja extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1Blanco.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 130, 40));
+        jPanel1Blanco.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 130, 40));
 
         btnActualizar.setBackground(new java.awt.Color(102, 255, 204));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -200,6 +207,17 @@ public class DialogCaja extends javax.swing.JDialog {
             }
         });
         jPanel1Blanco.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        btnReporte.setBackground(new java.awt.Color(102, 255, 204));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnReporte.setText("GENERAR REPORTE");
+        btnReporte.setBorder(null);
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        jPanel1Blanco.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 130, 40));
 
         jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
         jLabel8.setText("CAJA");
@@ -317,6 +335,22 @@ public class DialogCaja extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        JasperReport reporte;
+        Connection cn;
+        try {
+
+            cn = Conexion.getInstancia().miConexion();
+            reporte = JasperCompileManager.compileReport("src/reportes/reporteCaja.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer.viewReport(jp, true);
+
+        }catch(JRException e){
+            JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -364,6 +398,7 @@ public class DialogCaja extends javax.swing.JDialog {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2Direccion;
