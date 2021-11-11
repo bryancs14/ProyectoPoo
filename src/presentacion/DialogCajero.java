@@ -389,7 +389,6 @@ public class DialogCajero extends javax.swing.JDialog {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
        try{
 
             int res = JOptionPane.showConfirmDialog(this, "¿Proceso eliminarlo? ", "Eliminar Dato", JOptionPane.YES_NO_OPTION );
@@ -418,27 +417,21 @@ public class DialogCajero extends javax.swing.JDialog {
             reporte = JasperCompileManager.compileReport("src/reportes/reporteCajero.jrxml");
             JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
             JasperViewer.viewReport(jp, true);
-            
-         }catch(JRException e){
+        }catch(JRException e){
             JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
-        }
-        
-        
+        } 
     }//GEN-LAST:event_btnReporteActionPerformed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
-        // TODO add your handling code here:
         btnSalir.setBackground(Color.red);
         btnSalir.setForeground(Color.white);
     }//GEN-LAST:event_btnSalirMouseEntered
 
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
-        // TODO add your handling code here:
         btnSalir.setBackground(Color.white);
         btnSalir.setForeground(Color.black);
     }//GEN-LAST:event_btnSalirMouseExited
