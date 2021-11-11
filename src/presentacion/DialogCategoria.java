@@ -402,7 +402,7 @@ public class DialogCategoria extends javax.swing.JDialog {
         try {
 
             cn = Conexion.getInstancia().miConexion();
-            reporte = JasperCompileManager.compileReport("src/reportes/reporteCategoria.jrxml");
+            reporte = JasperCompileManager.compileReport("src/reportes/reportCategoria.jrxml");
             JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
             JasperViewer.viewReport(jp, true);
 
