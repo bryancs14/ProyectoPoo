@@ -1,34 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package presentacion;
 
 
 import datos.CategoriaDAO;
 import datos.Conexion;
+import entidad.Validaciones;
 import entidad.Categoria;
 import java.awt.Color;
 import java.sql.*;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
-import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author USUARIO
- */
 public class DialogCategoria extends javax.swing.JDialog {
 
     private DefaultTableModel modelo = new DefaultTableModel();
-     /* 
-     * Creates new form DialogCategoria
-     */
+    Validaciones x = new Validaciones();
+    
     public DialogCategoria() {
-        super(FrmPrincipal.getInstancia(), true);
+        super(FrmPrincipal.getInstancia(), false);
         initComponents();
         setSize(990, 620);
         setLocationRelativeTo(null);
@@ -112,6 +104,11 @@ public class DialogCategoria extends javax.swing.JDialog {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtNombreFocusLost(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
             }
         });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 290, 30));
@@ -398,19 +395,25 @@ public class DialogCategoria extends javax.swing.JDialog {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         JasperReport reporte;
-        Connection cn;
+        Connection cn = Conexion.getInstancia().miConexion();
         try {
-
-            cn = Conexion.getInstancia().miConexion();
-            reporte = JasperCompileManager.compileReport("src/reportes/reportCategoria.jrxml");
+            /*reporte = JasperCompileManager.compileReport("src/reportes/reportCategoria.jrxml");
             JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
-            JasperViewer.viewReport(jp, true);
-
-        }catch(JRException e){
+            JasperViewer.viewReport(jp, true);*/
+            reporte = JasperCompileManager.compileReport("src/reportes/reportCategoria.jrxml");
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer view = new JasperViewer(imprimir, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+            
+        } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
         }
-
     }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     /**
      * @param args the command line arguments

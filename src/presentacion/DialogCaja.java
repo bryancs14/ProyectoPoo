@@ -7,12 +7,12 @@ package presentacion;
 
 import datos.Conexion;
 import entidad.Supermercado;
+import entidad.Validaciones;
 import datos.CajaDAO;
 import datos.SupermercadoDAO;
 import entidad.Caja;
 import java.awt.Color;
 import java.sql.*;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.*;
@@ -25,7 +25,7 @@ public class DialogCaja extends javax.swing.JDialog {
     private Supermercado supermercadoSelec = null;
     
     public DialogCaja() {
-        super(FrmPrincipal.getInstancia(), true);
+        super(FrmPrincipal.getInstancia(), false);
         initComponents();
         
         setLocationRelativeTo(null);
@@ -37,7 +37,7 @@ public class DialogCaja extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, su.getMessage());
         }
     }
-
+    
     private void habilitar(){
         btnActualizar.setEnabled(true);
         btnEliminar.setEnabled(true);
@@ -151,9 +151,17 @@ public class DialogCaja extends javax.swing.JDialog {
 
         txtIdCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdCaja.setForeground(new java.awt.Color(204, 204, 204));
-        txtIdCaja.setText("Ingrese Id Caja");
+        txtIdCaja.setText("Ingrese ID CAJA");
         txtIdCaja.setBorder(null);
         txtIdCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtIdCaja.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIdCajaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdCajaFocusLost(evt);
+            }
+        });
         jPanel1Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, 30));
         jPanel1Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 290, 10));
 
@@ -163,8 +171,21 @@ public class DialogCaja extends javax.swing.JDialog {
 
         txtNdeCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNdeCaja.setForeground(new java.awt.Color(204, 204, 204));
-        txtNdeCaja.setText("Ingrese numero de caja");
+        txtNdeCaja.setText("INGRESE EL NUMERO DE CAJA");
         txtNdeCaja.setBorder(null);
+        txtNdeCaja.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNdeCajaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNdeCajaFocusLost(evt);
+            }
+        });
+        txtNdeCaja.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNdeCajaKeyTyped(evt);
+            }
+        });
         jPanel1Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 290, 30));
         jPanel1Blanco.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 290, 10));
 
@@ -229,11 +250,9 @@ public class DialogCaja extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
         String idCaja = txtIdCaja.getText();
         int nDeCaja = Integer.parseInt(txtNdeCaja.getText());
-       
-
+        
         Caja caja= new Caja(idCaja, nDeCaja, supermercadoSelec);
         try{
             CajaDAO.getInstancia().agregar(caja);
@@ -241,9 +260,11 @@ public class DialogCaja extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Dato registrado");
         } catch(SQLException su){
             JOptionPane.showMessageDialog(null, su.getMessage());
-        }
+            }
         limpiarEntradas();
         desHabilitar();
+        
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -264,22 +285,21 @@ public class DialogCaja extends javax.swing.JDialog {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-        String idcaja=txtIdCaja.getText();
+        String idcaja = JOptionPane.showInputDialog("INGRESE UNA ID");
         if(idcaja.equalsIgnoreCase(""))
             JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
         else
         {
             try{
                 Caja cajaBuscada = CajaDAO.getInstancia().buscarCaja(idcaja);
-                if(cajaBuscada != null)
-                {
-                    txtNdeCaja.setText(cajaBuscada.getSupermercado().getNombre());
+                if(cajaBuscada != null){
+                    txtIdCaja.setText(cajaBuscada.getIdCaja());
+                    txtNdeCaja.setText(String.valueOf(cajaBuscada.getNumeroDeCaja()));
                     supermercadoSelec = cajaBuscada.getSupermercado();
                     habilitar();
-            }
-            else
-                    JOptionPane.showMessageDialog(null, "El ID Caja no existe");
+                }
+                else
+                     JOptionPane.showMessageDialog(null, "El ID Caja no existe");
             } catch(SQLException su) {
                 JOptionPane.showMessageDialog(null,su.getMessage());
             }
@@ -287,9 +307,7 @@ public class DialogCaja extends javax.swing.JDialog {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
         try{
-
             int res = JOptionPane.showConfirmDialog(this, "¿Proceso Eliminarlo? ", "Eliminar caja", JOptionPane.YES_NO_OPTION );
 
             if( res == JOptionPane.YES_OPTION ){
@@ -331,25 +349,63 @@ public class DialogCaja extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         JasperReport reporte;
-        Connection cn;
+        Connection cn = Conexion.getInstancia().miConexion();
         try {
-
-            cn = Conexion.getInstancia().miConexion();
             reporte = JasperCompileManager.compileReport("src/reportes/reporteCaja.jrxml");
-            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
-            JasperViewer.viewReport(jp, true);
-
-        }catch(JRException e){
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer view = new JasperViewer(imprimir, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+        } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
         }
-
     }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void txtIdCajaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCajaFocusGained
+        String idCaja = txtIdCaja.getText();
+        
+        if(idCaja.equalsIgnoreCase("Ingrese ID CAJA")){
+            txtIdCaja.setText("");
+            txtIdCaja.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtIdCajaFocusGained
+
+    private void txtIdCajaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCajaFocusLost
+        String idCaja = txtIdCaja.getText();
+        
+        if(idCaja.equalsIgnoreCase("INGRESE ID CAJA") || idCaja.equals("")){
+            txtIdCaja.setText("INGRESE ID CAJA");
+            txtIdCaja.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtIdCajaFocusLost
+
+    private void txtNdeCajaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNdeCajaFocusGained
+        String NdeCaja = txtNdeCaja.getText();
+        
+        if(NdeCaja.equalsIgnoreCase("INGRESE EL NUMERO DE CAJA")){
+            txtNdeCaja.setText("");
+            txtNdeCaja.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtNdeCajaFocusGained
+
+    private void txtNdeCajaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNdeCajaFocusLost
+        String NdeCaja = txtNdeCaja.getText();
+        
+        if(NdeCaja.equalsIgnoreCase("INGRESE EL NUMERO DE CAJA") || NdeCaja.equals("")){
+            txtNdeCaja.setText("INGRESE EL NUMERO DE CAJA");
+            txtNdeCaja.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNdeCajaFocusLost
+
+    private void txtNdeCajaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNdeCajaKeyTyped
+        Validaciones x = new Validaciones();
+        x.validarNumeros(evt);
+    }//GEN-LAST:event_txtNdeCajaKeyTyped
 
     /**
      * @param args the command line arguments

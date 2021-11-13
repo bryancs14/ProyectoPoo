@@ -6,7 +6,7 @@
 package presentacion;
 
 import datos.Conexion;
-import datos.CajaDAO;
+import entidad.Validaciones;
 import datos.CajeroDAO;
 import entidad.Caja;
 import entidad.Cajero;
@@ -21,12 +21,11 @@ public class DialogCajero extends javax.swing.JDialog {
 
     private DefaultTableModel modelo = new DefaultTableModel();
     private Caja cajaSelec = null;
+    private Validaciones x = new Validaciones();
     
     public DialogCajero() {
-        super(FrmPrincipal.getInstancia(), true);
-        initComponents();
-        
-        setLocationRelativeTo(null);
+        super(FrmPrincipal.getInstancia(), false);
+        initComponents();setLocationRelativeTo(null);
         desHabilitar();
         try {
             CajeroDAO.getInstancia().mostrar(modelo);
@@ -57,9 +56,9 @@ public class DialogCajero extends javax.swing.JDialog {
         txtContraseña.setText("");
         txtIdCaja.setText("");
         txtNdeCaja.setText("");
-        
         txtIdCajero.requestFocus();
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -130,7 +129,15 @@ public class DialogCajero extends javax.swing.JDialog {
         txtIdCajero.setForeground(new java.awt.Color(204, 204, 204));
         txtIdCajero.setText("Ingrese su nombre de \"Supermercado\"");
         txtIdCajero.setBorder(null);
-        jPanel4Blanco.add(txtIdCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 240, 30));
+        txtIdCajero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIdCajeroFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdCajeroFocusLost(evt);
+            }
+        });
+        jPanel4Blanco.add(txtIdCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 290, 30));
         jPanel4Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 290, 10));
 
         jLabel2Direccion.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
@@ -141,7 +148,20 @@ public class DialogCajero extends javax.swing.JDialog {
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Ingrese su direccion");
         txtNombre.setBorder(null);
-        jPanel4Blanco.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 240, 30));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
+        jPanel4Blanco.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 290, 30));
         jPanel4Blanco.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 290, 10));
 
         jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
@@ -160,7 +180,16 @@ public class DialogCajero extends javax.swing.JDialog {
 
         txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(204, 204, 204));
-        txtContraseña.setText("jPasswordField1");
+        txtContraseña.setText("CONTRASEÑA");
+        txtContraseña.setBorder(null);
+        txtContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtContraseñaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtContraseñaFocusLost(evt);
+            }
+        });
         jPanel4Blanco.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 441, 290, 30));
 
         cboTurno.setForeground(new java.awt.Color(153, 153, 153));
@@ -177,10 +206,18 @@ public class DialogCajero extends javax.swing.JDialog {
 
         txtIdCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdCaja.setForeground(new java.awt.Color(204, 204, 204));
-        txtIdCaja.setText("Ingrese Id Caja");
+        txtIdCaja.setText("Ingrese ID Caja");
         txtIdCaja.setBorder(null);
         txtIdCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel4Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 240, 30));
+        txtIdCaja.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIdCajaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdCajaFocusLost(evt);
+            }
+        });
+        jPanel4Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 290, 30));
         jPanel4Blanco.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 290, 10));
         jPanel4Blanco.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 290, 10));
 
@@ -188,7 +225,20 @@ public class DialogCajero extends javax.swing.JDialog {
         txtNdeCaja.setForeground(new java.awt.Color(204, 204, 204));
         txtNdeCaja.setText("Ingrese numero de caja");
         txtNdeCaja.setBorder(null);
-        jPanel4Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 240, 30));
+        txtNdeCaja.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNdeCajaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNdeCajaFocusLost(evt);
+            }
+        });
+        txtNdeCaja.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNdeCajaKeyTyped(evt);
+            }
+        });
+        jPanel4Blanco.add(txtNdeCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 290, 30));
 
         jLabel2Direccion3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel2Direccion3.setText("Nº DE CAJA");
@@ -251,7 +301,7 @@ public class DialogCajero extends javax.swing.JDialog {
                 btnReporteActionPerformed(evt);
             }
         });
-        jPanel4Blanco.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 140, 40));
+        jPanel4Blanco.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 140, 40));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
@@ -410,14 +460,18 @@ public class DialogCajero extends javax.swing.JDialog {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         JasperReport reporte;
-        Connection cn;
+        Connection cn = Conexion.getInstancia().miConexion();
         try {
-            
-            cn = Conexion.getInstancia().miConexion();
-            reporte = JasperCompileManager.compileReport("src/reportes/reporteCajero.jrxml");
+            /*reporte = JasperCompileManager.compileReport("src/reportes/reportCategoria.jrxml");
             JasperPrint jp = JasperFillManager.fillReport(reporte, null, cn);
-            JasperViewer.viewReport(jp, true);
-        }catch(JRException e){
+            JasperViewer.viewReport(jp, true);*/
+            reporte = JasperCompileManager.compileReport("src/reportes/reporteCajero.jrxml");
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte, null, cn);
+            JasperViewer view = new JasperViewer(imprimir, false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setVisible(true);
+            
+        } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
         } 
     }//GEN-LAST:event_btnReporteActionPerformed
@@ -455,6 +509,104 @@ public class DialogCajero extends javax.swing.JDialog {
     private void btnRestaurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRestaurar1ActionPerformed
+
+    private void txtIdCajeroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCajeroFocusGained
+        String idCajero = txtIdCajero.getText();
+        
+        if(idCajero.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"")){
+            txtIdCajero.setText("");
+            txtIdCajero.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtIdCajeroFocusGained
+
+    private void txtIdCajeroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCajeroFocusLost
+        String idCajero = txtIdCajero.getText();
+        
+        if(idCajero.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"") || idCajero.equals("")){
+            txtIdCajero.setText("Ingrese su nombre de \"Supermercado\"");
+            txtIdCajero.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtIdCajeroFocusLost
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equalsIgnoreCase("Ingrese su direccion")){
+            txtNombre.setText("");
+            txtNombre.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        String nombre = txtNombre.getText();
+        
+        if(nombre.equalsIgnoreCase("Ingrese su direccion") || nombre.equals("")){
+            txtNombre.setText("Ingrese su direccion");
+            txtNombre.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusGained
+        String contraseña = String.valueOf(txtContraseña.getPassword());
+        
+        if(contraseña.equalsIgnoreCase("CONTRASEÑA")){
+            txtContraseña.setText("");
+            txtContraseña.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtContraseñaFocusGained
+
+    private void txtContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseñaFocusLost
+        String contraseña = String.valueOf(txtContraseña.getPassword());
+        
+        if(contraseña.equalsIgnoreCase("CONTRASEÑA") || contraseña.equals("")){
+            txtContraseña.setText("CONTRASEÑA");
+            txtContraseña.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtContraseñaFocusLost
+
+    private void txtIdCajaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCajaFocusGained
+        String idCaja = txtIdCaja.getText();
+        
+        if(idCaja.equalsIgnoreCase("Ingrese ID Caja")){
+            txtIdCaja.setText("");
+            txtIdCaja.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtIdCajaFocusGained
+
+    private void txtIdCajaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdCajaFocusLost
+        String idCaja = txtIdCaja.getText();
+        
+        if(idCaja.equalsIgnoreCase("Ingrese ID Caja") || idCaja.equals("")){
+            txtIdCaja.setText("Ingrese ID Caja");
+            txtIdCaja.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtIdCajaFocusLost
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtNdeCajaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNdeCajaFocusGained
+        String nCaja = txtNdeCaja.getText();
+        
+        if(nCaja.equalsIgnoreCase("Ingrese numero de caja")){
+            txtNdeCaja.setText("");
+            txtNdeCaja.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtNdeCajaFocusGained
+
+    private void txtNdeCajaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNdeCajaFocusLost
+        String nCaja = txtNdeCaja.getText();
+        
+        if(nCaja.equalsIgnoreCase("Ingrese numero de caja") || nCaja.equals("")){
+            txtNdeCaja.setText("Ingrese numero de caja");
+            txtNdeCaja.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNdeCajaFocusLost
+
+    private void txtNdeCajaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNdeCajaKeyTyped
+        x.validarNumeros(evt);
+    }//GEN-LAST:event_txtNdeCajaKeyTyped
 
     /**
      * @param args the command line arguments

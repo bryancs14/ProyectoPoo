@@ -2,45 +2,36 @@
 package presentacion;
 
 import datos.SupermercadoDAO;
+import entidad.Validaciones;
 import entidad.Supermercado;
 import java.awt.Color;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class DialogSupermercado extends javax.swing.JDialog {
-private Supermercado supermercado = null;
+    
+    private Supermercado supermercado = null;
+    private Validaciones x = new Validaciones();
 
 
     public DialogSupermercado() {
-        super(FrmPrincipal.getInstancia(), true);
+        super(FrmPrincipal.getInstancia(), false);
         initComponents();
-        
         setLocationRelativeTo(null);
         traerSuper();
-    } 
-    
-    private void limpiarEntradas(){
-        
-        txtNombre.setText("");
-        txtDireccion.setText("");
-        txtNombre.requestFocus();
+        habilitar();
     }
 
     private void habilitar(){
         btnGuardar.setEnabled(true);
-        
         btnSalir.setEnabled(false);
     }
     
-    private void deshabilitar(){
-        btnGuardar.setEnabled(false);
-        
-        btnSalir.setEnabled(true);
-    }
     
     private void traerSuper() {
         try {
             supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
+            
             if(supermercado != null) {
                 
                 txtNombre.setText(supermercado.getNombre());
@@ -85,6 +76,7 @@ private Supermercado supermercado = null;
         jLabel2Direccion.setText("DIRECCION");
         jPanel3.add(jLabel2Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 90, 20));
 
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtNombre.setText("Ingrese su nombre de \"Supermercado\"");
@@ -95,6 +87,11 @@ private Supermercado supermercado = null;
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtNombreFocusLost(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
             }
         });
         jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 290, 30));
@@ -111,6 +108,7 @@ private Supermercado supermercado = null;
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 210, 140));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 290, 10));
 
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
         txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(204, 204, 204));
         txtDireccion.setText("Ingrese su direccion");
@@ -139,7 +137,7 @@ private Supermercado supermercado = null;
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 130, 40));
+        jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 130, 40));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
@@ -172,7 +170,6 @@ private Supermercado supermercado = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -185,7 +182,6 @@ private Supermercado supermercado = null;
                 supermercado = new Supermercado("1",nombre, direccion);
                 SupermercadoDAO.getInstancia().agregar(supermercado);
             } else {
-
                 supermercado.setNombre(nombre);
                 supermercado.setDireccion(direccion);
                 SupermercadoDAO.getInstancia().actualizar(supermercado);
@@ -198,28 +194,33 @@ private Supermercado supermercado = null;
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
-        // TODO add your handling code here:
         btnSalir.setBackground(Color.red);
         btnSalir.setForeground(Color.white);
     }//GEN-LAST:event_btnSalirMouseEntered
 
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
-        // TODO add your handling code here:
         btnSalir.setBackground(Color.white);
         btnSalir.setForeground(Color.black);
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
         String nombre = txtNombre.getText();
+        String nombre2 = supermercado.getNombre();
+        String direccion = supermercado.getDireccion();
         
         if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"")){
             txtNombre.setText("");
             txtNombre.setForeground(Color.BLACK);
+        }
+        else if (nombre2.equalsIgnoreCase(supermercado.getNombre()) && direccion.equalsIgnoreCase(supermercado.getDireccion())){
+            txtNombre.setForeground(Color.BLACK);
+            txtDireccion.setForeground(Color.BLACK);
+            txtNombre.setEditable(false);
+            txtDireccion.setEditable(false);
         }
     }//GEN-LAST:event_txtNombreFocusGained
 
@@ -249,6 +250,10 @@ private Supermercado supermercado = null;
             txtDireccion.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_txtDireccionFocusLost
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     /**
      * @param args the command line arguments
