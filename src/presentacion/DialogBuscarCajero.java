@@ -7,6 +7,7 @@ package presentacion;
 
 import datos.CajeroDAO;
 import entidad.Cajero;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +20,6 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
     public DialogBuscarCajero() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(820, 420);
         setLocationRelativeTo(null);
         try {
             CajeroDAO.getInstancia().mostrar(modelo);
@@ -37,19 +37,26 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3Blanco = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        btnSeleccionar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        btnTodos = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
+        btnTodos = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3Blanco.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3Blanco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
 
@@ -61,12 +68,17 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
         Tabla.setSelectionBackground(new java.awt.Color(255, 153, 0));
         jScrollPane1.setViewportView(Tabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 440, 330));
+        jPanel3Blanco.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 510, 180));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel9.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconDialogBuscar/CAJERO.png"))); // NOI18N
+        jPanel3Blanco.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 0, 130, 120));
 
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombre.setText("Ingrese su nombre del cajero");
+        txtNombre.setBorder(null);
+        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -77,79 +89,90 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
                 txtNombreKeyReleased(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 184, -1));
+        jPanel3Blanco.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, 230, 30));
 
-        jLabel1.setText("NOMBRE CAJERO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 230, 10));
 
-        btnSeleccionar.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/seleccionar.png"))); // NOI18N
-        btnSeleccionar.setText("Seleccionar");
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        jLabel4.setText("BUSCADOR DE CAJERO");
+        jPanel3Blanco.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 280, 30));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnTodos.setBackground(new java.awt.Color(255, 255, 255));
-        btnTodos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/todos.png"))); // NOI18N
-        btnTodos.setText("Todos");
-        btnTodos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTodosActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
-
-        btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCerrar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 30));
-
-        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        btnBuscar.setText("Buscar");
+        btnBuscar.setBackground(new java.awt.Color(51, 153, 255));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.setBorder(null);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, 30));
+        jPanel3Blanco.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 120, 160, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 190, 180));
+        btnSeleccionar.setBackground(new java.awt.Color(51, 153, 255));
+        btnSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSeleccionar.setText("SELECCIONAR");
+        btnSeleccionar.setBorder(null);
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
+        jPanel3Blanco.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 170, 150, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 320, 330));
+        btnTodos.setBackground(new java.awt.Color(51, 153, 255));
+        btnTodos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnTodos.setText("TODOS");
+        btnTodos.setBorder(null);
+        btnTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTodosActionPerformed(evt);
+            }
+        });
+        jPanel3Blanco.add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 170, 160, 40));
+
+        jLabel10.setFont(new java.awt.Font("Myanmar Text", 1, 16)); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconDialogBuscar/CapturaCajeroBuscar.PNG"))); // NOI18N
+        jPanel3Blanco.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 420));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel5.setText("BUSCADOR DE CAJERO");
+        jPanel3Blanco.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 290, -1));
+
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel3Blanco.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 30, 30));
+        btnSalir.setBorderPainted(false);
+
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 16)); // NOI18N
+        jLabel11.setText("NOMBRE");
+        jPanel3Blanco.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 140, 20));
+
+        getContentPane().add(jPanel3Blanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
-        // TODO add your handling code here:
-        String nombre=txtNombre.getText();
-        try {
-            CajeroDAO.getInstancia().mostrarPorNombre(modelo, nombre);
-        } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null, su.getMessage());
-        }
-    }//GEN-LAST:event_txtNombreKeyReleased
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         int i = Tabla.getSelectedRow();
@@ -172,10 +195,6 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnTodosActionPerformed
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnCerrarActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String nombre = txtNombre.getText();
         try {
@@ -184,6 +203,38 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, su.getMessage());
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+        String nombre=txtNombre.getText();
+        try {
+            CajeroDAO.getInstancia().mostrarPorNombre(modelo, nombre);
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null, su.getMessage());
+        }
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,13 +281,17 @@ public class DialogBuscarCajero extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JButton btnTodos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel3Blanco;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

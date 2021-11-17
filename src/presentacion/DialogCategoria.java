@@ -147,7 +147,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 100, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 130, 40));
 
         btnConsultar.setBackground(new java.awt.Color(255, 51, 102));
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -159,7 +159,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 100, 40));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 140, 40));
 
         btnActualizar.setBackground(new java.awt.Color(255, 51, 102));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -171,7 +171,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 100, 40));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 140, 40));
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 102));
         btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -183,7 +183,7 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 100, 40));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, 40));
 
         btnEliminar.setBackground(new java.awt.Color(255, 51, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -196,16 +196,16 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 100, 40));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 140, 40));
 
         jTable1.setBackground(new java.awt.Color(255, 102, 102));
         jTable1.setModel(modelo);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 460, 220));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 480, 220));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/categoria2.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 510, 710));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 630, 720));
 
         jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
         jLabel6.setText("NOMBRE");
@@ -249,9 +249,9 @@ public class DialogCategoria extends javax.swing.JDialog {
                 btnReporteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 130, 40));
+        jPanel1.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 140, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

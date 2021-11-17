@@ -7,6 +7,7 @@ package presentacion;
 
 import datos.SupervisorDAO;
 import entidad.Supervisor;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +20,6 @@ public class DialogBuscarSupervisor extends javax.swing.JDialog {
     public DialogBuscarSupervisor() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(489, 417);
         setLocationRelativeTo(null);
         try {
             SupervisorDAO.getInstancia().mostrar(modelo);
@@ -37,19 +37,92 @@ public class DialogBuscarSupervisor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnSeleccionar = new javax.swing.JButton();
+        btnTodos = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        txtIdSupervisor = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        btnSeleccionar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        btnTodos = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtNombreSupervisor = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSeleccionar.setBackground(new java.awt.Color(255, 153, 0));
+        btnSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSeleccionar.setText("SELECCIONAR");
+        btnSeleccionar.setBorder(null);
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, 150, 40));
+
+        btnTodos.setBackground(new java.awt.Color(255, 153, 0));
+        btnTodos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnTodos.setText("TODOS");
+        btnTodos.setBorder(null);
+        btnTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTodosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 330, 160, 40));
+
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 0, 30, 30));
+        btnSalir.setBorderPainted(false);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconDialogBuscar/SUPERVISOR2.png"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 150, 130));
+
+        jLabel9.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconDialogBuscar/supervisor.jpg"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-380, 0, 1150, 720));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel4.setText("BUSCADOR DE SUPERVISOR");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 110, 340, 30));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel5.setText("BUSCADOR DE SUPERVISOR");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 110, 340, -1));
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
 
@@ -61,91 +134,52 @@ public class DialogBuscarSupervisor extends javax.swing.JDialog {
         Tabla.setSelectionBackground(new java.awt.Color(255, 153, 0));
         jScrollPane1.setViewportView(Tabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 440, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 410, 590, 270));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 153, 0))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtIdSupervisor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdSupervisorActionPerformed(evt);
-            }
-        });
-        txtIdSupervisor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtIdSupervisorKeyReleased(evt);
-            }
-        });
-        jPanel1.add(txtIdSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 170, -1));
-
-        jLabel1.setText("ID SUPERVISOR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        btnSeleccionar.setBackground(new java.awt.Color(255, 255, 255));
-        btnSeleccionar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSeleccionar.setText("Seleccionar");
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
-
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnTodos.setBackground(new java.awt.Color(255, 255, 255));
-        btnTodos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnTodos.setText("Todos");
-        btnTodos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTodosActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
-
-        btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCerrar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 30));
-
-        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
+        btnBuscar.setBackground(new java.awt.Color(255, 153, 0));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.setBorder(null);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, 30));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 250, 160, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 190, 180));
+        jLabel12.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconDialogBuscar/SUPERVISOR.png"))); // NOI18N
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 40, 150, 130));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 290, 330));
+        jLabel10.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel10.setText("NOMBRE");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 90, 20));
+
+        txtNombreSupervisor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombreSupervisor.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombreSupervisor.setText("Ingrese su nombre de supervisor");
+        txtNombreSupervisor.setBorder(null);
+        txtNombreSupervisor.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombreSupervisor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreSupervisorActionPerformed(evt);
+            }
+        });
+        txtNombreSupervisor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreSupervisorKeyReleased(evt);
+            }
+        });
+        jPanel1.add(txtNombreSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 230, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 153, 0));
+        jSeparator1.setForeground(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, 230, 10));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtIdSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdSupervisorActionPerformed
-
-    }//GEN-LAST:event_txtIdSupervisorActionPerformed
-
-    private void txtIdSupervisorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdSupervisorKeyReleased
-        // TODO add your handling code here:
-        String idSupervisor = txtIdSupervisor.getText();
-        try {
-            SupervisorDAO.getInstancia().mostrarPorId(modelo, idSupervisor);
-        } catch (SQLException sup) {
-            JOptionPane.showMessageDialog(null, sup.getMessage());
-        }
-    }//GEN-LAST:event_txtIdSupervisorKeyReleased
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         int i = Tabla.getSelectedRow();
@@ -168,18 +202,46 @@ public class DialogBuscarSupervisor extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnTodosActionPerformed
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnCerrarActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String idSupervisor=txtIdSupervisor.getText();
+        String idSupervisor=txtNombreSupervisor.getText();
         try {
             SupervisorDAO.getInstancia().mostrarPorId(modelo, idSupervisor);
         } catch (SQLException sup) {
             JOptionPane.showMessageDialog(null, sup.getMessage());
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtNombreSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreSupervisorActionPerformed
+
+    }//GEN-LAST:event_txtNombreSupervisorActionPerformed
+
+    private void txtNombreSupervisorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreSupervisorKeyReleased
+        // TODO add your handling code here:
+        String nombre=txtNombreSupervisor.getText();
+        try {
+            SupervisorDAO.getInstancia().mostrarPorNombre(modelo, nombre);
+        } catch (SQLException su) {
+            JOptionPane.showMessageDialog(null, su.getMessage());
+        }
+    }//GEN-LAST:event_txtNombreSupervisorKeyReleased
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,13 +288,18 @@ public class DialogBuscarSupervisor extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JButton btnTodos;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtIdSupervisor;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField txtNombreSupervisor;
     // End of variables declaration//GEN-END:variables
 }
