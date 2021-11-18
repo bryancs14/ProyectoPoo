@@ -28,6 +28,15 @@ public class Compra {
         LDCO = new ListaDetalleCompra();
     }
 
+    public Compra(String idCompra, double importe, Date fechaHora, Proveedor proveedor, Supervisor supervisor, ListaDetalleCompra LDCO) {
+        this.idCompra = idCompra;
+        this.importe = importe;
+        this.fechaHora = fechaHora;
+        this.proveedor = proveedor;
+        this.supervisor = supervisor;
+        this.LDCO = LDCO;
+    }
+
     public Compra(String idCompra) {
         this.idCompra = idCompra;
     }

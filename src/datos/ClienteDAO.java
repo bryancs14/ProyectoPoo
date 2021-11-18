@@ -169,4 +169,30 @@ public class ClienteDAO {
         }
     }
     
+    public Cliente buscarClientePorDni(String dni) throws SQLException{
+        cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        Cliente cliente = null;
+        
+        try {
+            String sql = "select * from cliente where dni = ?";
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, dni);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                String idCliente = rs.getString("idCliente");
+                String nombre = rs.getString("nombre");
+                String email = rs.getString("email");
+                int puntosAcumulados = rs.getInt("puntosAcumulados");
+                cliente = new Cliente(idCliente, dni, nombre, email, puntosAcumulados);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            cn.close();
+            ps.close();
+        }
+        return cliente;     
+    }
+    
 }

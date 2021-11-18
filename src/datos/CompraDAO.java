@@ -5,6 +5,9 @@
  */
 package datos;
 import entidad.Compra;
+import entidad.DetalleCarrito;
+import entidad.DetalleCompra;
+import entidad.Producto;
 import entidad.Proveedor;
 import entidad.Supervisor;
 import javax.swing.table.DefaultTableModel;
@@ -43,6 +46,21 @@ public class CompraDAO {
             ps.setString(4, idProveedor);
             ps.setString(5, idSupervisor);
             ps.executeUpdate();
+            ListaDetalleCompra LDCO = compra.getLDCO();
+            
+            for(int i = 0; i < LDCO.size(); i++){
+                DetalleCompra detalle = LDCO.getElemento(i);
+                sql = "insert into compraproducto(idCompra, idProducto, cantidadComprada, precioCompra) values(?, ?, ?, ?)";
+                ps = cn.prepareStatement(sql);
+                ps.setString(1, compra.getIdCompra());
+                ps.setString(2, detalle.getProducto().getIdProducto());
+                ps.setInt(3, detalle.getCantidadComprada());
+                ps.setDouble(4, detalle.getPrecioCompra());
+                ps.executeUpdate();
+                Producto producto = detalle.getProducto();
+                producto.setStock(producto.getStock()+detalle.getCantidadComprada());
+                ProductoDAO.getInstancia().actualizarStock(producto);
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }finally{

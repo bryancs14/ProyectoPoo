@@ -102,7 +102,6 @@ public class DialogProducto extends javax.swing.JDialog {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(1290, 690));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1154, 716));

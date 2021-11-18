@@ -80,9 +80,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnAgregarCarrito = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        btnBuscarCarrito = new javax.swing.JPanel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
         jPanelCaja = new javax.swing.JPanel();
         btnAgregarCaja = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -128,9 +125,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnAgregarCompra = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
-        btnBuscarCompra = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
         jPanelSupervisor = new javax.swing.JPanel();
         btnAgregarSupervisor = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -440,47 +434,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         );
         btnAgregarCarritoLayout.setVerticalGroup(
             btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        btnBuscarCarrito.setBackground(new java.awt.Color(245, 253, 0));
-        btnBuscarCarrito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnBuscarCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarCarritoMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarCarritoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarCarritoMouseExited(evt);
-            }
-        });
-
-        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel37.setText("BUSCAR CARRITO");
-        jLabel37.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout btnBuscarCarritoLayout = new javax.swing.GroupLayout(btnBuscarCarrito);
-        btnBuscarCarrito.setLayout(btnBuscarCarritoLayout);
-        btnBuscarCarritoLayout.setHorizontalGroup(
-            btnBuscarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnBuscarCarritoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel58)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel37)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        btnBuscarCarritoLayout.setVerticalGroup(
-            btnBuscarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(btnBuscarCarritoLayout.createSequentialGroup()
-                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(btnAgregarCarritoLayout.createSequentialGroup()
+                .addGroup(btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelCarritoLayout = new javax.swing.GroupLayout(jPanelCarrito);
@@ -489,22 +447,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCarritoLayout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
-                .addGroup(jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanelCarritoLayout.setVerticalGroup(
             jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCarritoLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCarritoLayout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(jPanelCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 260, 100));
+        getContentPane().add(jPanelCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 260, 40));
         jPanelCarrito.setVisible(false);
 
         jPanelCaja.setBackground(new java.awt.Color(230, 230, 0));
@@ -1188,49 +1141,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel45)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel43)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         btnAgregarCompraLayout.setVerticalGroup(
             btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        btnBuscarCompra.setBackground(new java.awt.Color(245, 253, 0));
-        btnBuscarCompra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnBuscarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarCompraMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarCompraMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarCompraMouseExited(evt);
-            }
-        });
-
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel44.setText("BUSCAR COMPRA");
-        jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout btnBuscarCompraLayout = new javax.swing.GroupLayout(btnBuscarCompra);
-        btnBuscarCompra.setLayout(btnBuscarCompraLayout);
-        btnBuscarCompraLayout.setHorizontalGroup(
-            btnBuscarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarCompraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel46)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jLabel44)
-                .addGap(34, 34, 34))
-        );
-        btnBuscarCompraLayout.setVerticalGroup(
-            btnBuscarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout jPanelCompraLayout = new javax.swing.GroupLayout(jPanelCompra);
@@ -1239,9 +1155,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCompraLayout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAgregarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanelCompraLayout.setVerticalGroup(
@@ -1249,12 +1163,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(jPanelCompraLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 650, 230, 80));
+        getContentPane().add(jPanelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 680, 230, 40));
         jPanelCompra.setVisible(false);
 
         jPanelSupervisor.setBackground(new java.awt.Color(230, 230, 0));
@@ -1748,20 +1660,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         resetColor(btnAgregarCarrito);
     }//GEN-LAST:event_btnAgregarCarritoMouseExited
 
-    private void btnBuscarCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCarritoMouseClicked
-        DialogBuscarCategoria f = new DialogBuscarCategoria();
-        f.setVisible(true);
-    }//GEN-LAST:event_btnBuscarCarritoMouseClicked
-
-    private void btnBuscarCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCarritoMouseEntered
-        setColor(btnBuscarCarrito);
-        jPanelCarrito.setVisible(true);
-    }//GEN-LAST:event_btnBuscarCarritoMouseEntered
-
-    private void btnBuscarCarritoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCarritoMouseExited
-        resetColor(btnBuscarCarrito);
-    }//GEN-LAST:event_btnBuscarCarritoMouseExited
-
     private void jPanelCarritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCarritoMouseEntered
         jPanelCarrito.setVisible(true);
     }//GEN-LAST:event_jPanelCarritoMouseEntered
@@ -1864,41 +1762,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanelProveedor.setVisible(false);
     }//GEN-LAST:event_jPanelProveedorMouseExited
 
-    private void btnAgregarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseClicked
-        DialogCompra f = new DialogCompra();
-        f.setVisible(true);
-    }//GEN-LAST:event_btnAgregarCompraMouseClicked
-
-    private void btnAgregarCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseEntered
-        setColor(btnAgregarCompra);
-        jPanelCompra.setVisible(true);
-    }//GEN-LAST:event_btnAgregarCompraMouseEntered
-
-    private void btnAgregarCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseExited
-        resetColor(btnAgregarCompra);
-    }//GEN-LAST:event_btnAgregarCompraMouseExited
-
-    private void btnBuscarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCompraMouseClicked
-        
-    }//GEN-LAST:event_btnBuscarCompraMouseClicked
-
-    private void btnBuscarCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCompraMouseEntered
-        setColor(btnBuscarCompra);
-        jPanelCompra.setVisible(true);
-    }//GEN-LAST:event_btnBuscarCompraMouseEntered
-
-    private void btnBuscarCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCompraMouseExited
-        resetColor(btnBuscarCompra);
-    }//GEN-LAST:event_btnBuscarCompraMouseExited
-
-    private void jPanelCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCompraMouseEntered
-        jPanelCompra.setVisible(true);
-    }//GEN-LAST:event_jPanelCompraMouseEntered
-
-    private void jPanelCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCompraMouseExited
-        jPanelCompra.setVisible(false);
-    }//GEN-LAST:event_jPanelCompraMouseExited
-
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
         btnSalir.setBackground(Color.red);
         btnSalir.setForeground(Color.white);
@@ -1912,6 +1775,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jLabel36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel36MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel36MouseClicked
+
+    private void jPanelCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCompraMouseExited
+        jPanelCompra.setVisible(false);
+    }//GEN-LAST:event_jPanelCompraMouseExited
+
+    private void jPanelCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelCompraMouseEntered
+        jPanelCompra.setVisible(true);
+    }//GEN-LAST:event_jPanelCompraMouseEntered
+
+    private void btnAgregarCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseExited
+        resetColor(btnAgregarCompra);
+    }//GEN-LAST:event_btnAgregarCompraMouseExited
+
+    private void btnAgregarCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseEntered
+        setColor(btnAgregarCompra);
+        jPanelCompra.setVisible(true);
+    }//GEN-LAST:event_btnAgregarCompraMouseEntered
+
+    private void btnAgregarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCompraMouseClicked
+        DialogCompra f = new DialogCompra();
+        f.setVisible(true);
+    }//GEN-LAST:event_btnAgregarCompraMouseClicked
 
     
     /**
@@ -1962,10 +1847,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btnAgregarSupervisor;
     private javax.swing.JPanel btnBuscarCaja;
     private javax.swing.JPanel btnBuscarCajero;
-    private javax.swing.JPanel btnBuscarCarrito;
     private javax.swing.JPanel btnBuscarCategoria;
     private javax.swing.JPanel btnBuscarCliente;
-    private javax.swing.JPanel btnBuscarCompra;
     private javax.swing.JPanel btnBuscarProducto;
     private javax.swing.JPanel btnBuscarProveedor;
     private javax.swing.JPanel btnBuscarSupervisor;
@@ -2010,7 +1893,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -2018,9 +1900,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
@@ -2033,7 +1913,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

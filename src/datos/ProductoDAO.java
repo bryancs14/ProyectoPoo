@@ -98,6 +98,26 @@ public class ProductoDAO {
         }
     }
     
+    public void actualizarStock(Producto producto) throws SQLException{
+        cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps =  null;
+        try {
+            String idProducto = producto.getIdProducto();
+            int stock = producto.getStock();
+            
+            String sql = "update producto set stock = ? where idProducto = ?";
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, stock);
+            ps.setString(2, idProducto);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            cn.close();
+            ps.close();
+        }
+    }
+    
     public void eliminar(String idProducto) throws SQLException{
         cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;

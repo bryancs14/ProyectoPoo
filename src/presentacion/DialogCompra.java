@@ -132,7 +132,6 @@ public class DialogCompra extends javax.swing.JDialog {
         tablaProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -258,6 +257,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel1.add(txtIdCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 290, 30));
 
+        txtImporte.setEditable(false);
         txtImporte.setBackground(new java.awt.Color(255, 255, 255));
         txtImporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtImporte.setForeground(new java.awt.Color(204, 204, 204));
@@ -642,10 +642,9 @@ public class DialogCompra extends javax.swing.JDialog {
            String idCompra = txtIdCompra.getText();
            double importe = Double.parseDouble(txtImporte.getText());
            java.util.Date dt = new java.util.Date();
-           Compra compra= new Compra(idCompra, importe, dt, proveedorSelec, supervisorSelec);
+           Compra compra= new Compra(idCompra, importe, dt, proveedorSelec, supervisorSelec, compraSelec.getLDCO());
            try{
                CompraDAO.getInstancia().agregar(compra);
-               CompraDAO.getInstancia().mostrar(modelo);
                JOptionPane.showMessageDialog(null, "Dato registrado");
            } catch(SQLException comp){
                JOptionPane.showMessageDialog(null, comp.getMessage());

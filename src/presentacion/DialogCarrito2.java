@@ -53,18 +53,14 @@ public class DialogCarrito2 extends javax.swing.JDialog {
     }
     
     private void habilitar(){
-        btnActualizar.setEnabled(true);
         btnSalir.setEnabled(true);
         btnGuardar.setEnabled(false);
-        btnConsultar.setEnabled(false);
     }
     
      
     private void desHabilitar(){
-        btnActualizar.setEnabled(false);
         btnSalir.setEnabled(false);
         btnGuardar.setEnabled(true);
-        btnConsultar.setEnabled(true);
     }     
     
     private void limpiarEntradas(){
@@ -162,9 +158,6 @@ public class DialogCarrito2 extends javax.swing.JDialog {
         jSeparator16 = new javax.swing.JSeparator();
         btnSeleccionarCaja = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -257,6 +250,14 @@ public class DialogCarrito2 extends javax.swing.JDialog {
         txtDniCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtDniClienteMousePressed(evt);
+            }
+        });
+        txtDniCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDniClienteKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDniClienteKeyTyped(evt);
             }
         });
         jPanel1.add(txtDniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 290, 30));
@@ -610,39 +611,6 @@ public class DialogCarrito2 extends javax.swing.JDialog {
         });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 120, 40));
 
-        btnActualizar.setBackground(new java.awt.Color(8, 8, 11));
-        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnActualizar.setText("ACTUALIZAR");
-        btnActualizar.setBorderPainted(false);
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 120, 40));
-
-        btnConsultar.setBackground(new java.awt.Color(8, 8, 11));
-        btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnConsultar.setText("CONSULTAR");
-        btnConsultar.setBorderPainted(false);
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 510, 120, 40));
-
-        btnEliminar.setBackground(new java.awt.Color(8, 8, 11));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnEliminar.setText("ELIMINAR");
-        btnEliminar.setBorderPainted(false);
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 120, 40));
-
         btnRestaurar.setBackground(new java.awt.Color(8, 8, 11));
         btnRestaurar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnRestaurar.setText("RESTAURAR");
@@ -652,7 +620,7 @@ public class DialogCarrito2 extends javax.swing.JDialog {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 120, 40));
+        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 120, 40));
 
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(modelo);
@@ -1078,53 +1046,25 @@ public class DialogCarrito2 extends javax.swing.JDialog {
         desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        /*try{
-            String idcaja = txtIdCarrito.getText();
-            int ndeCaja = Integer.parseInt(txtImporte.getText());
-
-            Caja caja= new Caja(idcaja, ndeCaja, supermercadoSelec);
-
-            CajaDAO.getInstancia().actualizar(caja);
-            CajaDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Modificado");
-        } catch (SQLException su) {
-            JOptionPane.showMessageDialog(null,su.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();*/
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        /*String idcaja=txtIdCarrito.getText();
-        if(idcaja.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
-        else
-        {
-            try{
-                Caja cajaBuscada = CajaDAO.getInstancia().buscarCaja(idcaja);
-                if(cajaBuscada != null)
-                {
-                    txtImporte.setText(cajaBuscada.getSupermercado().getNombre());
-
-                    supermercadoSelec = cajaBuscada.getSupermercado();
-
-                    txtIdCaja.setText(cajaBuscada.getSupermercado().getIdSupermercado());
-                    txtNombrePro.setText(cajaBuscada.getSupermercado().getNombre());
-                    txtNCaja.setText(cajaBuscada.getSupermercado().getDireccion());
-                    habilitar();
-                }
-                else
-                JOptionPane.showMessageDialog(null, "El ID Caja no existe");
-            } catch(SQLException su) {
-                JOptionPane.showMessageDialog(null,su.getMessage());
-            }
-        }*/
-    }//GEN-LAST:event_btnConsultarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void txtDniClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniClienteKeyTyped
         
-    }//GEN-LAST:event_btnEliminarActionPerformed
+        
+    }//GEN-LAST:event_txtDniClienteKeyTyped
+
+    private void txtDniClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniClienteKeyReleased
+        // TODO add your handling code here:
+        String dni = txtDniCliente.getText();
+        try {
+            Cliente cliente = ClienteDAO.getInstancia().buscarClientePorDni(dni);
+            if(cliente != null) {
+                txtIdCliente.setText(cliente.getIdCliente());
+                txtNombreCliente.setText(cliente.getNombre());
+                txtEmailCliente.setText(cliente.getEmail());
+            }
+        } catch(SQLException su) {
+            JOptionPane.showMessageDialog(null, su.getMessage());
+        }
+    }//GEN-LAST:event_txtDniClienteKeyReleased
 
     private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
         limpiarEntradas();
@@ -1175,10 +1115,7 @@ public class DialogCarrito2 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminarProducto;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRestaurar;

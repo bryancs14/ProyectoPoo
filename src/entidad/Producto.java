@@ -17,18 +17,8 @@ public class Producto {
     private double precioVenta;
     private int stock;
     private Categoria categoria;
-    private Administrador administrador;
 
     public Producto() {
-    }
-
-    public Producto(String idProducto, String nombre, double precioVenta, int stock, Categoria categoria, Administrador administrador) {
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.precioVenta = precioVenta;
-        this.stock = stock;
-        this.categoria = categoria;
-        this.administrador = administrador;
     }
 
     public Producto(String idProducto, String nombre, double precioVenta, int stock, Categoria categoria) {
@@ -81,14 +71,6 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public Administrador getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
     }
 
     @Override
