@@ -22,7 +22,6 @@ public class DialogCategoria extends javax.swing.JDialog {
     public DialogCategoria() {
         super(FrmPrincipal.getInstancia(), false);
         initComponents();
-        setSize(990, 620);
         setLocationRelativeTo(null);
         desHabilitar();
         try {

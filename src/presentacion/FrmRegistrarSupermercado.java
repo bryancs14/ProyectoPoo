@@ -1,24 +1,31 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package presentacion;
 
 import datos.SupermercadoDAO;
-import entidad.Validaciones;
 import entidad.Supermercado;
+import entidad.Validaciones;
 import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-public class DialogSupermercado extends javax.swing.JDialog {
+/**
+ *
+ * @author USUARIO
+ */
+public class FrmRegistrarSupermercado extends javax.swing.JFrame {
     
-    public Supermercado supermercado = null;
     private Validaciones x = new Validaciones();
 
-
-    public DialogSupermercado() {
-        super(FrmPrincipal.getInstancia(), false);
+    /**
+     * Creates new form FrmRegistrar
+     */
+    public FrmRegistrarSupermercado() {
         initComponents();
         setLocationRelativeTo(null);
-        traerSuper();
         habilitar();
     }
 
@@ -26,22 +33,6 @@ public class DialogSupermercado extends javax.swing.JDialog {
         btnGuardar.setEnabled(true);
         btnSalir.setEnabled(false);
     }
-    
-    
-    private void traerSuper() {
-        try {
-            supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
-            
-            if(supermercado != null) {
-                
-                txtNombre.setText(supermercado.getNombre());
-                txtDireccion.setText(supermercado.getDireccion());
-            }
-        } catch (SQLException sup) {
-            JOptionPane.showMessageDialog(null,sup.getMessage());
-        }
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,9 +55,8 @@ public class DialogSupermercado extends javax.swing.JDialog {
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -169,25 +159,65 @@ public class DialogSupermercado extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+//        String nombre = txtNombre.getText();
+//        String nombre2 = supermercado.getNombre();
+//        String direccion = supermercado.getDireccion();
+
+//        if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"")){
+//            txtNombre.setText("");
+//            txtNombre.setForeground(Color.BLACK);
+//        }
+//        else if (nombre2.equalsIgnoreCase(supermercado.getNombre()) && direccion.equalsIgnoreCase(supermercado.getDireccion())){
+//            txtNombre.setForeground(Color.BLACK);
+//            txtDireccion.setForeground(Color.BLACK);
+//            txtNombre.setEditable(false);
+//            txtDireccion.setEditable(false);
+//        }
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        String nombre = txtNombre.getText();
+
+        if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"") || nombre.equals("")){
+            txtNombre.setText("Ingrese su nombre de \"Supermercado\"");
+            txtNombre.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusGained
+        String direccion = txtDireccion.getText();
+
+        if(direccion.equalsIgnoreCase("Ingrese su direccion")){
+            txtDireccion.setText("");
+            txtDireccion.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtDireccionFocusGained
+
+    private void txtDireccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusLost
+        String direccion = txtDireccion.getText();
+
+        if(direccion.equalsIgnoreCase("Ingrese su direccion") || direccion.equals("")){
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtDireccionFocusLost
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
         try {
-            if(supermercado == null) {
-                supermercado = new Supermercado("1",nombre, direccion);
-                SupermercadoDAO.getInstancia().agregar(supermercado);
-            } else {
-                supermercado.setNombre(nombre);
-                supermercado.setDireccion(direccion);
-                SupermercadoDAO.getInstancia().actualizar(supermercado);
-            }
+            Supermercado supermercado = new Supermercado("1",nombre, direccion);
+            SupermercadoDAO.getInstancia().agregar(supermercado);
             JOptionPane.showMessageDialog(null, "Guardado correctamente");
             dispose();
+            FrmRegistrarAdministrador frmAdmin = new FrmRegistrarAdministrador();
+            frmAdmin.setVisible(true);
         } catch (SQLException s) {
             JOptionPane.showMessageDialog(null, s.getMessage());
         }
@@ -207,53 +237,9 @@ public class DialogSupermercado extends javax.swing.JDialog {
         btnSalir.setForeground(Color.black);
     }//GEN-LAST:event_btnSalirMouseExited
 
-    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
-        String nombre = txtNombre.getText();
-        String nombre2 = supermercado.getNombre();
-        String direccion = supermercado.getDireccion();
-        
-        if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"")){
-            txtNombre.setText("");
-            txtNombre.setForeground(Color.BLACK);
-        }
-        else if (nombre2.equalsIgnoreCase(supermercado.getNombre()) && direccion.equalsIgnoreCase(supermercado.getDireccion())){
-            txtNombre.setForeground(Color.BLACK);
-            txtDireccion.setForeground(Color.BLACK);
-            txtNombre.setEditable(false);
-            txtDireccion.setEditable(false);
-        }
-    }//GEN-LAST:event_txtNombreFocusGained
-
-    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
-        String nombre = txtNombre.getText();
-        
-        if(nombre.equalsIgnoreCase("Ingrese su nombre de \"Supermercado\"") || nombre.equals("")){
-            txtNombre.setText("Ingrese su nombre de \"Supermercado\"");
-            txtNombre.setForeground(new Color(204,204,204));
-        }
-    }//GEN-LAST:event_txtNombreFocusLost
-
-    private void txtDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusGained
-        String direccion = txtDireccion.getText();
-        
-        if(direccion.equalsIgnoreCase("Ingrese su direccion")){
-            txtDireccion.setText("");
-            txtDireccion.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_txtDireccionFocusGained
-
-    private void txtDireccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDireccionFocusLost
-        String direccion = txtDireccion.getText();
-        
-        if(direccion.equalsIgnoreCase("Ingrese su direccion") || direccion.equals("")){
-            txtDireccion.setText("Ingrese su direccion");
-            txtDireccion.setForeground(new Color(204,204,204));
-        }
-    }//GEN-LAST:event_txtDireccionFocusLost
-
-    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        x.validarLetras(evt);
-    }//GEN-LAST:event_txtNombreKeyTyped
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,27 +258,21 @@ public class DialogSupermercado extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistrarSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistrarSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistrarSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegistrarSupermercado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogSupermercado dialog = new DialogSupermercado();
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new FrmRegistrarSupermercado().setVisible(true);
             }
         });
     }

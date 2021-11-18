@@ -205,6 +205,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/supermarket-icon-png-19.jpg"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, -20, 190, 150));
 
+        txtNombreSupermercado.setEditable(false);
         txtNombreSupermercado.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreSupermercado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNombreSupermercado.setText("Ingrese NOMBRE SUPERMERCADO");
@@ -222,6 +223,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
         jPanel1.add(txtNombreSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 290, 30));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 290, 20));
 
+        txtDireccion.setEditable(false);
         txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
         txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtDireccion.setText("Ingrese DIRECCIÓN");
@@ -282,7 +284,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-         String nombreAdministrador=txtNombreAdministrador.getText();
+        String nombreAdministrador=txtNombreAdministrador.getText();
         String contraseña=txtContraseña.getText();
         
         try{

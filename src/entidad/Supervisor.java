@@ -29,6 +29,11 @@ public class Supervisor {
         this.idSupervisor = idSupervisor;
     }
 
+    public Supervisor(String idSupervisor, String contraseña) {
+        this.idSupervisor = idSupervisor;
+        this.contraseña = contraseña;
+    }
+
     public String getIdSupervisor() {
         return idSupervisor;
     }

@@ -185,4 +185,41 @@ public class AdministradorDAO {
         }
         return administrador;
     }
+    
+    public Administrador login(Administrador admin) throws SQLException {
+        Connection cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        ResultSet rs;
+        String nombre = admin.getNombre();
+        String contraseña = admin.getContraseña();
+        String sql = "select * from administrador where nombre = ? and contraseña = ?";
+        try {
+            
+            ps = cn.prepareStatement(sql);
+
+            ps.setString(1, nombre);
+            ps.setString(2, contraseña);
+
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                String idAdministrador = rs.getString("idAdministrador");
+                nombre = rs.getString("nombre");
+                contraseña = rs.getString("contraseña");
+                String idSupermercado = rs.getString("idSupermercado");
+                Supermercado supermercado = SupermercadoDAO.getInstancia().buscarSupermercado(idSupermercado);
+                admin = new Administrador(idAdministrador, nombre, contraseña, supermercado);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
+            }
+
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR DE CONEXION" + e.getMessage());
+        } finally{
+            cn.close();
+            ps.close();
+        }
+        return admin;
+    }
 }

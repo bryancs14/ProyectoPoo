@@ -16,6 +16,7 @@ public class Carrito {
     private ListaDetalleCarrito LDC;
 
     public Carrito() {
+        LDC = new ListaDetalleCarrito();
     }
     
     public Carrito(String idCarrito, double importe, String fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja, ListaDetalleCarrito LDC) {
@@ -97,6 +98,9 @@ public class Carrito {
     }
 
     public void registrarDetalle(DetalleCarrito det){
+        int index = LDC.searchIndexByProducto(det.getProducto());
+       double subImporte = det.getCantidadVendida()*det.getProducto().getPrecioVenta();
+       importe+=subImporte;
        LDC.add(det);
     }
     

@@ -166,7 +166,42 @@ public class CajeroDAO {
         }finally{
             cn.close();
             ps.close();
+        } 
+    }
+    
+    public Cajero login(Cajero cajero) throws SQLException {
+        Connection cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        ResultSet rs;
+        String idCajero = cajero.getIdCajero();
+        String contraseña = cajero.getContraseña();
+        String sql = "select * from cajero where idCajero = ? and contraseña = ?";
+        try {
+            
+            ps = cn.prepareStatement(sql);  
+
+            ps.setString(1, idCajero);
+            ps.setString(2, contraseña);
+
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                String nombre = rs.getString("nombre");
+                String turno = rs.getString("turno");
+                String idCaja = rs.getString("idCaja");
+                Caja caja = CajaDAO.getInstancia().buscarCaja(idCaja);
+                cajero = new Cajero(idCajero, nombre, turno, contraseña, caja);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
+            }
+
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR DE CONEXION" + e.getMessage());
+        } finally{
+            cn.close();
+            ps.close();
         }
-        
+        return cajero;
     }
 }

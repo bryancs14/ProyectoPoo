@@ -1,6 +1,10 @@
 
 package presentacion;
+import datos.AdministradorDAO;
 import datos.Conexion;
+import datos.SupermercadoDAO;
+import entidad.Administrador;
+import entidad.Supermercado;
 import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -8,16 +12,26 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 public class FrmRegistrarAdministrador extends javax.swing.JFrame {
+    private static Supermercado supermercado;
 
     public FrmRegistrarAdministrador() {
         initComponents();
         setLocationRelativeTo(null);
         this.setSize(370, 500);
-        txtIdAdministrador.setBorder(new LineBorder(Color.LIGHT_GRAY));
         txtNombre.setBorder(new LineBorder(Color.LIGHT_GRAY));
         txtContraseña.setBorder(new LineBorder(Color.LIGHT_GRAY));
+        traerSuper();
     }
-
+    
+    private static void traerSuper() {
+        try {
+            supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
+            
+        } catch (SQLException sup) {
+            JOptionPane.showMessageDialog(null,sup.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,49 +41,31 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtIdAdministrador = new javax.swing.JTextField();
+        Fondo = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
         btnRegistrar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Fondo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfil.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 30, 40));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/id.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 30, 40));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/candado_1.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 30, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(116, 98, 98));
         jLabel1.setText("REGISTRARSE");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
-        txtIdAdministrador.setBackground(new java.awt.Color(255, 255, 255));
-        txtIdAdministrador.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtIdAdministrador.setText("ID ADMINISTRADOR");
-        txtIdAdministrador.setBorder(null);
-        txtIdAdministrador.setCaretColor(new java.awt.Color(213, 212, 212));
-        txtIdAdministrador.setSelectionColor(new java.awt.Color(213, 212, 212));
-        txtIdAdministrador.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtIdAdministradorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtIdAdministradorFocusLost(evt);
-            }
-        });
-        getContentPane().add(txtIdAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 190, 40));
+        Fondo.setBackground(new java.awt.Color(243, 243, 246));
+        Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfil.png"))); // NOI18N
+        Fondo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 30, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/candado_1.png"))); // NOI18N
+        Fondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 30, 40));
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -85,7 +81,7 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
                 txtNombreFocusLost(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 190, 40));
+        Fondo.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 190, 40));
 
         txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
         txtContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -107,7 +103,7 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
                 txtContraseñaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 190, 40));
+        Fondo.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 190, 40));
 
         btnRegistrar.setBackground(new java.awt.Color(89, 180, 89));
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -144,32 +140,12 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 250, 40));
+        Fondo.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        Fondo.setBackground(new java.awt.Color(243, 243, 246));
-        Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 460));
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtIdAdministradorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdAdministradorFocusGained
-        String idAdministrador = txtIdAdministrador.getText();
-        
-        if(idAdministrador.equalsIgnoreCase("ID ADMINISTRADOR")){
-            txtIdAdministrador.setText("");
-            txtIdAdministrador.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_txtIdAdministradorFocusGained
-
-    private void txtIdAdministradorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdAdministradorFocusLost
-        String idAdministrador = txtIdAdministrador.getText();
-        
-        if(idAdministrador.equalsIgnoreCase("ID ADMINISTRADOR") || idAdministrador.equalsIgnoreCase("")){
-            txtIdAdministrador.setText("ID ADMINISTRADOR");
-            txtIdAdministrador.setForeground(new Color(127,132,138));
-        }
-    }//GEN-LAST:event_txtIdAdministradorFocusLost
 
     private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
         String nombre = txtNombre.getText();
@@ -207,31 +183,19 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraseñaFocusLost
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        String idAdministrador = txtIdAdministrador.getText();
-        String nombre = txtNombre.getText();
-        String contraseña = String.valueOf(txtContraseña.getPassword());
-
-        if(idAdministrador.equals(""))
-        JOptionPane.showMessageDialog(null, "INGRESA UN ID");
-        else if(nombre.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "INGRESA UN NOMBRE");
-        else if(contraseña.equals(""))
-        JOptionPane.showMessageDialog(null, "INGRESA UNA CONTRASEÑA");
-
-        Connection cn = Conexion.getInstancia().miConexion();
-        PreparedStatement ps;
-        String sql = "insert into administrador(idAdministrador, nombre, contraseña) values(?, ?, ?)";
-
+        String nombreAdministrador=txtNombre.getText();
+        String contraseña=String.valueOf(txtContraseña.getPassword());
+        
         try {
-            ps = cn.prepareStatement(sql);
-            ps.setString(1, idAdministrador);
-            ps.setString(2, nombre);
-            ps.setString(3, contraseña);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "ADMINISTRADOR REGISTRADO");
+            Administrador administrador= new Administrador("1", nombreAdministrador, contraseña, supermercado);
+            AdministradorDAO.getInstancia().agregar(administrador);
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Guardado correctamente");
+            dispose();
+            FrmPrincipal frmPrincipal = new FrmPrincipal();
+            frmPrincipal.setVisible(true);
+        } catch(SQLException su){
+            JOptionPane.showMessageDialog(null, su.getMessage());
         }
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
@@ -297,11 +261,9 @@ public class FrmRegistrarAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtIdAdministrador;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

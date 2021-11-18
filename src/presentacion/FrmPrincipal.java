@@ -811,7 +811,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 280, 110));
+        getContentPane().add(jPanelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 280, 110));
         jPanelProducto.setVisible(false);
 
         jPanelCategoria.setBackground(new java.awt.Color(230, 230, 0));

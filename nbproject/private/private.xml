@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/SupermercadoDAO.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogSupermercado.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogProducto.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/FrmPrincipal.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCategoria.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/datos/Conexion.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogCajero.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/DialogBuscarCajero.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/Globales.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/Proyecto%20Final/SistemaFacturacion/src/presentacion/FrmLoginAdministrador.java</file>
         </group>
     </open-files>
 </project-private>

@@ -33,6 +33,11 @@ public class Cajero {
         this.idCajero = idCajero;
     }
 
+    public Cajero(String idCajero, String contraseña) {
+        this.idCajero = idCajero;
+        this.contraseña = contraseña;
+    }
+
     public String getIdCajero() {
         return idCajero;
     }

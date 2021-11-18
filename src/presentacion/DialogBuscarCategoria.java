@@ -27,7 +27,6 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
     public DialogBuscarCategoria() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(590, 460);
         setLocationRelativeTo(null);
         try {
             CategoriaDAO.getInstancia().mostrar(modelo);
@@ -60,6 +59,7 @@ public class DialogBuscarCategoria extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);

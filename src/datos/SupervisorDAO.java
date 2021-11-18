@@ -183,5 +183,38 @@ public class SupervisorDAO {
             ps.close();
         }
     }
+    
+    public Supervisor login(Supervisor supervisor) throws SQLException {
+        Connection cn = Conexion.getInstancia().miConexion();
+        PreparedStatement ps = null;
+        ResultSet rs;
+        String idSupervisor = supervisor.getIdSupervisor();
+        String contraseña = supervisor.getContraseña();
+        String sql = "select * from supervisor where idSupervisor = ? and contraseña = ?";
+        try {
+            
+            ps = cn.prepareStatement(sql);
+
+            ps.setString(1, idSupervisor);
+            ps.setString(2, contraseña);
+
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                String nombre = rs.getString("nombre");
+                supervisor = new Supervisor(idSupervisor, nombre, contraseña);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
+            }
+
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR DE CONEXION" + e.getMessage());
+        } finally{
+            cn.close();
+            ps.close();
+        }
+        return supervisor;
+    }
 }
     
