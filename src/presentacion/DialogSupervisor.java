@@ -7,20 +7,23 @@ package presentacion;
 
 import datos.SupervisorDAO;
 import entidad.Supervisor;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import entidad.Validaciones;
+
 
 public class DialogSupervisor extends javax.swing.JDialog {
     
     private DefaultTableModel modelo = new DefaultTableModel();
+    Validaciones x = new Validaciones();
     /**
      * Creates new form DialogSupervisor
      */
     public DialogSupervisor() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(610, 590);
         setLocationRelativeTo(null);
         desHabilitar();
         try {
@@ -61,140 +64,292 @@ public class DialogSupervisor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtIdSupervisor = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        txtNombre = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        txtContraseña = new javax.swing.JPasswordField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtIdSupervisor = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        btnSalir = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        btnRestaurar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setForeground(new java.awt.Color(255, 153, 0));
-        jTable1.setModel(modelo);
-        jTable1.setGridColor(new java.awt.Color(255, 153, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
-        jScrollPane1.setViewportView(jTable1);
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 550, 240));
-
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUPERVISOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semilight", 3, 11))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("ID SUPERVISOR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jLabel2.setText("NOMBRE");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-        jPanel1.add(txtIdSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 170, -1));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 170, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Supervisor 2.jpg"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 550, 780));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSalir.setText("Salir");
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(102, 102, 102));
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 120, 30));
+        jPanel3.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
-        jLabel3.setText("CONTRASEÑA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 170, -1));
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("SUPERVISOR");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 320, 270));
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("ID SUPERVISOR");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semilight", 3, 11))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("NOMBRE");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
-        btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setText("Restaurar");
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
+        jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("CONTRASEÑA");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
+        txtIdSupervisor.setBackground(new java.awt.Color(255, 255, 255));
+        txtIdSupervisor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdSupervisor.setForeground(new java.awt.Color(204, 204, 204));
+        txtIdSupervisor.setText("Ingrese ID SUPERVISOR");
+        txtIdSupervisor.setBorder(null);
+        txtIdSupervisor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtIdSupervisorMousePressed(evt);
             }
         });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 120, 30));
+        jPanel3.add(txtIdSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 290, 30));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 290, 10));
 
-        btnConsultar.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombre.setText("Ingrese NOMBRE");
+        txtNombre.setBorder(null);
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreMousePressed(evt);
             }
         });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 120, 30));
-
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 120, 30));
-
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 120, 30));
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 290, 30));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 290, 20));
 
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnGuardar.setText("Guardar");
+        txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtContraseña.setForeground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setText("********");
+        txtContraseña.setBorder(null);
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtContraseñaMousePressed(evt);
+            }
+        });
+        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 290, 30));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 290, 20));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono supervisor.jpg"))); // NOI18N
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 110, 100));
+
+        btnGuardar.setBackground(new java.awt.Color(244, 124, 29));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(51, 51, 51));
+        btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
+        jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 130, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 220, 270));
+        btnConsultar.setBackground(new java.awt.Color(244, 124, 29));
+        btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(51, 51, 51));
+        btnConsultar.setText("CONSULTAR");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 130, 40));
+
+        btnEliminar.setBackground(new java.awt.Color(244, 124, 29));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(51, 51, 51));
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 130, 40));
+
+        btnCancelar.setBackground(new java.awt.Color(244, 124, 29));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 130, 40));
+
+        btnActualizar.setBackground(new java.awt.Color(244, 124, 29));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(51, 51, 51));
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 130, 40));
+
+        jTable1.setBackground(new java.awt.Color(244, 124, 29));
+        jTable1.setModel(modelo);
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 500, 180));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(new Color(102,102,102));
+    }//GEN-LAST:event_btnSalirMouseExited
+
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtIdSupervisorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdSupervisorMousePressed
+       if(txtIdSupervisor.getText().equals("Ingrese ID SUPERVISOR")){
+            txtIdSupervisor.setText("");
+            txtIdSupervisor.setForeground(new Color(51,51,51));
+        }    
+        if(txtNombre.getText().isEmpty()){
+            txtNombre.setText("Ingrese NOMBRE");
+            txtNombre.setForeground(new Color(204,204,204));
+        }
+        if(txtContraseña.getText().isEmpty()){
+            txtContraseña.setText("********");
+            txtContraseña.setForeground(new Color(204,204,204));
+        }    
+    }//GEN-LAST:event_txtIdSupervisorMousePressed
+
+    private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
+        if(txtIdSupervisor.getText().isEmpty()){
+            txtIdSupervisor.setText("Ingrese ID SUPERVISOR");
+            txtIdSupervisor.setForeground(new Color(204,204,204));
+        }
+        if(txtNombre.getText().equals("Ingrese NOMBRE")){
+            txtNombre.setText("");
+            txtNombre.setForeground(new Color(51,51,51));
+        }
+        if(txtContraseña.getText().isEmpty()){
+            txtContraseña.setText("********");
+            txtContraseña.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreMousePressed
+
+    private void txtContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMousePressed
+        if(txtIdSupervisor.getText().isEmpty()){
+            txtIdSupervisor.setText("Ingrese ID SUPERVISOR");
+            txtIdSupervisor.setForeground(new Color(204,204,204));
+        }
+        if(txtNombre.getText().isEmpty()){
+            txtNombre.setText("Ingrese NOMBRE");
+            txtNombre.setForeground(new Color (204,204,204));
+        }
+        if(txtContraseña.getText().equals("********")){
+            txtContraseña.setText("");
+            txtContraseña.setForeground(new Color (51,51,51));
+        }
+    }//GEN-LAST:event_txtContraseñaMousePressed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String idSupervisor = txtIdSupervisor.getText();
+        String nombre = txtNombre.getText();
+        String contraseña = txtContraseña.getText();
+
+        Supervisor supervisor = new Supervisor(idSupervisor, nombre,contraseña);
+        try {
+            SupervisorDAO.getInstancia().agregar(supervisor);
+            SupervisorDAO.getInstancia().mostrar(modelo);
+            JOptionPane.showMessageDialog(null, "Supervisor Registrada");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
         limpiarEntradas();
         desHabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-        String idSupervisor=txtIdSupervisor.getText();
+        String idSupervisor = txtIdSupervisor.getText();
         if(idSupervisor.equalsIgnoreCase(""))
-            JOptionPane.showMessageDialog(null, "POR FAVOR INGRESA Id Supervisor");
+        JOptionPane.showMessageDialog(null, "POR FAVOR INGRESA EL ID DEL SUPERVISOR");
         else
         {
             try {
@@ -206,67 +361,59 @@ public class DialogSupervisor extends javax.swing.JDialog {
                     habilitar();
                 }
                 else
-                JOptionPane.showMessageDialog(null,"El Id Supervisor no existe");
-            }catch (SQLException sup) {
-                JOptionPane.showMessageDialog(null,sup.getMessage());
+                JOptionPane.showMessageDialog(null,"El ID no existe");
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
             }
         }
+
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpiarEntradas();
+        desHabilitar();
+
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         try{
+            int resp = JOptionPane.showConfirmDialog(this, "¿Deseas Eliminarlo?", "Eliminar Supervisor", JOptionPane.YES_NO_OPTION );
+            if( resp == JOptionPane.YES_OPTION ){
+                String idSupervisor = txtIdSupervisor.getText();
+                SupervisorDAO.getInstancia().eliminar(idSupervisor);
+                SupervisorDAO.getInstancia().mostrar(modelo);
+                JOptionPane.showMessageDialog(this,"Supervisor eliminado");
+            }
+            else
+            JOptionPane.showMessageDialog(null,"El ID no existe");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
+        limpiarEntradas();
+        desHabilitar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         try {
             String idSupervisor = txtIdSupervisor.getText();
             String nombre = txtNombre.getText();
             String contraseña = txtContraseña.getText();
-            Supervisor supervisor= new Supervisor(idSupervisor, nombre, contraseña);
-            SupervisorDAO.getInstancia().actualizar(supervisor);
+
+            Supervisor x = new Supervisor(idSupervisor, nombre,contraseña);
+            SupervisorDAO.getInstancia().actualizar(x);
             SupervisorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Modificado");
-        } catch (SQLException sup) {
-            JOptionPane.showMessageDialog(null,sup.getMessage());
+            JOptionPane.showMessageDialog(null,"Dato modificado");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
         }
         limpiarEntradas();
         desHabilitar();
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        try{
-
-            int resp = JOptionPane.showConfirmDialog(this, "Procedo Eliminarlo ", "Eliminar Dato", JOptionPane.YES_NO_OPTION );
-
-            if( resp == JOptionPane.YES_OPTION ){
-                String idSupervisor = txtIdSupervisor.getText();
-                SupervisorDAO.getInstancia().eliminar(idSupervisor);
-                SupervisorDAO.getInstancia().mostrar(modelo);
-                JOptionPane.showMessageDialog(this,"Eliminacion exitosa");
-
-            }
-            else
-                JOptionPane.showMessageDialog(null,"El Id Supervisor no existe");
-        } catch (SQLException sup) {
-            JOptionPane.showMessageDialog(null,sup.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        String idSupervisor=txtIdSupervisor.getText();
-        String nombre = txtNombre.getText();
-        String contraseña = txtContraseña.getText();
-        Supervisor supervisor = new Supervisor(idSupervisor, nombre, contraseña);
-        try {
-            SupervisorDAO.getInstancia().agregar(supervisor);
-            SupervisorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null, "Dato registrado");
-        } catch (SQLException sup) {
-            JOptionPane.showMessageDialog(null, sup.getMessage());
-        }
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreKeyTyped
 
     /**
      * @param args the command line arguments
@@ -312,19 +459,24 @@ public class DialogSupervisor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRestaurar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtIdSupervisor;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

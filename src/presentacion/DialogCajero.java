@@ -190,6 +190,11 @@ public class DialogCajero extends javax.swing.JDialog {
                 txtContraseñaFocusLost(evt);
             }
         });
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
         jPanel4Blanco.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 441, 290, 30));
 
         cboTurno.setForeground(new java.awt.Color(153, 153, 153));
@@ -607,6 +612,10 @@ public class DialogCajero extends javax.swing.JDialog {
     private void txtNdeCajaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNdeCajaKeyTyped
         x.validarNumeros(evt);
     }//GEN-LAST:event_txtNdeCajaKeyTyped
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
