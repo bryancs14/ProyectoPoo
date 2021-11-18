@@ -2,6 +2,7 @@
 package entidad;
 
 import datos.ListaDetalleCompra;
+import java.util.Date;
 import java.util.Objects;
 import javax.swing.table.DefaultTableModel;
 //import java.text.SimpleDateFormat;(para la fehca y hora)
@@ -9,15 +10,16 @@ import javax.swing.table.DefaultTableModel;
 public class Compra {
     private String idCompra;
     private double importe;
-    private /*Fecha y hora tipo->SimpleDateFormat*/String fechaHora;
+    private Date fechaHora;
     private Proveedor proveedor;
     private Supervisor supervisor;
     private ListaDetalleCompra LDCO;
 
     public Compra() {
+        LDCO = new ListaDetalleCompra();
     }
 
-    public Compra(String idCompra, double importe, String fechaHora, Proveedor proveedor, Supervisor supervisor) {
+    public Compra(String idCompra, double importe, Date fechaHora, Proveedor proveedor, Supervisor supervisor) {
         this.idCompra = idCompra;
         this.importe = importe;
         this.fechaHora = fechaHora;
@@ -46,11 +48,11 @@ public class Compra {
         this.importe = importe;
     }
 
-    public String getFechaHora() {
+    public Date getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(String fehcaHora) {
+    public void setFechaHora(Date fehcaHora) {
         this.fechaHora = fehcaHora;
     }
 
@@ -63,7 +65,17 @@ public class Compra {
     }
     
     public void registrarDetalle(DetalleCompra det){
-       LDCO.add(det);
+       double subImporte = det.getCantidadComprada()*det.getPrecioCompra();
+       importe+=subImporte;
+       int index = LDCO.searchIndexByProducto(det.getProducto());
+       if(index!=-1){
+           DetalleCompra detalleAnterior=LDCO.getElemento(index);
+           det.setCantidadComprada(det.getCantidadComprada()+detalleAnterior.getCantidadComprada());
+           LDCO.update(index, det);
+       }
+       else{
+           LDCO.add(det);
+       }
     }
     
     public void mostrarDetalle(DefaultTableModel modelo){

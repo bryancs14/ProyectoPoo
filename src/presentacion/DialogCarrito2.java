@@ -11,6 +11,7 @@ import entidad.Producto;
 import entidad.Carrito;
 import datos.ClienteDAO;
 import datos.ListaDetalleCarrito;
+import entidad.Cajero;
 import entidad.Cliente;
 import java.awt.Color;
 import entidad.DetalleCarrito;
@@ -18,22 +19,37 @@ import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import entidad.Validaciones;
+import java.time.format.DateTimeFormatter;
 
-public class DialogCarrito extends javax.swing.JDialog {
+
+public class DialogCarrito2 extends javax.swing.JDialog {
     DefaultTableModel modelo = new DefaultTableModel();
    
     private Producto productoSelec=null;
     private Caja cajaSelec = null;
+    private Carrito carritoSelec = new Carrito();
     private ListaDetalleCarrito LDC = new ListaDetalleCarrito();
     Validaciones x = new Validaciones();
     
     /**
      * Creates new form DialogCarrito
      */
-    public DialogCarrito() {
+    public DialogCarrito2() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
         setLocationRelativeTo(null);
+        traerCaja();
+        carritoSelec.mostrarDetalle(modelo);
+    }
+    
+    public void traerCaja() {
+        Cajero cajero = Globales.cajeroGlobal;
+        if(cajero != null) {
+            cajaSelec = cajero.getCaja();
+            txtIdCaja.setText(cajaSelec.getIdCaja());
+            txtNroCaja.setText(String.valueOf(cajaSelec.getNumeroDeCaja()));
+            btnSeleccionarCaja.setVisible(false);
+        }
     }
     
     private void habilitar(){
@@ -185,40 +201,40 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
 
         jLabel1.setFont(new java.awt.Font("Myanmar Text", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("CLIENTE");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("ID CLIENTE");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("DNI");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("NOMBRE");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("EMAIL");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("PUNTOS ACUMULADOS");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono cliente.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 90, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 90, -1));
 
         txtIdCliente.setBackground(new java.awt.Color(255, 255, 255));
         txtIdCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -230,8 +246,8 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtIdClienteMousePressed(evt);
             }
         });
-        jPanel1.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 290, 30));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 290, 20));
+        jPanel1.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 290, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 290, 20));
 
         txtDniCliente.setBackground(new java.awt.Color(255, 255, 255));
         txtDniCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -243,7 +259,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtDniClienteMousePressed(evt);
             }
         });
-        jPanel1.add(txtDniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 290, 30));
+        jPanel1.add(txtDniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 290, 30));
 
         txtNombreCliente.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -260,7 +276,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtNombreClienteKeyTyped(evt);
             }
         });
-        jPanel1.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 290, 30));
+        jPanel1.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 290, 30));
 
         txtEmailCliente.setBackground(new java.awt.Color(255, 255, 255));
         txtEmailCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -272,7 +288,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtEmailClienteMousePressed(evt);
             }
         });
-        jPanel1.add(txtEmailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 290, 30));
+        jPanel1.add(txtEmailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 290, 30));
 
         txtPuntosAcumulados.setBackground(new java.awt.Color(255, 255, 255));
         txtPuntosAcumulados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -284,47 +300,47 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtPuntosAcumuladosMousePressed(evt);
             }
         });
-        jPanel1.add(txtPuntosAcumulados, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, 290, 30));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 290, 20));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 290, 20));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 290, 10));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 290, 20));
+        jPanel1.add(txtPuntosAcumulados, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 290, 30));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 290, 20));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 290, 20));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 290, 10));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 290, 20));
 
         jPanel2.setBackground(new java.awt.Color(99, 164, 64));
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, 580));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, 480));
 
         jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("CARRITO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("ID CARRITO");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("IMPORTE");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));
         jLabel11.setText("FECHA/HORA");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("MEDIO DE PAGO");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("PUNTOS GANADOS");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono carrito.jpg"))); // NOI18N
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 110, 100));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 110, 100));
 
         txtIdCarrito.setBackground(new java.awt.Color(255, 255, 255));
         txtIdCarrito.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -336,8 +352,9 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtIdCarritoMousePressed(evt);
             }
         });
-        jPanel1.add(txtIdCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 290, 30));
+        jPanel1.add(txtIdCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 290, 30));
 
+        txtImporte.setEditable(false);
         txtImporte.setBackground(new java.awt.Color(255, 255, 255));
         txtImporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtImporte.setForeground(new java.awt.Color(204, 204, 204));
@@ -348,8 +365,9 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtImporteMousePressed(evt);
             }
         });
-        jPanel1.add(txtImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 290, 30));
+        jPanel1.add(txtImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 290, 30));
 
+        txtFechaH.setEditable(false);
         txtFechaH.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtFechaH.setForeground(new java.awt.Color(204, 204, 204));
@@ -360,7 +378,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtFechaHMousePressed(evt);
             }
         });
-        jPanel1.add(txtFechaH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 290, 30));
+        jPanel1.add(txtFechaH, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 30));
 
         txtMedioPago.setBackground(new java.awt.Color(255, 255, 255));
         txtMedioPago.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -372,7 +390,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtMedioPagoMousePressed(evt);
             }
         });
-        jPanel1.add(txtMedioPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 290, 30));
+        jPanel1.add(txtMedioPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 290, 30));
 
         txtPuntosGanados.setBackground(new java.awt.Color(255, 255, 255));
         txtPuntosGanados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -384,45 +402,46 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtPuntosGanadosMousePressed(evt);
             }
         });
-        jPanel1.add(txtPuntosGanados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 290, 30));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 290, 20));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 290, 20));
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 290, 20));
-        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 290, 20));
-        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 290, 20));
+        jPanel1.add(txtPuntosGanados, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 290, 30));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 290, 20));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 290, 20));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 290, 20));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 290, 20));
+        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 290, 20));
 
         jPanel3.setBackground(new java.awt.Color(0, 161, 233));
         jPanel3.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, 580));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, -1, 480));
 
         jLabel15.setFont(new java.awt.Font("Myanmar Text", 1, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("PRODUCTOS");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("ID PRODUCTO");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("NOMBRE");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, -1, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
         jLabel18.setText("PRECIO VENTA");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("CANTIDAD COMPRADA");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 320, -1, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Producto - icono.jpg"))); // NOI18N
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 90, 90));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 90, 90));
 
+        txtIdProducto.setEditable(false);
         txtIdProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtIdProducto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdProducto.setForeground(new java.awt.Color(204, 204, 204));
@@ -433,8 +452,9 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtIdProductoMousePressed(evt);
             }
         });
-        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 290, 30));
+        jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 130, 290, 30));
 
+        txtNombreProducto.setEditable(false);
         txtNombreProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreProducto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNombreProducto.setForeground(new java.awt.Color(204, 204, 204));
@@ -450,8 +470,9 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtNombreProductoKeyTyped(evt);
             }
         });
-        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 290, 30));
+        jPanel1.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 200, 290, 30));
 
+        txtPrecioVenta.setEditable(false);
         txtPrecioVenta.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecioVenta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtPrecioVenta.setForeground(new java.awt.Color(204, 204, 204));
@@ -462,7 +483,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtPrecioVentaMousePressed(evt);
             }
         });
-        jPanel1.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 290, 30));
+        jPanel1.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 290, 30));
 
         txtCantidadComprada.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidadComprada.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -474,11 +495,11 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtCantidadCompradaMousePressed(evt);
             }
         });
-        jPanel1.add(txtCantidadComprada, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 290, 30));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 290, 20));
-        jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 290, 20));
-        jPanel1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, 290, 20));
-        jPanel1.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 290, 20));
+        jPanel1.add(txtCantidadComprada, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, 290, 30));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 160, 290, 20));
+        jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 290, 20));
+        jPanel1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 290, 20));
+        jPanel1.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 380, 290, 20));
 
         btnSeleccionarProdcuto.setBackground(new java.awt.Color(0, 161, 233));
         btnSeleccionarProdcuto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -490,7 +511,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnSeleccionarProdcutoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeleccionarProdcuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 120, 40));
+        jPanel1.add(btnSeleccionarProdcuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, 120, 40));
 
         btnAgregar.setBackground(new java.awt.Color(0, 161, 233));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -502,7 +523,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 490, 120, 40));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 410, 120, 40));
 
         btnEliminarProducto.setBackground(new java.awt.Color(0, 161, 233));
         btnEliminarProducto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -514,10 +535,10 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnEliminarProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 540, 120, 40));
+        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 460, 120, 40));
 
         jPanel4.setBackground(new java.awt.Color(135, 224, 200));
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 0, -1, 580));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 20, -1, 490));
 
         jLabel21.setFont(new java.awt.Font("Myanmar Text", 1, 20)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(102, 102, 102));
@@ -527,16 +548,17 @@ public class DialogCarrito extends javax.swing.JDialog {
         jLabel22.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(102, 102, 102));
         jLabel22.setText("ID CAJA");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 150, -1, -1));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 150, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(102, 102, 102));
         jLabel23.setText("N° CAJA");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 280, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 240, -1, -1));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cashier2_117800.png"))); // NOI18N
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 20, 100, 100));
 
+        txtIdCaja.setEditable(false);
         txtIdCaja.setBackground(new java.awt.Color(255, 255, 255));
         txtIdCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdCaja.setForeground(new java.awt.Color(204, 204, 204));
@@ -547,8 +569,9 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtIdCajaMousePressed(evt);
             }
         });
-        jPanel1.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 200, 290, 30));
+        jPanel1.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 180, 290, 30));
 
+        txtNroCaja.setEditable(false);
         txtNroCaja.setBackground(new java.awt.Color(255, 255, 255));
         txtNroCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNroCaja.setForeground(new java.awt.Color(204, 204, 204));
@@ -559,9 +582,9 @@ public class DialogCarrito extends javax.swing.JDialog {
                 txtNroCajaMousePressed(evt);
             }
         });
-        jPanel1.add(txtNroCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 320, 290, 30));
-        jPanel1.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 230, 290, 20));
-        jPanel1.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 350, 290, 20));
+        jPanel1.add(txtNroCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 260, 290, 30));
+        jPanel1.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 210, 290, 20));
+        jPanel1.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 290, 290, 20));
 
         btnSeleccionarCaja.setBackground(new java.awt.Color(135, 224, 200));
         btnSeleccionarCaja.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -573,7 +596,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnSeleccionarCajaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeleccionarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 420, 130, 40));
+        jPanel1.add(btnSeleccionarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 330, 130, 40));
 
         btnGuardar.setBackground(new java.awt.Color(8, 8, 11));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -585,7 +608,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 120, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 120, 40));
 
         btnActualizar.setBackground(new java.awt.Color(8, 8, 11));
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -596,7 +619,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 620, 120, 40));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 120, 40));
 
         btnConsultar.setBackground(new java.awt.Color(8, 8, 11));
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -607,7 +630,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 620, 120, 40));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 510, 120, 40));
 
         btnEliminar.setBackground(new java.awt.Color(8, 8, 11));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -618,7 +641,7 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 700, 120, 40));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 120, 40));
 
         btnRestaurar.setBackground(new java.awt.Color(8, 8, 11));
         btnRestaurar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -629,15 +652,15 @@ public class DialogCarrito extends javax.swing.JDialog {
                 btnRestaurarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 700, 120, 40));
+        jPanel1.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 120, 40));
 
-        jTable1.setBackground(new java.awt.Color(8, 8, 11));
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(modelo);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 610, 850, 260));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, 710, 240));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1580, 880));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1520, 880));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1009,12 +1032,13 @@ public class DialogCarrito extends javax.swing.JDialog {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         int cantidad = Integer.parseInt(txtCantidadComprada.getText());
         DetalleCarrito detalleCar= new DetalleCarrito(productoSelec,cantidad);
-        LDC.add(detalleCar);
-        LDC.mostrar(modelo);
+        carritoSelec.registrarDetalle(detalleCar);
+        carritoSelec.mostrarDetalle(modelo);
+        txtImporte.setText(String.valueOf(carritoSelec.getImporte()));
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
-        
+//        int index =
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
     private void btnSeleccionarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCajaActionPerformed
@@ -1036,10 +1060,13 @@ public class DialogCarrito extends javax.swing.JDialog {
         
         String idCarrito = txtIdCarrito.getText();
         double importe = Double.parseDouble(txtImporte.getText());
-        String fechaHora = txtFechaH.getText();
+        
+        java.util.Date dt = new java.util.Date();
+
+        
         String medioPago = txtMedioPago.getText();
         int puntosGana = Integer.parseInt(txtPuntosGanados.getText());
-        Carrito carrito = new Carrito(idCarrito,importe,fechaHora,medioPago,puntosGana,cliente,cajaSelec,LDC);  
+        Carrito carrito = new Carrito(idCarrito,carritoSelec.getImporte(), dt, medioPago,puntosGana,cliente,cajaSelec, carritoSelec.getLDC()); 
         try{
             ClienteDAO.getInstancia().agregar(cliente);
             CarritoDAO.getInstancia().agregar(carrito);
@@ -1047,7 +1074,7 @@ public class DialogCarrito extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, cli.getMessage());
         }
 
-        limpiarEntradas();
+//        limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1121,20 +1148,21 @@ public class DialogCarrito extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCarrito2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCarrito2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCarrito2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogCarrito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCarrito2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogCarrito dialog = new DialogCarrito();
+                DialogCarrito2 dialog = new DialogCarrito2();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

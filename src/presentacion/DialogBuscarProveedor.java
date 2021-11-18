@@ -20,7 +20,6 @@ public class DialogBuscarProveedor extends javax.swing.JDialog {
     public DialogBuscarProveedor() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(489, 417);
         setLocationRelativeTo(null);
         try {
             ProveedorDAO.getInstancia().mostrar(modelo);
@@ -189,6 +188,7 @@ public class DialogBuscarProveedor extends javax.swing.JDialog {
         if(i!=-1) {
             proveedorSelec.setIdProveedor(modelo.getValueAt(i, 0).toString());
             proveedorSelec.setNombre(modelo.getValueAt(i, 1).toString());
+            proveedorSelec.setTelefono(modelo.getValueAt(i, 2).toString());
             this.dispose();
         } else
         JOptionPane.showMessageDialog(null, "Debes Seleccionar un elemento");

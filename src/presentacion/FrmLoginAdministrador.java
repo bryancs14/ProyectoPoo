@@ -45,10 +45,10 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfil.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 30, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 30, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/candado_1.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 30, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 30, 30));
 
         btnLogin.setBackground(new java.awt.Color(57, 49, 74));
         btnLogin.setFont(new java.awt.Font("Malgun Gothic Semilight", 0, 12)); // NOI18N
@@ -75,7 +75,7 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
                 txtNombreFocusLost(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 220, 30));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 220, 30));
         txtNombre.setEnabled(true);
 
         txtContraseña.setBackground(new java.awt.Color(211, 213, 224));
@@ -90,7 +90,7 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
                 txtContraseñaFocusLost(evt);
             }
         });
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 220, 30));
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 220, 30));
         txtContraseña.setEnabled(true);
 
         cboTipo.setBackground(new java.awt.Color(211, 213, 224));
@@ -101,16 +101,16 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
                 cboTipoActionPerformed(evt);
             }
         });
-        getContentPane().add(cboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 260, 30));
+        getContentPane().add(cboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 260, 30));
 
         jPanel3.setBackground(new java.awt.Color(211, 213, 224));
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 260, 30));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 260, 30));
 
         jPanel2.setBackground(new java.awt.Color(211, 213, 224));
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 260, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 260, 30));
 
         jPanel1.setBackground(new java.awt.Color(211, 213, 224));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 260, 30));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 260, 30));
         jPanel1.setVisible(false);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/HD-wallpaper-blue-pink-gradient-android-awesome-cool-decent-iphone-new-simple.jpg"))); // NOI18N
@@ -127,9 +127,8 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
         try {
             if(tipo.equals("ADMINISTRADOR")) {
                 Administrador admin = new Administrador(nombre, contraseña);
-                admin = AdministradorDAO.getInstancia().login(admin);
-                if(admin != null){
-                    Globales.adminGlobal = admin;
+                Globales.adminGlobal = AdministradorDAO.getInstancia().login(admin);
+                if(Globales.adminGlobal != null){
                     FrmPrincipal x = new FrmPrincipal();
                     x.setVisible(true);
                     dispose();
@@ -137,20 +136,18 @@ public class FrmLoginAdministrador extends javax.swing.JFrame {
             }
             if(tipo.equals("SUPERVISOR")) {
                 Supervisor supervisor = new Supervisor(nombre, contraseña);
-                supervisor = SupervisorDAO.getInstancia().login(supervisor);
-                if(supervisor != null){
-                    Globales.supervisorGlobal = supervisor;
-                    FrmPrincipal x = new FrmPrincipal();
+                Globales.supervisorGlobal = SupervisorDAO.getInstancia().login(supervisor);
+                if(Globales.supervisorGlobal != null){
+                    FrmPrincipalSupervisor x = new FrmPrincipalSupervisor();
                     x.setVisible(true);
                     dispose();
                 }
             }
             if(tipo.equals("CAJERO")) {
                 Cajero cajero = new Cajero(nombre, contraseña);
-                cajero = CajeroDAO.getInstancia().login(cajero);
-                if(cajero != null){
-                    Globales.cajeroGlobal = cajero;
-                    FrmPrincipal x = new FrmPrincipal();
+                Globales.cajeroGlobal = CajeroDAO.getInstancia().login(cajero);
+                if(Globales.cajeroGlobal != null){
+                    FrmPrincipalCajero x = new FrmPrincipalCajero();
                     x.setVisible(true);
                     dispose();
                 }

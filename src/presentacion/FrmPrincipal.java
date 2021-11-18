@@ -16,6 +16,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+        deshabilitar();
     }
     
     public void setColor(JPanel x){
@@ -24,6 +25,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     
     public void resetColor(JPanel x){
         x.setBackground(new Color(245, 253, 0));
+    }
+    
+    public void deshabilitar() {
+        if(Globales.adminGlobal != null) {
+            
+        }
     }
     
     /**
@@ -412,6 +419,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel36.setText("AGREGAR CARRITO");
         jLabel36.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel36MouseClicked(evt);
+            }
+        });
 
         jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-carrito.png"))); // NOI18N
 
@@ -1722,7 +1734,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelCajeroMouseExited
 
     private void btnAgregarCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarCarritoMouseClicked
-        DialogCarrito f = new DialogCarrito();
+        DialogCarrito2 f = new DialogCarrito2();
         f.setVisible(true);
     }//GEN-LAST:event_btnAgregarCarritoMouseClicked
 
@@ -1896,6 +1908,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSalir.setBackground(Color.white);
         btnSalir.setForeground(Color.black);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void jLabel36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel36MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel36MouseClicked
 
     
     /**

@@ -187,6 +187,7 @@ public class AdministradorDAO {
     }
     
     public Administrador login(Administrador admin) throws SQLException {
+        Administrador adminLogueado = null;
         Connection cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
         ResultSet rs;
@@ -208,7 +209,7 @@ public class AdministradorDAO {
                 contraseña = rs.getString("contraseña");
                 String idSupermercado = rs.getString("idSupermercado");
                 Supermercado supermercado = SupermercadoDAO.getInstancia().buscarSupermercado(idSupermercado);
-                admin = new Administrador(idAdministrador, nombre, contraseña, supermercado);
+                adminLogueado = new Administrador(idAdministrador, nombre, contraseña, supermercado);
             }
             else{
                 JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
@@ -220,6 +221,6 @@ public class AdministradorDAO {
             cn.close();
             ps.close();
         }
-        return admin;
+        return adminLogueado;
     }
 }

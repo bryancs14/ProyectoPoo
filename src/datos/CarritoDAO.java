@@ -11,6 +11,8 @@ import entidad.Producto;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import java.util.Date;
+import java.sql.Timestamp;
 
 public class CarritoDAO {
     private Connection cn = null;
@@ -30,7 +32,7 @@ public class CarritoDAO {
         try {
             String idCarrito = carrito.getIdCarrito();
             double importe = carrito.getImporte();
-            String fechaHora = carrito.getFechaHora();
+            Date fechaHora = carrito.getFechaHora();
             String medioPago = carrito.getMedioDePago();
             int puntosGanados = carrito.getPuntosGanados();
             String idCliente = carrito.getCliente().getIdCliente();
@@ -39,7 +41,7 @@ public class CarritoDAO {
             ps = cn.prepareStatement(sql);
             ps.setString(1, idCarrito); // Otra forma ps.setString(1, carrito.getIdCarrito());
             ps.setDouble(2, importe);
-            ps.setString(3, fechaHora);
+            ps.setTimestamp(3, new Timestamp(fechaHora.getTime()));
             ps.setString(4, medioPago);
             ps.setInt(5, puntosGanados);
             ps.setString(6, idCliente);
@@ -50,7 +52,7 @@ public class CarritoDAO {
             
             for(int i = 0; i < LDC.size(); i++){
                 DetalleCarrito x = LDC.getElemento(i);
-                sql = "insert into carritoproducto(idCarrito, idProducto, cantidadComprada) values(?, ?, ?)";
+                sql = "insert into carritoproducto(idCarrito, idProducto, cantidadVendida) values(?, ?, ?)";
                 ps = cn.prepareStatement(sql);
                 ps.setString(1, carrito.getIdCarrito());
                 ps.setString(2, x.getProducto().getIdProducto());
@@ -77,7 +79,7 @@ public class CarritoDAO {
             rs = ps.executeQuery();
             if(rs.next()){
                 double importe = rs.getDouble("importe");
-                String fechaHora = rs.getString("fechaHora");
+                Timestamp fechaHora = rs.getTimestamp("fechaHora");
                 String medioPago = rs.getString("medioPago");
                 int puntoGanados = rs.getInt("puntosGanados");
                 String idCliente = rs.getString("idCliente");
@@ -91,7 +93,7 @@ public class CarritoDAO {
                 rs = ps.executeQuery();
                 while(rs.next()){
                     String idProducto = rs.getString("idProducto");
-                    int cantidadComprada = rs.getInt("cantidadComprada");
+                    int cantidadComprada = rs.getInt("cantidadVendida");
                     Producto producto = ProductoDAO.getInstancia().buscarProducto(idProducto);
                     DetalleCarrito det = new DetalleCarrito(producto, cantidadComprada);
                     carrito.registrarDetalle(det);

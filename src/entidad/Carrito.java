@@ -2,13 +2,15 @@
 package entidad;
 
 import datos.ListaDetalleCarrito;
+import java.util.Date;
 import java.util.Objects;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Timestamp;
 
 public class Carrito {
     private String idCarrito;
     private double importe;
-    private String fechaHora;
+    private Date fechaHora;
     private String medioDePago;
     private int puntosGanados;
     private Cliente cliente;
@@ -19,7 +21,7 @@ public class Carrito {
         LDC = new ListaDetalleCarrito();
     }
     
-    public Carrito(String idCarrito, double importe, String fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja, ListaDetalleCarrito LDC) {
+    public Carrito(String idCarrito, double importe, Date fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja, ListaDetalleCarrito LDC) {
         this.idCarrito = idCarrito;
         this.importe = importe;
         this.fechaHora = fechaHora;
@@ -30,7 +32,7 @@ public class Carrito {
         this.LDC = LDC;
     }
     
-    public Carrito(String idCarrito, double importe, String fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja) {
+    public Carrito(String idCarrito, double importe, Date fechaHora, String medioDePago, int puntosGanados, Cliente cliente, Caja caja) {
         this.idCarrito = idCarrito;
         this.importe = importe;
         this.fechaHora = fechaHora;
@@ -57,11 +59,11 @@ public class Carrito {
         this.importe = importe;
     }
 
-    public String getFechaHora() {
+    public Date getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(String fechaHora) {
+    public void setFechaHora(Date fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -98,10 +100,18 @@ public class Carrito {
     }
 
     public void registrarDetalle(DetalleCarrito det){
-        int index = LDC.searchIndexByProducto(det.getProducto());
-       double subImporte = det.getCantidadVendida()*det.getProducto().getPrecioVenta();
+       double subImporte;
+       subImporte= det.getCantidadVendida()*det.getProducto().getPrecioVenta();
        importe+=subImporte;
-       LDC.add(det);
+       int index = LDC.searchIndexByProducto(det.getProducto());
+       if(index!=-1){
+           DetalleCarrito detalleAnterior=LDC.getElemento(index);
+           det.setCantidadVendida(det.getCantidadVendida()+detalleAnterior.getCantidadVendida());
+           LDC.update(index, det);
+       }
+       else{
+           LDC.add(det);
+       }
     }
     
     public void mostrarDetalle(DefaultTableModel modelo){

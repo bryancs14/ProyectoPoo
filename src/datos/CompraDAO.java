@@ -32,14 +32,14 @@ public class CompraDAO {
         try {
             String idCompra = compra.getIdCompra();
             double importe = compra.getImporte();
-            String fechaHora = compra.getFechaHora();
-            String idProveedor = compra.getProveedor().getNombre();
+            java.util.Date fechaHora = compra.getFechaHora();
+            String idProveedor = compra.getProveedor().getIdProveedor();
             String idSupervisor = compra.getSupervisor().getIdSupervisor();
-            String sql = "insert into supermercado(idCompra, importe, fechaHora, idProveedor, idSupervisor) values(?, ?, ?, ?, ?)";
+            String sql = "insert into compra(idCompra, importe, fechaHora, idProveedor, idSupervisor) values(?, ?, ?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, idCompra);
             ps.setDouble(2, importe);
-            ps.setString(3, fechaHora);
+            ps.setTimestamp(3, new Timestamp(fechaHora.getTime()));
             ps.setString(4, idProveedor);
             ps.setString(5, idSupervisor);
             ps.executeUpdate();
@@ -62,7 +62,7 @@ public class CompraDAO {
             rs = ps.executeQuery();
             if(rs.next()){
                 double importe = rs.getDouble("importe");
-                String fechaHora = rs.getString("fechaHora");
+                Timestamp fechaHora = rs.getTimestamp("fechaHora");
                 Proveedor proveedor = ProveedorDAO.getInstancia().buscarProveedor(rs.getString("idProveedor"));
                 Supervisor supervisor = SupervisorDAO.getInstancia().buscarSupervisor(rs.getString("idSupervisor"));
                 compra = new Compra(idCompra, importe, fechaHora, proveedor, supervisor);
@@ -82,13 +82,13 @@ public class CompraDAO {
         try {
             String idCompra = compra.getIdCompra();
             double importe = compra.getImporte();
-            String fechaHora = compra.getFechaHora();
+            java.util.Date fechaHora = compra.getFechaHora();
             String idProveedor = compra.getProveedor().getNombre();
             String idSupervisor = compra.getSupervisor().getIdSupervisor();
             String sql = "update compra set importe = ?, fechaHora = ?, idProveedor = ?, idSupervisor = ? where idCompra = ?";
             ps = cn.prepareStatement(sql);
             ps.setDouble(1, importe);
-            ps.setString(2, fechaHora);
+            ps.setTimestamp(2, new Timestamp(fechaHora.getTime()));
             ps.setString(3, idProveedor);
             ps.setString(4, idSupervisor);
             ps.setString(5, idCompra);

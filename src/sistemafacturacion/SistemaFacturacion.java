@@ -18,8 +18,9 @@ public class SistemaFacturacion {
     private static Administrador administrador;
     
     public static void main(String[] args) {
+        
         traerSuper();
-
+        
     }
     
     

@@ -185,6 +185,7 @@ public class SupervisorDAO {
     }
     
     public Supervisor login(Supervisor supervisor) throws SQLException {
+        Supervisor supervisorLogueado = null;
         Connection cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
         ResultSet rs;
@@ -202,7 +203,7 @@ public class SupervisorDAO {
 
             if(rs.next()){
                 String nombre = rs.getString("nombre");
-                supervisor = new Supervisor(idSupervisor, nombre, contraseña);
+                supervisorLogueado = new Supervisor(idSupervisor, nombre, contraseña);
             }
             else{
                 JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
@@ -214,7 +215,7 @@ public class SupervisorDAO {
             cn.close();
             ps.close();
         }
-        return supervisor;
+        return supervisorLogueado;
     }
 }
     

@@ -170,6 +170,7 @@ public class CajeroDAO {
     }
     
     public Cajero login(Cajero cajero) throws SQLException {
+        Cajero cajeroLogueado = null;
         Connection cn = Conexion.getInstancia().miConexion();
         PreparedStatement ps = null;
         ResultSet rs;
@@ -190,7 +191,7 @@ public class CajeroDAO {
                 String turno = rs.getString("turno");
                 String idCaja = rs.getString("idCaja");
                 Caja caja = CajaDAO.getInstancia().buscarCaja(idCaja);
-                cajero = new Cajero(idCajero, nombre, turno, contraseña, caja);
+                cajeroLogueado = new Cajero(idCajero, nombre, turno, contraseña, caja);
             }
             else{
                 JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
@@ -202,6 +203,6 @@ public class CajeroDAO {
             cn.close();
             ps.close();
         }
-        return cajero;
+        return cajeroLogueado;
     }
 }

@@ -29,6 +29,7 @@ public class DialogCompra extends javax.swing.JDialog {
     private Proveedor proveedorSelec = null;
     private Supervisor supervisorSelec = null;
     private Producto productoSelec = null;
+    private Compra compraSelec = new Compra();
     private ListaDetalleCompra listaCompra = new ListaDetalleCompra();
     int posicion;
     
@@ -36,8 +37,17 @@ public class DialogCompra extends javax.swing.JDialog {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
         setLocationRelativeTo(null);
+        traerSupervisor();
     }
       
+    public void traerSupervisor() {
+        supervisorSelec = Globales.supervisorGlobal;
+        if(supervisorSelec != null) {
+            txtIdSupervisor.setText(String.valueOf(supervisorSelec.getIdSupervisor()));
+            txtNombreSupervisor.setText(supervisorSelec.getNombre());
+            btnSeleccionarSupervisor.setVisible(false);
+        }
+    }
     
     private void limpiarEntradas(){
         txtIdCompra.setText("");
@@ -265,6 +275,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel1.add(txtImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 290, 30));
 
+        txtFechaH.setEditable(false);
         txtFechaH.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtFechaH.setForeground(new java.awt.Color(204, 204, 204));
@@ -283,6 +294,7 @@ public class DialogCompra extends javax.swing.JDialog {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Compra_1.jpg"))); // NOI18N
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, 70));
 
+        txtIdProveedor.setEditable(false);
         txtIdProveedor.setBackground(new java.awt.Color(255, 255, 255));
         txtIdProveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdProveedor.setForeground(new java.awt.Color(204, 204, 204));
@@ -295,6 +307,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel1.add(txtIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 140, 290, 30));
 
+        txtNombreProveedor.setEditable(false);
         txtNombreProveedor.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreProveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNombreProveedor.setForeground(new java.awt.Color(204, 204, 204));
@@ -312,6 +325,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel1.add(txtNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 240, 290, 30));
 
+        txtTelefonoProveedor.setEditable(false);
         txtTelefonoProveedor.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefonoProveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtTelefonoProveedor.setForeground(new java.awt.Color(204, 204, 204));
@@ -335,6 +349,7 @@ public class DialogCompra extends javax.swing.JDialog {
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Proveedor - ícono.jpg"))); // NOI18N
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 110, 110));
 
+        txtIdSupervisor.setEditable(false);
         txtIdSupervisor.setBackground(new java.awt.Color(255, 255, 255));
         txtIdSupervisor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdSupervisor.setForeground(new java.awt.Color(204, 204, 204));
@@ -347,6 +362,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel1.add(txtIdSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 290, 30));
 
+        txtNombreSupervisor.setEditable(false);
         txtNombreSupervisor.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreSupervisor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNombreSupervisor.setForeground(new java.awt.Color(204, 204, 204));
@@ -369,6 +385,7 @@ public class DialogCompra extends javax.swing.JDialog {
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono supervisor.jpg"))); // NOI18N
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 110, 90));
 
+        txtIdProducto.setEditable(false);
         txtIdProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtIdProducto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdProducto.setForeground(new java.awt.Color(204, 204, 204));
@@ -381,6 +398,7 @@ public class DialogCompra extends javax.swing.JDialog {
         });
         jPanel1.add(txtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 290, 30));
 
+        txtNombreProducto.setEditable(false);
         txtNombreProducto.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreProducto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtNombreProducto.setForeground(new java.awt.Color(204, 204, 204));
@@ -534,7 +552,7 @@ public class DialogCompra extends javax.swing.JDialog {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 230, 210));
 
-        tablaProductos.setBackground(new java.awt.Color(247, 176, 48));
+        tablaProductos.setBackground(new java.awt.Color(255, 255, 255));
         tablaProductos.setModel(modelo);
         jScrollPane1.setViewportView(tablaProductos);
 
@@ -579,17 +597,17 @@ public class DialogCompra extends javax.swing.JDialog {
         DialogBuscarProveedor f = new DialogBuscarProveedor();
         f.setVisible(true);
         proveedorSelec = f.proveedorSelec;
-        txtIdProducto.setText(proveedorSelec.getIdProveedor());
-        txtCantidadComprada.setText(proveedorSelec.getNombre());
-
+        txtIdProveedor.setText(proveedorSelec.getIdProveedor());
+        txtNombreProveedor.setText(proveedorSelec.getNombre());
+        txtTelefonoProveedor.setText(proveedorSelec.getTelefono());
     }//GEN-LAST:event_btnSeleccionarProveedorActionPerformed
 
     private void btnSeleccionarSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarSupervisorActionPerformed
         DialogBuscarSupervisor f = new DialogBuscarSupervisor();
         f.setVisible(true);
         supervisorSelec = f.supervisorSelec;
-        txtIdProducto.setText(proveedorSelec.getIdProveedor());
-        txtCantidadComprada.setText(proveedorSelec.getNombre());
+        txtIdSupervisor.setText(supervisorSelec.getIdSupervisor());
+        txtNombreSupervisor.setText(supervisorSelec.getNombre());
     }//GEN-LAST:event_btnSeleccionarSupervisorActionPerformed
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
@@ -604,8 +622,9 @@ public class DialogCompra extends javax.swing.JDialog {
         int cantidadComprada = Integer.parseInt(txtCantidadComprada.getText());
         double precioCompra = Double.parseDouble(txtPrecioCompra.getText());
         DetalleCompra detalleCompra = new DetalleCompra(productoSelec, cantidadComprada, precioCompra);
-        listaCompra.add(detalleCompra);
-        listaCompra.mostrar(modelo);
+        compraSelec.registrarDetalle(detalleCompra);
+        compraSelec.mostrarDetalle(modelo);
+        txtImporte.setText(String.valueOf(compraSelec.getImporte()));
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -622,9 +641,8 @@ public class DialogCompra extends javax.swing.JDialog {
         if(productoSelec != null) {
            String idCompra = txtIdCompra.getText();
            double importe = Double.parseDouble(txtImporte.getText());
-           String fechaHora= txtFechaH.getText();
-
-           Compra compra= new Compra(idCompra, importe, fechaHora, proveedorSelec, supervisorSelec);
+           java.util.Date dt = new java.util.Date();
+           Compra compra= new Compra(idCompra, importe, dt, proveedorSelec, supervisorSelec);
            try{
                CompraDAO.getInstancia().agregar(compra);
                CompraDAO.getInstancia().mostrar(modelo);
