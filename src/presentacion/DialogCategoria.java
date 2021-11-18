@@ -106,6 +106,11 @@ public class DialogCategoria extends javax.swing.JDialog {
                 txtNombreFocusLost(evt);
             }
         });
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
@@ -130,6 +135,11 @@ public class DialogCategoria extends javax.swing.JDialog {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtIdCategoriaFocusLost(evt);
+            }
+        });
+        txtIdCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdCategoriaActionPerformed(evt);
             }
         });
         jPanel1.add(txtIdCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 290, 30));
@@ -414,6 +424,14 @@ public class DialogCategoria extends javax.swing.JDialog {
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         x.validarLetras(evt);
     }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtIdCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdCategoriaActionPerformed
 
     /**
      * @param args the command line arguments

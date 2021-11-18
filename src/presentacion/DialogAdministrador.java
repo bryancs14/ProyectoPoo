@@ -7,10 +7,12 @@ package presentacion;
 import datos.Conexion;
 import datos.SupermercadoDAO;
 import entidad.Supermercado;
+import java.awt.Color;
 import datos.AdministradorDAO;
 import entidad.Administrador;
 import java.sql.SQLException;
 import java.sql.*;
+import entidad.Validaciones;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,18 +23,18 @@ public class DialogAdministrador extends javax.swing.JDialog {
 
     private Supermercado supermercado;
     private Administrador administrador;
+    Validaciones x = new Validaciones();
     
     public DialogAdministrador() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(650, 440);
         setLocationRelativeTo(null);
         traerAdmin();
         try {
             supermercado = SupermercadoDAO.getInstancia().obtenerPrimerSupermercado();
             if(supermercado != null) {
                 
-                txtNombreSuper.setText(supermercado.getNombre());
+                txtNombreSupermercado.setText(supermercado.getNombre());
                 txtDireccion.setText(supermercado.getDireccion());
             }
         } catch (SQLException sup) {
@@ -43,11 +45,11 @@ public class DialogAdministrador extends javax.swing.JDialog {
     
     private void limpiarEntradas(){
        
-        txtNombreAdmi.setText("");
+        txtNombreAdministrador.setText("");
         txtContraseña.setText("");
-        txtNombreSuper.setText("");
+        txtNombreSupermercado.setText("");
         txtDireccion.setText("");
-        txtNombreAdmi.requestFocus();
+        txtNombreAdministrador.requestFocus();
     }
     
     private void traerAdmin() {
@@ -55,7 +57,7 @@ public class DialogAdministrador extends javax.swing.JDialog {
             administrador = AdministradorDAO.getInstancia().obtenerPrimerAdmin();
             if(administrador != null) {
                 
-                txtNombreAdmi.setText(administrador.getNombre());
+                txtNombreAdministrador.setText(administrador.getNombre());
                 txtContraseña.setText(administrador.getContraseña());
             }
         } catch (SQLException su) {
@@ -73,129 +75,235 @@ public class DialogAdministrador extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        txtNombreSuper = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        btnGuardar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        btnRestaurar1 = new javax.swing.JButton();
-        btnReporte = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtNombreAdmi = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtNombreAdministrador = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtNombreSupermercado = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        txtDireccion = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        btnGuardar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnGenerarReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 153, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(255, 153, 0));
+        setLocationByPlatform(true);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SUPERMERCADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setText("NOMBRE");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        txtNombreSuper.setEditable(false);
-        jPanel1.add(txtNombreSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 170, -1));
-
-        txtDireccion.setEditable(false);
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 170, -1));
-
-        jLabel8.setText("DIRECCION");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 380, 180));
-
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 30));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/administrador.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 400, 560));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
-        btnSalir.setText("Salir");
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(102, 102, 102));
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 140, 30));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
-        btnRestaurar1.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/restaurar.png"))); // NOI18N
-        btnRestaurar1.setText("Restaurar");
-        btnRestaurar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurar1ActionPerformed(evt);
+        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("ADMINISTRADOR");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("NOMBRE");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("CONTRASEÑA");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono administrador.jpg"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 100, 90));
+
+        txtNombreAdministrador.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreAdministrador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombreAdministrador.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombreAdministrador.setText("Ingrese NOMBRE ADMINISTRADOR");
+        txtNombreAdministrador.setBorder(null);
+        txtNombreAdministrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreAdministradorMousePressed(evt);
             }
         });
-        jPanel2.add(btnRestaurar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 140, 30));
-
-        btnReporte.setBackground(new java.awt.Color(102, 255, 204));
-        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnReporte.setText("GENERAR REPORTE");
-        btnReporte.setBorder(null);
-        btnReporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteActionPerformed(evt);
+        txtNombreAdministrador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreAdministradorKeyTyped(evt);
             }
         });
-        jPanel2.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 130, 40));
+        jPanel1.add(txtNombreAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 290, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 200, 360));
+        txtContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        txtContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtContraseña.setForeground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setText("********");
+        txtContraseña.setBorder(null);
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtContraseñaMousePressed(evt);
+            }
+        });
+        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 290, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 290, 20));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 290, 20));
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ADMINISTRADOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semibold", 2, 11))); // NOI18N
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(144, 222, 170));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, 380));
 
-        jLabel2.setText("NOMBRE");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        jPanel3.add(txtNombreAdmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 160, -1));
+        jLabel6.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("SUPERMERCADO");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
 
-        jLabel3.setText("CONTRASEÑA");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 20));
-        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 160, -1));
+        jLabel7.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("NOMBRE");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 380, 160));
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("DIRECCION");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/supermarket-icon-png-19.jpg"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, -20, 190, 150));
+
+        txtNombreSupermercado.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreSupermercado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombreSupermercado.setText("Ingrese NOMBRE SUPERMERCADO");
+        txtNombreSupermercado.setBorder(null);
+        txtNombreSupermercado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreSupermercadoMousePressed(evt);
+            }
+        });
+        txtNombreSupermercado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreSupermercadoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNombreSupermercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 290, 30));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 290, 20));
+
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtDireccion.setText("Ingrese DIRECCIÓN");
+        txtDireccion.setBorder(null);
+        txtDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDireccionMousePressed(evt);
+            }
+        });
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 290, 30));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 290, 30));
+
+        btnGuardar.setBackground(new java.awt.Color(144, 222, 170));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(51, 51, 51));
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.setBorder(null);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 130, 40));
+
+        btnCancelar.setBackground(new java.awt.Color(144, 222, 170));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setBorder(null);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 130, 40));
+
+        btnGenerarReporte.setBackground(new java.awt.Color(144, 222, 170));
+        btnGenerarReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGenerarReporte.setForeground(new java.awt.Color(51, 51, 51));
+        btnGenerarReporte.setText("GENERAR REPORTE");
+        btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarReporteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGenerarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 160, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(new Color(102,102,102));
+    }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        
-        String nombreAdmi=txtNombreAdmi.getText();
+         String nombreAdministrador=txtNombreAdministrador.getText();
         String contraseña=txtContraseña.getText();
         
         try{
             if(administrador == null) {
-                administrador= new Administrador("1", nombreAdmi, contraseña, supermercado);
+                administrador= new Administrador("1", nombreAdministrador, contraseña, supermercado);
                 AdministradorDAO.getInstancia().agregar(administrador);
             } else {
                 
-                administrador.setNombre(nombreAdmi);
+                administrador.setNombre(nombreAdministrador);
                 administrador.setContraseña(contraseña);
                 AdministradorDAO.getInstancia().actualizar(administrador);
             }
@@ -205,14 +313,14 @@ public class DialogAdministrador extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, su.getMessage());
         }
         limpiarEntradas();
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnRestaurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurar1ActionPerformed
-        // TODO add your handling code here:
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         limpiarEntradas();
-    }//GEN-LAST:event_btnRestaurar1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
         JasperReport reporte;
         Connection cn;
         try {
@@ -225,7 +333,60 @@ public class DialogAdministrador extends javax.swing.JDialog {
         }catch(JRException e){
             JOptionPane.showMessageDialog(null, "ERROR" + e.getMessage());
         }
-    }//GEN-LAST:event_btnReporteActionPerformed
+
+    }//GEN-LAST:event_btnGenerarReporteActionPerformed
+
+    private void txtNombreAdministradorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreAdministradorKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreAdministradorKeyTyped
+
+    private void txtNombreSupermercadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreSupermercadoKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreSupermercadoKeyTyped
+
+    private void txtNombreAdministradorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreAdministradorMousePressed
+        if(txtNombreAdministrador.getText().equals("Ingrese NOMBRE ADMINISTRADOR")){
+            txtNombreAdministrador.setText("");
+            txtNombreAdministrador.setForeground(new Color(102,102,102));
+        }   
+        if(txtContraseña.getText().isEmpty()){
+            txtContraseña.setText("********");
+            txtContraseña.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreAdministradorMousePressed
+
+    private void txtContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMousePressed
+        if(txtNombreAdministrador.getText().isEmpty()){
+            txtNombreAdministrador.setText("Ingrese NOMBRE ADMINISTRADOR");
+            txtNombreAdministrador.setForeground(new Color(204,204,204));
+        }
+        if(txtContraseña.getText().equals("********")){
+            txtContraseña.setText("");
+            txtContraseña.setForeground(new Color(102,102,102));
+        }   
+    }//GEN-LAST:event_txtContraseñaMousePressed
+
+    private void txtNombreSupermercadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreSupermercadoMousePressed
+        if(txtNombreSupermercado.getText().equals("Ingrese NOMBRE SUPERMERCADO")){
+            txtNombreSupermercado.setText("");
+            txtNombreSupermercado.setForeground(new Color(102,102,102));
+        }   
+        if(txtDireccion.getText().isEmpty()){
+            txtDireccion.setText("Ingrese DIRECCION");
+            txtDireccion.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreSupermercadoMousePressed
+
+    private void txtDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionMousePressed
+         if(txtNombreSupermercado.getText().isEmpty()){
+            txtNombreSupermercado.setText("Ingrese NOMBRE SUPERMERCADO");
+            txtNombreSupermercado.setForeground(new Color(204,204,204));
+        }
+        if(txtDireccion.getText().equals("Ingrese DIRECCION")){
+            txtDireccion.setText("");
+            txtDireccion.setForeground(new Color(102,102,102));
+        }   
+    }//GEN-LAST:event_txtDireccionMousePressed
 
     /**
      * @param args the command line arguments
@@ -270,20 +431,28 @@ public class DialogAdministrador extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGenerarReporte;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnReporte;
-    private javax.swing.JButton btnRestaurar1;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNombreAdmi;
-    private javax.swing.JTextField txtNombreSuper;
+    private javax.swing.JTextField txtNombreAdministrador;
+    private javax.swing.JTextField txtNombreSupermercado;
     // End of variables declaration//GEN-END:variables
 }

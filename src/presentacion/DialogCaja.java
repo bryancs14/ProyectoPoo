@@ -162,6 +162,11 @@ public class DialogCaja extends javax.swing.JDialog {
                 txtIdCajaFocusLost(evt);
             }
         });
+        txtIdCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdCajaActionPerformed(evt);
+            }
+        });
         jPanel1Blanco.add(txtIdCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 290, 30));
         jPanel1Blanco.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 290, 10));
 
@@ -406,6 +411,10 @@ public class DialogCaja extends javax.swing.JDialog {
         Validaciones x = new Validaciones();
         x.validarNumeros(evt);
     }//GEN-LAST:event_txtNdeCajaKeyTyped
+
+    private void txtIdCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdCajaActionPerformed
 
     /**
      * @param args the command line arguments

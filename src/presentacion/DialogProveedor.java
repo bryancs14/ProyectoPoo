@@ -7,20 +7,22 @@ package presentacion;
 
 import datos.ProveedorDAO;
 import entidad.Proveedor;
+import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import entidad.Validaciones;
 
 public class DialogProveedor extends javax.swing.JDialog {
 
     private DefaultTableModel modelo = new DefaultTableModel();
+    Validaciones x = new Validaciones();
     
     public DialogProveedor() {
         super(FrmPrincipal.getInstancia(), true);
         initComponents();
-        setSize(610, 600);
         setLocationRelativeTo(null);
         desHabilitar();
         try {
@@ -60,226 +62,452 @@ public class DialogProveedor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        btnSalir = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         txtIdProveedor = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        btnSalir = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btnReporte = new javax.swing.JButton();
         txtTelefono = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        btnRestaurar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setForeground(new java.awt.Color(255, 153, 0));
-        jTable1.setModel(modelo);
-        jTable1.setGridColor(new java.awt.Color(255, 153, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 153, 0));
-        jScrollPane1.setViewportView(jTable1);
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 550, 240));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Proveedor 2.jpg"))); // NOI18N
+        jLabel7.setMaximumSize(new java.awt.Dimension(1396, 928));
+        jLabel7.setMinimumSize(new java.awt.Dimension(1396, 928));
+        jLabel7.setPreferredSize(new java.awt.Dimension(1396, 928));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, -30, 780, 760));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PROVEEDOR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semilight", 3, 11))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setFont(new java.awt.Font("Trebuchet MS", 0, 11)); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTable2.setBackground(new java.awt.Color(0, 122, 199));
+        jTable2.setModel(modelo);
+        jTable2.setGridColor(new java.awt.Color(51, 51, 51));
+        jTable2.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        jScrollPane2.setViewportView(jTable2);
 
-        jLabel1.setText("ID PROVEEDOR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        jLabel2.setText("TELEFONO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 154, -1, 10));
-        jPanel1.add(txtIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 170, -1));
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 170, -1));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 580, 240));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnSalir.setText("Salir");
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(102, 102, 102));
+        btnSalir.setText("X");
+        btnSalir.setAutoscrolls(true);
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 120, 30));
+        jPanel4.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
-        jLabel3.setText("NOMBRE");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("PROVEEDOR");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 300, 70));
 
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 170, -1));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Proveedor - ícono.jpg"))); // NOI18N
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 110, 120));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 270));
+        jLabel10.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("ID PROVEEDOR");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI Semilight", 3, 11))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel11.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setText("NOMBRE");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        btnRestaurar.setBackground(new java.awt.Color(255, 255, 255));
-        btnRestaurar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnRestaurar.setText("Restaurar");
-        btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestaurarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRestaurar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 120, 30));
+        jLabel12.setFont(new java.awt.Font("Myanmar Text", 1, 15)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setText("TELEFONO");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 90, 40));
 
-        btnConsultar.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 120, 30));
-
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 120, 30));
-
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 120, 30));
-
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 2, 11)); // NOI18N
-        btnGuardar.setText("Guardar");
+        btnGuardar.setBackground(new java.awt.Color(0, 122, 199));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
+        jPanel4.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 130, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 220, 270));
+        btnConsultar.setBackground(new java.awt.Color(0, 122, 199));
+        btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultar.setText("CONSULTAR");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 130, 40));
+
+        btnCancelar.setBackground(new java.awt.Color(0, 122, 199));
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 130, 40));
+
+        btnEliminar.setBackground(new java.awt.Color(0, 122, 199));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 130, 40));
+
+        btnActualizar.setBackground(new java.awt.Color(0, 122, 199));
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 130, 40));
+
+        txtIdProveedor.setBackground(new java.awt.Color(255, 255, 255));
+        txtIdProveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtIdProveedor.setForeground(new java.awt.Color(204, 204, 204));
+        txtIdProveedor.setText("Ingrese ID PROVEEDOR");
+        txtIdProveedor.setBorder(null);
+        txtIdProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtIdProveedor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIdProveedorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIdProveedorFocusLost(evt);
+            }
+        });
+        txtIdProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtIdProveedorMousePressed(evt);
+            }
+        });
+        txtIdProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdProveedorActionPerformed(evt);
+            }
+        });
+        txtIdProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdProveedorKeyTyped(evt);
+            }
+        });
+        jPanel4.add(txtIdProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 290, 30));
+
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombre.setText("Ingrese NOMBRE");
+        txtNombre.setBorder(null);
+        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreMousePressed(evt);
+            }
+        });
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
+        jPanel4.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 290, 30));
+
+        btnReporte.setBackground(new java.awt.Color(0, 122, 199));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnReporte.setForeground(new java.awt.Color(255, 255, 255));
+        btnReporte.setText("GENERAR REPORTE");
+        btnReporte.setBorder(null);
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 130, 40));
+
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        txtTelefono.setText("Ingrese TELEFONO");
+        txtTelefono.setBorder(null);
+        txtTelefono.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTelefonoFocusLost(evt);
+            }
+        });
+        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTelefonoMousePressed(evt);
+            }
+        });
+        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 290, 30));
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 290, -1));
+        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 290, 10));
+        jPanel4.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 290, 10));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+    private void txtTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefonoFocusLost
+        String idCaja = txtTelefono.getText();
 
-    private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
-        // TODO add your handling code here:
-        limpiarEntradas();
-        desHabilitar();
-    }//GEN-LAST:event_btnRestaurarActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-        String idProveedor=txtIdProveedor.getText();
-        if(idProveedor.equalsIgnoreCase(""))
-        JOptionPane.showMessageDialog(null, "INGRESE DATOS CORRECTOS");
-        else
-        {
-            try{
-                Proveedor prove = ProveedorDAO.getInstancia().buscarProveedor(idProveedor); 
-                if(prove!=null)
-                {
-                    txtIdProveedor.setText(prove.getIdProveedor());
-                    txtNombre.setText(prove.getNombre());
-                    
-                    habilitar();
-                }
-                else
-                    JOptionPane.showMessageDialog(null, "El ID Proveedor NO EXISTE");
-            }catch(SQLException prove){
-                JOptionPane.showMessageDialog(null,prove.getMessage());
-            }
+        if(idCaja.equalsIgnoreCase("INGRESE ID CAJA") || idCaja.equals("")){
+            txtTelefono.setText("INGRESE ID CAJA");
+            txtTelefono.setForeground(new Color(204,204,204));
         }
-    }//GEN-LAST:event_btnConsultarActionPerformed
+    }//GEN-LAST:event_txtTelefonoFocusLost
+
+    private void txtTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefonoFocusGained
+        String idCaja = txtTelefono.getText();
+
+        if(idCaja.equalsIgnoreCase("Ingrese ID CAJA")){
+            txtTelefono.setText("");
+            txtTelefono.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtTelefonoFocusGained
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+
+    }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtIdProveedorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdProveedorFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdProveedorFocusLost
+
+    private void txtIdProveedorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdProveedorFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdProveedorFocusGained
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        try{
-            String idProveedor = txtIdProveedor.getText(); 
+        try {
+            String idProveedor = txtIdProveedor.getText();
             String nombre = txtNombre.getText();
             String telefono = txtTelefono.getText();
-            
-            Proveedor prove=new Proveedor(idProveedor, nombre, telefono);
-            
-            ProveedorDAO.getInstancia().actualizar(prove);
+
+            Proveedor x = new Proveedor(idProveedor, nombre,telefono);
+            ProveedorDAO.getInstancia().actualizar(x);
             ProveedorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null,"Actualizacion exitosa"); 
-        } catch (SQLException pro) {
-            JOptionPane.showMessageDialog(null,pro.getMessage());
+            JOptionPane.showMessageDialog(null,"Dato modificado");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
         }
         limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
         try{
-            int res = JOptionPane.showConfirmDialog(this, "¿Procedo a Eliminarlo? ", "Eliminar Proveedor", JOptionPane.YES_NO_OPTION );
-            
-            if( res == JOptionPane.YES_OPTION ){
-                 
-             
+            int resp = JOptionPane.showConfirmDialog(this, "¿Deseas Eliminarlo?", "Eliminar Proveedor", JOptionPane.YES_NO_OPTION );
+            if( resp == JOptionPane.YES_OPTION ){
                 String idProveedor = txtIdProveedor.getText();
                 ProveedorDAO.getInstancia().eliminar(idProveedor);
                 ProveedorDAO.getInstancia().mostrar(modelo);
-                JOptionPane.showMessageDialog(this,"Eliminacion exitosa");
+                JOptionPane.showMessageDialog(this,"Proveedor eliminado");
             }
             else
-                JOptionPane.showMessageDialog(null,"El id Proveedor no existe");
-        } catch (SQLException pro) {
-            JOptionPane.showMessageDialog(null,pro.getMessage());
+            JOptionPane.showMessageDialog(null,"El ID no existe");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
         }
         limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpiarEntradas();
+        desHabilitar();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        String idProveedor = txtIdProveedor.getText();
+        if(idProveedor.equalsIgnoreCase(""))
+        JOptionPane.showMessageDialog(null, "POR FAVOR INGRESA EL ID DEL PROVEEDOR");
+        else
+        {
+            try {
+                Proveedor x = ProveedorDAO.getInstancia().buscarProveedor(idProveedor);
+                if(x != null) {
+                    txtIdProveedor.setText(x.getIdProveedor());
+                    txtNombre.setText(x.getNombre());
+                    txtTelefono.setText(x.getTelefono());
+                    habilitar();
+                }
+                else
+                JOptionPane.showMessageDialog(null,"El ID no existe");
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        String idProveedor=txtIdProveedor.getText();
+        String idProveedor = txtIdProveedor.getText();
         String nombre = txtNombre.getText();
         String telefono = txtTelefono.getText();
-        
-        Proveedor proveedor = new Proveedor(idProveedor, nombre, telefono);
+
+        Proveedor proveedor = new Proveedor(idProveedor, nombre,telefono);
         try {
             ProveedorDAO.getInstancia().agregar(proveedor);
             ProveedorDAO.getInstancia().mostrar(modelo);
-            JOptionPane.showMessageDialog(null, "Dato registrado");
-        } catch (SQLException pro) {
-            JOptionPane.showMessageDialog(null, pro.getMessage());
+            JOptionPane.showMessageDialog(null, "Proveedor Registrado");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         limpiarEntradas();
         desHabilitar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(new Color(102,102,102));
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void txtIdProveedorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdProveedorMousePressed
+        if(txtIdProveedor.getText().equals("Ingrese ID PROVEEDOR")){
+            txtIdProveedor.setText("");
+            txtIdProveedor.setForeground(new Color(102,102,102));
+        }    
+        if(txtNombre.getText().isEmpty()){
+            txtNombre.setText("Ingrese NOMBRE");
+            txtNombre.setForeground(new Color(204,204,204));
+        }
+        if(txtTelefono.getText().isEmpty()){
+            txtTelefono.setText("Ingrese TELEFONO");
+            txtTelefono.setForeground(new Color(204,204,204));
+        }    
+    }//GEN-LAST:event_txtIdProveedorMousePressed
+
+    private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
+        if(txtIdProveedor.getText().isEmpty()){
+            txtIdProveedor.setText("Ingrese ID PROVEEDOR");
+            txtIdProveedor.setForeground(new Color(204,204,204));
+        }
+        if(txtNombre.getText().equals("Ingrese NOMBRE")){
+            txtNombre.setText("");
+            txtNombre.setForeground(new Color(102,102,102));
+        }
+        if(txtTelefono.getText().isEmpty()){
+            txtTelefono.setText("Ingrese TELEFONO");
+            txtTelefono.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_txtNombreMousePressed
+
+    private void txtTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMousePressed
+        if(txtIdProveedor.getText().isEmpty()){
+            txtIdProveedor.setText("Ingrese ID PROVEEDOR");
+            txtIdProveedor.setForeground(new Color(204,204,204));
+        }
+        if(txtNombre.getText().isEmpty()){
+            txtNombre.setText("Ingrese NOMBRE");
+            txtNombre.setForeground(new Color (204,204,204));
+        }
+        if(txtTelefono.getText().equals("Ingrese TELEFONO")){
+            txtTelefono.setText("");
+            txtTelefono.setForeground(new Color (102,102,102));
+        }
+    }//GEN-LAST:event_txtTelefonoMousePressed
+
+    private void txtIdProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdProveedorKeyTyped
+
+    }//GEN-LAST:event_txtIdProveedorKeyTyped
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        x.validarLetras(evt);
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtIdProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+    }//GEN-LAST:event_txtIdProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,20 +553,32 @@ public class DialogProveedor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnRestaurar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField txtIdProveedor;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+
+    private static class JasperReport {
+
+        public JasperReport() {
+        }
+    }
 }
