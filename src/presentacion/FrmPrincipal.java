@@ -42,6 +42,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelCarrito = new javax.swing.JPanel();
+        btnAgregarCarrito = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jPanelCompra = new javax.swing.JPanel();
+        btnAgregarCompra = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
         jPanelOperaciones = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -76,10 +84,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JLabel();
-        jPanelCarrito = new javax.swing.JPanel();
-        btnAgregarCarrito = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
         jPanelCaja = new javax.swing.JPanel();
         btnAgregarCaja = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -121,10 +125,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnBuscarProveedor = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jPanelCompra = new javax.swing.JPanel();
-        btnAgregarCompra = new javax.swing.JPanel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
         jPanelSupervisor = new javax.swing.JPanel();
         btnAgregarSupervisor = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -143,6 +143,147 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelCarrito.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCarritoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCarritoMouseExited(evt);
+            }
+        });
+
+        btnAgregarCarrito.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCarrito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCarritoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCarritoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCarritoMouseExited(evt);
+            }
+        });
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel36.setText("AGREGAR CARRITO");
+        jLabel36.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel36MouseClicked(evt);
+            }
+        });
+
+        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-carrito.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarCarritoLayout = new javax.swing.GroupLayout(btnAgregarCarrito);
+        btnAgregarCarrito.setLayout(btnAgregarCarritoLayout);
+        btnAgregarCarritoLayout.setHorizontalGroup(
+            btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCarritoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel36)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        btnAgregarCarritoLayout.setVerticalGroup(
+            btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnAgregarCarritoLayout.createSequentialGroup()
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
+            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelCarritoLayout = new javax.swing.GroupLayout(jPanelCarrito);
+        jPanelCarrito.setLayout(jPanelCarritoLayout);
+        jPanelCarritoLayout.setHorizontalGroup(
+            jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCarritoLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanelCarritoLayout.setVerticalGroup(
+            jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCarritoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 240, 50));
+        jPanelCarrito.setVisible(false);
+
+        jPanelCompra.setBackground(new java.awt.Color(230, 230, 0));
+        jPanelCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanelCompraMouseExited(evt);
+            }
+        });
+
+        btnAgregarCompra.setBackground(new java.awt.Color(245, 253, 0));
+        btnAgregarCompra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarCompraMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarCompraMouseExited(evt);
+            }
+        });
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel43.setText("AGREGAR COMPRA");
+        jLabel43.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-carrito.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnAgregarCompraLayout = new javax.swing.GroupLayout(btnAgregarCompra);
+        btnAgregarCompra.setLayout(btnAgregarCompraLayout);
+        btnAgregarCompraLayout.setHorizontalGroup(
+            btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCompraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel43)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        btnAgregarCompraLayout.setVerticalGroup(
+            btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelCompraLayout = new javax.swing.GroupLayout(jPanelCompra);
+        jPanelCompra.setLayout(jPanelCompraLayout);
+        jPanelCompraLayout.setHorizontalGroup(
+            jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCompraLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanelCompraLayout.setVerticalGroup(
+            jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCompraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 680, 230, 40));
+        jPanelCompra.setVisible(false);
 
         jPanelOperaciones.setBackground(new java.awt.Color(230, 230, 0));
         jPanelOperaciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -385,80 +526,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanelOperaciones.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 20, 30));
 
         getContentPane().add(jPanelOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 770));
-
-        jPanelCarrito.setBackground(new java.awt.Color(230, 230, 0));
-        jPanelCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelCarritoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelCarritoMouseExited(evt);
-            }
-        });
-
-        btnAgregarCarrito.setBackground(new java.awt.Color(245, 253, 0));
-        btnAgregarCarrito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnAgregarCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarCarritoMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAgregarCarritoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAgregarCarritoMouseExited(evt);
-            }
-        });
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel36.setText("AGREGAR CARRITO");
-        jLabel36.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel36.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel36MouseClicked(evt);
-            }
-        });
-
-        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir-carrito.png"))); // NOI18N
-
-        javax.swing.GroupLayout btnAgregarCarritoLayout = new javax.swing.GroupLayout(btnAgregarCarrito);
-        btnAgregarCarrito.setLayout(btnAgregarCarritoLayout);
-        btnAgregarCarritoLayout.setHorizontalGroup(
-            btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCarritoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel57)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel36)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        btnAgregarCarritoLayout.setVerticalGroup(
-            btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnAgregarCarritoLayout.createSequentialGroup()
-                .addGroup(btnAgregarCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanelCarritoLayout = new javax.swing.GroupLayout(jPanelCarrito);
-        jPanelCarrito.setLayout(jPanelCarritoLayout);
-        jPanelCarritoLayout.setHorizontalGroup(
-            jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCarritoLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanelCarritoLayout.setVerticalGroup(
-            jPanelCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCarritoLayout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(btnAgregarCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        getContentPane().add(jPanelCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 260, 40));
-        jPanelCarrito.setVisible(false);
 
         jPanelCaja.setBackground(new java.awt.Color(230, 230, 0));
         jPanelCaja.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1101,73 +1168,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jPanelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 270, 80));
         jPanelProveedor.setVisible(false);
-
-        jPanelCompra.setBackground(new java.awt.Color(230, 230, 0));
-        jPanelCompra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanelCompraMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanelCompraMouseExited(evt);
-            }
-        });
-
-        btnAgregarCompra.setBackground(new java.awt.Color(245, 253, 0));
-        btnAgregarCompra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnAgregarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarCompraMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAgregarCompraMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAgregarCompraMouseExited(evt);
-            }
-        });
-
-        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel43.setText("AGREGAR COMPRA");
-        jLabel43.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-carrito.png"))); // NOI18N
-
-        javax.swing.GroupLayout btnAgregarCompraLayout = new javax.swing.GroupLayout(btnAgregarCompra);
-        btnAgregarCompra.setLayout(btnAgregarCompraLayout);
-        btnAgregarCompraLayout.setHorizontalGroup(
-            btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAgregarCompraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel45)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel43)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        btnAgregarCompraLayout.setVerticalGroup(
-            btnAgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanelCompraLayout = new javax.swing.GroupLayout(jPanelCompra);
-        jPanelCompra.setLayout(jPanelCompraLayout);
-        jPanelCompraLayout.setHorizontalGroup(
-            jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCompraLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        jPanelCompraLayout.setVerticalGroup(
-            jPanelCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCompraLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 680, 230, 40));
-        jPanelCompra.setVisible(false);
 
         jPanelSupervisor.setBackground(new java.awt.Color(230, 230, 0));
         jPanelSupervisor.addMouseListener(new java.awt.event.MouseAdapter() {

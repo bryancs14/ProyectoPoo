@@ -219,8 +219,6 @@ public class DialogSupermercado extends javax.swing.JDialog {
         else if (nombre2.equalsIgnoreCase(supermercado.getNombre()) && direccion.equalsIgnoreCase(supermercado.getDireccion())){
             txtNombre.setForeground(Color.BLACK);
             txtDireccion.setForeground(Color.BLACK);
-            txtNombre.setEditable(false);
-            txtDireccion.setEditable(false);
         }
     }//GEN-LAST:event_txtNombreFocusGained
 
